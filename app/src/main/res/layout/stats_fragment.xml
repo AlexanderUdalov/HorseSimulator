@@ -3,100 +3,109 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TableRow
             android:paddingTop="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <SurfaceView
-                android:id="@+id/scale_stamina"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:paddingLeft="5dp"
-                android:textColor="@android:color/black"
+                android:text="@string/stamina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/stamina"/>
-        </LinearLayout>
-        <LinearLayout
-            android:paddingTop="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <SurfaceView
-                android:id="@+id/scale_satiety"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_weight="1"
+                android:id="@+id/text_stamina"/>
+
             <TextView
-                android:paddingLeft="5dp"
-                android:textColor="@android:color/black"
+                android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/value_stamina"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_stamina"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_satiety"
+                android:layout_weight="1"
                 android:text="@string/satiety"/>
-        </LinearLayout>
-        <LinearLayout
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/value_satiety">
+
+            </TextView>
+        </TableRow>
+
+        <TableRow
             android:paddingTop="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <SurfaceView
-                android:id="@+id/scale_happiness"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:paddingLeft="5dp"
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/happiness"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:paddingLeft="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_satiety"/>
+
+        </TableRow>
+
+        <TableRow
             android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <TextView
+                android:text="@string/happiness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/respect_horses"/>
-        </LinearLayout>
-        <LinearLayout
+                android:layout_weight="1"
+                android:id="@+id/text_happiness"/>
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/value_happiness"
+                />
+        </TableRow>
+
+        <TableRow
             android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/respect_peoples"/>
-        </LinearLayout>
-        <LinearLayout
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total_score"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_happiness"/>
+        </TableRow>
+    </TableLayout>
+
 </LinearLayout>
