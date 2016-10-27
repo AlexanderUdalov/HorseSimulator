@@ -1,0 +1,21 @@
+package blue_caps.horsesimulator;
+
+/**
+ * Created by alexu on 26.10.2016.
+ */
+
+public enum Habitat {
+    TABOR,
+    PADDOCK,
+    STABLE,
+    RANCH,
+    HORSE_CLUB,
+    PRICATE_FARM,
+    WASTELAND,
+    CLEAR_FIELD,
+    MEADOWS,
+    PRAIRIE,
+    KAZAKHSTAN
+}
+
+
