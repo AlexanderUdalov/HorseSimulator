@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">HorseSimulator</string>
+    <string name="app_name">Симулятор коня</string>
+    <string name="stamina">Энергия</string>
+    <string name="satiety">Голод</string>
+    <string name="happiness">Счастье</string>
+    <string name="respect_horses">Уважение сородичей</string>
+    <string name="respect_peoples">Любовь людей</string>
+    <string name="total_score">Общие очки</string>
 </resources>

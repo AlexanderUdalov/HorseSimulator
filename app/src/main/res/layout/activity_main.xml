@@ -9,9 +9,20 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="blue_caps.horsesimulator.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <fragment
+        android:id="@+id/main_fragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_above="@+id/stats_fragment"
+        android:name="blue_caps.horsesimulator.MainFragment"
+        tools:layout="@layout/main_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/stats_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_fragment"
+        android:name="blue_caps.horsesimulator.StatsFragment"
+        tools:layout="@layout/stats_fragment">
+    </fragment>
 </RelativeLayout>
