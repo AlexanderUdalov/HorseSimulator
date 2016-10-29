@@ -12,23 +12,145 @@
               tools:context="blue_caps.horsesimulator.MainActivity"
               android:weightSum="1">
 
-    <fragment
-        android:layout_gravity="bottom"
-        android:id="@+id/stats_fragment"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/text_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/value_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/value_goldapple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/image_goldapple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/stamina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/text_stamina"/>
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/value_stamina"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_stamina"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_satiety"
+                android:layout_weight="1"
+                android:text="@string/satiety"/>
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/value_satiety">
+
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_satiety"/>
+
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/happiness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/text_happiness"/>
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/value_happiness"
+                />
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:id="@+id/scale_happiness"/>
+        </TableRow>
+    </TableLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/main_fragment"
-        android:name="blue_caps.horsesimulator.StatsFragment"
-        tools:layout="@layout/stats_fragment">
-    </fragment>
-
-    <fragment
-        android:id="@+id/main_fragment"
-        android:layout_width="match_parent"
-        android:layout_above="@+id/stats_fragment"
-        android:name="blue_caps.horsesimulator.MainFragment"
-        tools:layout="@layout/main_fragment"
-        android:layout_height="match_parent"
-        >
-    </fragment>
+        android:layout_weight="0.64">
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pagerTabStrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+        </android.support.v4.view.PagerTabStrip>
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

@@ -6,7 +6,7 @@ package blue_caps.horsesimulator;
  */
 
 public interface Constants {
-    int wasStepDownHappiness = 2,
+    final int wasStepDownHappiness = 2,
             wasStepDownSatiety = 3,
             wasStepDownStamina = 3,
 

@@ -12,8 +12,8 @@ import java.util.zip.CheckedInputStream;
 public class Controller {
     private static final int mTimeToAttack = 60;
     private int mChanceAttackPercent;
-    private static int mLifeTime;
-    private static int mTimeToChampionship = 10;
+    private int mLifeTime;
+    private int mTimeToChampionship = 10;
     private int mGoldApple;
     private Horse mHorse  = new Horse();;
 
@@ -195,5 +195,21 @@ public class Controller {
     public void sleepParamChange(int stamina, int satiety, int happiness){
         sleepParamChange(stamina, satiety);
         mHorse.upHappiness(happiness);
+    }
+
+    public Horse getHorse() {
+        return mHorse;
+    }
+
+    public int getLifeTime() {
+        return mLifeTime;
+    }
+
+    public int getTimeToChampionship() {
+        return mTimeToChampionship;
+    }
+
+    public int getGoldApple() {
+        return mGoldApple;
     }
 }
