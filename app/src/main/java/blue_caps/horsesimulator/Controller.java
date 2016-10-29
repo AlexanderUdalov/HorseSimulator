@@ -11,16 +11,13 @@ import java.util.zip.CheckedInputStream;
 
 public class Controller {
     private static final int mTimeToAttack = 60;
-    private int mChanceAttackPercent;
-    private int mLifeTime;
+    private int mChanceAttackPercent = 10;
+    private int mLifeTime = 1;
     private int mTimeToChampionship = 10;
-    private int mGoldApple;
+    private int mGoldApple = 0;
     private Horse mHorse  = new Horse();;
 
     Controller(){
-        mChanceAttackPercent = 10;
-        mLifeTime = 0;
-        mGoldApple = 0;
     }
 
     public void wasStep(){
