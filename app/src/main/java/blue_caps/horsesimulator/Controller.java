@@ -15,6 +15,8 @@ public class Controller {
     private int mLifeTime = 1;
     private int mTimeToChampionship = 10;
     private int mGoldApple = 0;
+    private int mTotalScore = 0;
+    private int mCountRomaAtack = 0;
     private Horse mHorse  = new Horse();;
 
     Controller(){
@@ -91,7 +93,7 @@ public class Controller {
             case STABLE: { sleepParamChange(Constants.haveSleepUpStaminaSTABLE, Constants.haveSleepDownSatietySTABLE); break; }
             case RANCH: { sleepParamChange(Constants.haveSleepUpStaminaRANCH, Constants.haveSleepDownSatietyRANCH); break; }
             case HORSE_CLUB: { sleepParamChange(Constants.haveSleepUpStaminaHORSE_CLUB, Constants.haveSleepDownSatietyHORSE_CLUB, Constants.haveSleepUpHappinessHORSE_CLUB); break; }
-            case PRICATE_FARM:{ sleepParamChange(Constants.haveSleepUpStaminaPRICATE_FARM, Constants.haveSleepDownSatietyPRICATE_FARM, Constants.haveSleepUpHappinessPRICATE_FARM); break; }
+            case PRIVATE_FARM:{ sleepParamChange(Constants.haveSleepUpStaminaPRICATE_FARM, Constants.haveSleepDownSatietyPRICATE_FARM, Constants.haveSleepUpHappinessPRICATE_FARM); break; }
             default: throw new HabitatNotFoundExceptoin();
         }
     }
@@ -208,5 +210,17 @@ public class Controller {
 
     public int getGoldApple() {
         return mGoldApple;
+    }
+
+    public int getTotalScore() {
+        return mTotalScore;
+    }
+
+    public int getTimeToAttack() {
+        return mTimeToAttack;
+    }
+
+    public int getCountRomaAtack() {
+        return mCountRomaAtack;
     }
 }

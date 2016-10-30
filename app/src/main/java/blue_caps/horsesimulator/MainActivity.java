@@ -1,19 +1,12 @@
 package blue_caps.horsesimulator;
 
 
-import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.SurfaceView;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,14 +20,17 @@ public class MainActivity extends AppCompatActivity {
     private ImageView scaleStamina;
     private ImageView scaleSatiety;
     private ImageView scaleHappiness;
-    Controller controller;
-    public static final int PAGE_COUNT = 5;
+    public static String TITLE_0;
+    public static Controller controller;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         controller = new Controller();
         setContentView(R.layout.activity_main);
+
+        TITLE_0 = getString(R.string.stat);
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
         scaleSatiety = (ImageView) findViewById(R.id.scale_satiety);
@@ -99,6 +95,5 @@ public class MainActivity extends AppCompatActivity {
 
     public int getGreenColorFromValue(float value){
         return (int) (255*value);
-
     }
 }

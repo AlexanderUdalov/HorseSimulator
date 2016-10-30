@@ -10,7 +10,7 @@ public enum Habitat {
     STABLE,
     RANCH,
     HORSE_CLUB,
-    PRICATE_FARM,
+    PRIVATE_FARM,
     WASTELAND,
     CLEAR_FIELD,
     MEADOWS,
