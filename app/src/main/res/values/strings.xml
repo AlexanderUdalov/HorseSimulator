@@ -27,4 +27,7 @@
     <string name="table_level">Таблица уровней</string>
     <string name="days">дней</string>
     <string name="ok">Ясно</string>
+    <string name="level_title">Уровень</string>
+    <string name="level_title_score">Очки</string>
+    <string name="have_sleep">Поспать</string>
 </resources>

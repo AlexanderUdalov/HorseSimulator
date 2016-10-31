@@ -40,7 +40,6 @@ public class Controller {
     /* Function for satiety   */
 
     public void eatGrass(){
-        mLifeTime++;
         mHorse.upSatiety(Constants.eatGrassUpSatiety);
         mHorse.downStamina(Constants.eatGrassDownStamina);
     }

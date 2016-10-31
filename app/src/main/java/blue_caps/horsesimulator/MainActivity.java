@@ -12,15 +12,21 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
-    private TextView valueStamina;
-    private TextView valueSatiety;
-    private TextView valueHappiness;
-    private TextView valueDays;
-    private TextView valueGoldApple;
-    private ImageView scaleStamina;
-    private ImageView scaleSatiety;
-    private ImageView scaleHappiness;
+    private static TextView valueStamina;
+    private static TextView valueSatiety;
+    private static TextView valueHappiness;
+    private static TextView valueDays;
+    private static TextView valueGoldApple;
+    private static ImageView scaleStamina;
+    private static ImageView scaleSatiety;
+    private static ImageView scaleHappiness;
+    private static int DPI;
+    private static int windowSize;
+    private static float staminaWidth;
+    private static float satietyWidth;
+    private static float happinessWidth;
     public static String TITLE_0;
+    public static String TITLE_1;
     public static Controller controller;
 
 
@@ -30,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         controller = new Controller();
         setContentView(R.layout.activity_main);
 
+        windowSize = getWindowManager().getDefaultDisplay().getWidth();
+        DPI = (int) getResources().getDisplayMetrics().density;
+
+        TITLE_1 = getString(R.string.stamina);
         TITLE_0 = getString(R.string.stat);
+
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
         scaleSatiety = (ImageView) findViewById(R.id.scale_satiety);
@@ -41,28 +52,29 @@ public class MainActivity extends AppCompatActivity {
         valueSatiety = (TextView) findViewById(R.id.value_satiety);
         valueHappiness = (TextView) findViewById(R.id.value_happiness);
 
+
+        pager = (ViewPager) findViewById(R.id.pager);
+        PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
+        pager.setAdapter(pagerAdapter);
+        updateStats();
+    }
+
+    /*Следующая функция написана самым быдлокодерским способом, потому что я не знаю
+        как по-другому закинуть туда размеры(
+        */
+
+    public static void updateStats(){
         valueStamina.setText(controller.getHorse().getStamina() + "%");
         valueSatiety.setText(controller.getHorse().getSatiety() + "%");
         valueHappiness.setText(controller.getHorse().getHappiness() + "%");
         valueDays.setText(" " + controller.getLifeTime());
         valueGoldApple.setText("" + controller.getGoldApple());
 
-        pager = (ViewPager) findViewById(R.id.pager);
-        PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
-        pager.setAdapter(pagerAdapter);
-        setDrawable();
-    }
-
-    /*Следующая функция написана самым быдлокодерским способом, потому что я не знаю
-        как по-другому закинуть туда размеры(
-        */
-    public void setDrawable(){
-        int windowSize = getWindowManager().getDefaultDisplay().getWidth();
-        int DPI = (int) getResources().getDisplayMetrics().density;
         int border = DPI*16;
-        float staminaWidth = (windowSize - 2*border)*((float)controller.getHorse().getStamina())/Horse.mMaxStamina;
-        float satietyWidth = (windowSize - 2*border)*((float)controller.getHorse().getSatiety())/Horse.mMaxSatiety;
-        float happinessWidth = (windowSize - 2*border)*((float)controller.getHorse().getHappiness())/Horse.mMaxHappiness;
+        staminaWidth = (windowSize - 2*border)*((float)controller.getHorse().getStamina())/Horse.mMaxStamina;
+        satietyWidth = (windowSize - 2*border)*((float)controller.getHorse().getSatiety())/Horse.mMaxSatiety;
+        happinessWidth = (windowSize - 2*border)*((float)controller.getHorse().getHappiness())/Horse.mMaxHappiness;
+
         ShapeDrawable shapeStamina = new ShapeDrawable(new RectShape());
         ShapeDrawable shapeSatiety = new ShapeDrawable(new RectShape());
         ShapeDrawable shapeHappiness = new ShapeDrawable(new RectShape());
@@ -89,11 +101,11 @@ public class MainActivity extends AppCompatActivity {
         scaleHappiness.setImageDrawable(shapeHappiness);
     }
 
-    public int getRedColorFromValue(float value){
+    public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
 
-    public int getGreenColorFromValue(float value){
+    public static int getGreenColorFromValue(float value){
         return (int) (255*value);
     }
 }

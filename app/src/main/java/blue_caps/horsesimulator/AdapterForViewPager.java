@@ -36,7 +36,7 @@ public class AdapterForViewPager extends FragmentPagerAdapter{
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0: return MainActivity.TITLE_0;
-            case 1: return Page_1.TITLE;
+            case 1: return MainActivity.TITLE_1;
             case 2: return Page_2.TITLE;
             case 3: return Page_3.TITLE;
             case 4: return Page_4.TITLE;

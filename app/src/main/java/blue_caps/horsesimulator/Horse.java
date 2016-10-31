@@ -19,9 +19,9 @@ public class Horse {
     public static final int mMaxHappiness = 100;
 
     public Horse(){
-        mStamina = mMaxStamina;
-        mSatiety = mMaxSatiety;
-        mHappiness = mMaxHappiness;
+        mStamina = mMaxStamina/2;
+        mSatiety = mMaxSatiety/2;
+        mHappiness = mMaxHappiness/2;
         mRespectHorses = 0;
         mRespectPeoples = 0;
         mMaxSpeed = 20;
