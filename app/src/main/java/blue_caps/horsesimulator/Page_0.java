@@ -79,14 +79,7 @@ public class Page_0 extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle(R.string.table_level)
-                        .setCancelable(false)
-                        .setNegativeButton(R.string.ok,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.cancel();
-                                    }
-                                });
+                builder.setTitle(R.string.table_level).setCancelable(true);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
                 builder.setView(v);
                 AlertDialog alert = builder.create();

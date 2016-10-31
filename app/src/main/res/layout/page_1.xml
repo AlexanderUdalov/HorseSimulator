@@ -6,51 +6,63 @@
     android:orientation="vertical">
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/have_sleep"
             android:id="@+id/button_have_sleep"/>
-
-
     </TableRow>
     <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/go_to_watering"
             android:id="@+id/button_go_to_watering"/>
 
 
     </TableRow>
     <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/go_to_drinkers"
             android:id="@+id/button_go_to_drinkers"/>
 
 
     </TableRow>
     <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/get_massage"
             android:id="@+id/button_get_massage"/>
 
 
     </TableRow>
     <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/swim_in_lake"
             android:id="@+id/button_swim_in_lake"/>
 
 

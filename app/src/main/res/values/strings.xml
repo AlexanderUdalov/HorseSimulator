@@ -30,4 +30,8 @@
     <string name="level_title">Уровень</string>
     <string name="level_title_score">Очки</string>
     <string name="have_sleep">Поспать</string>
+    <string name="go_to_watering">Сходить на водопой</string>
+    <string name="go_to_drinkers">Сходить к поилке</string>
+    <string name="get_massage">Массаж</string>
+    <string name="swim_in_lake">Искупаться в озере</string>
 </resources>

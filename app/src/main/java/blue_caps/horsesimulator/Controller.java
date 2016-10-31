@@ -10,30 +10,29 @@ import java.util.zip.CheckedInputStream;
 // РџСЂРѕРІРµСЂРєР° Р·Р°РїСѓСЃРєР° СЃ РіРёС‚С…Р°Р±Р° Рё РєРѕРјРјРјРёС‚Р° РѕР±СЂР°С‚РЅРѕ fzsfzed
 
 public class Controller {
-    private static final int mTimeToAttack = 60;
+    private static int mTimeToAttack = 60;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = 10;
     private int mGoldApple = 0;
     private int mTotalScore = 0;
     private int mCountRomaAtack = 0;
-    private Horse mHorse  = new Horse();;
-
-    Controller(){
-    }
+    private Horse mHorse  = new Horse();
 
     public void wasStep(){
         mHorse.downHappiness(Constants.wasStepDownHappiness);
         mHorse.downSatiety(Constants.wasStepDownSatiety);
         mHorse.downStamina(Constants.wasStepDownStamina);
         mLifeTime++;
+        if (mTimeToAttack != 0)
+            mTimeToAttack--;
         mTimeToChampionship--;
         romaAttack();
     }
 
     public void romaAttack(){
         Random rd = new Random();
-        if (mLifeTime > mTimeToAttack && rd.nextInt(100) > mChanceAttackPercent) {
+        if (mTimeToAttack == 0&& rd.nextInt(100) < mChanceAttackPercent) {
             // РќР°РїР°СЃС‚СЊ С†С‹РіР°РЅР°Рј
         }
     }

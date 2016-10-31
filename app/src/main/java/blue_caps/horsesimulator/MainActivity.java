@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static String TITLE_0;
     public static String TITLE_1;
     public static Controller controller;
+    public static Page_0
 
 
     @Override

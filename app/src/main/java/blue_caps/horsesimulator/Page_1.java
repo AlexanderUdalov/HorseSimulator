@@ -45,9 +45,41 @@ public class Page_1 extends Fragment {
 
                 }
                 MainActivity.updateStats();
-                System.out.println(MainActivity.controller.getHorse().getSatiety());
             }
         });
+        buttonGoToWatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.controller.wasStep();
+                MainActivity.controller.goToWatering();
+                MainActivity.updateStats();
+            }
+        });
+        buttonGoToDrinkers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.controller.wasStep();
+                MainActivity.controller.goToDrinkers();
+                MainActivity.updateStats();
+            }
+        });
+        buttonGetMassage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.controller.wasStep();
+                MainActivity.controller.getMassage();
+                MainActivity.updateStats();
+            }
+        });
+        buttonSwimInLake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.controller.wasStep();
+                MainActivity.controller.swimInLake();
+                MainActivity.updateStats();
+            }
+        });
+
         return view;
     }
 }
