@@ -34,4 +34,6 @@
     <string name="go_to_drinkers">Сходить к поилке</string>
     <string name="get_massage">Массаж</string>
     <string name="swim_in_lake">Искупаться в озере</string>
+    <string name="introducing_speech">Вы - конь. Вы смогли сбежать от цыган, но они не дремлют. Подкачайтесь до того ,как вас отпиздят </string>
+    <string name="introducing_speech_title">Заголовок вступительной речи</string>
 </resources>

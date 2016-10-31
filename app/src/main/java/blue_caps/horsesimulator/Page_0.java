@@ -25,7 +25,6 @@ public class Page_0 extends Fragment {
     private static TextView valueCountRomaAttack;
     private static TextView valueTimeToAttack;
     private Button buttonTableLevel;
-    private String days;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,6 @@ public class Page_0 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_0, null);
-
-
-        days = getString(R.string.days);
 
         valueRespectHorses = (TextView) view.findViewById(R.id.value_respect_horses);
         valueRespectPeople = (TextView) view.findViewById(R.id.value_respect_people);

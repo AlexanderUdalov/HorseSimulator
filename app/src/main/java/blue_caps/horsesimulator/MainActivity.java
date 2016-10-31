@@ -6,7 +6,10 @@ import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         controller = new Controller();
         setContentView(R.layout.activity_main);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.introducing_speech_title).setCancelable(true);
+        View v = LayoutInflater.from(this).inflate(R.layout.introducing_speech, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
 
         windowSize = getWindowManager().getDefaultDisplay().getWidth();
         DPI = (int) getResources().getDisplayMetrics().density;
