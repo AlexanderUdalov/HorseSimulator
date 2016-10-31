@@ -19,7 +19,7 @@ public class AdapterForViewPager extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return new Page_0();
+            case 0: return MainActivity.page_0;
             case 1: return new Page_1();
             case 2: return new Page_2();
             case 3: return new Page_3();

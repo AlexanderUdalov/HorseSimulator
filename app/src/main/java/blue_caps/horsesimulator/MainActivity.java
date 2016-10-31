@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private static float happinessWidth;
     public static String TITLE_0;
     public static String TITLE_1;
-    public static Controller controller;
-    public static Page_0
+    static Controller controller;
+    static Page_0 page_0;
 
 
     @Override
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         windowSize = getWindowManager().getDefaultDisplay().getWidth();
         DPI = (int) getResources().getDisplayMetrics().density;
+
+        page_0 = new Page_0();
 
         TITLE_1 = getString(R.string.stamina);
         TITLE_0 = getString(R.string.stat);
