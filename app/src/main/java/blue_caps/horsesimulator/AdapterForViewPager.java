@@ -37,9 +37,9 @@ public class AdapterForViewPager extends FragmentPagerAdapter{
         switch (position) {
             case 0: return MainActivity.TITLE_0;
             case 1: return MainActivity.TITLE_1;
-            case 2: return Page_2.TITLE;
-            case 3: return Page_3.TITLE;
-            case 4: return Page_4.TITLE;
+            case 2: return MainActivity.TITLE_2;
+            case 3: return MainActivity.TITLE_3;
+            case 4: return MainActivity.TITLE_4;
             default: return null;
         }
     }

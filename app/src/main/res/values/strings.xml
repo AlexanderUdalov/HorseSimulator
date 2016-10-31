@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Симулятор коня</string>
     <string name="stamina">Энергия</string>
-    <string name="food">Елда</string>
+    <string name="food">Еда</string>
     <string name="satiety">Голод</string>
     <string name="happiness">Счастье</string>
     <string name="respect_horses">Уважение сородичей:</string>
@@ -40,4 +40,6 @@
     <string name="begging_sugar">Молить о сахаре</string>
     <string name="ask_for_food">Попросить еду</string>
     <string name="eat_apple">Съесть ялбоко</string>
+    <string name="introducing_speech_title">Начало конской истории</string>
+    <string name="introducing_speech">Ты конь, ты сбежал от цыган!</string>
 </resources>

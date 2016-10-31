@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static float staminaWidth;
     private static float satietyWidth;
     private static float happinessWidth;
-    public static String TITLE_0;
-    public static String TITLE_1;
+    public static String TITLE_0, TITLE_1, TITLE_2, TITLE_3, TITLE_4;
     static Controller controller;
     static Page_0 page_0;
 
@@ -52,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         page_0 = new Page_0();
 
-        TITLE_1 = getString(R.string.stamina);
         TITLE_0 = getString(R.string.stat);
-
+        TITLE_1 = getString(R.string.stamina);
+        TITLE_2 = getString(R.string.food);
+        TITLE_3 = "Какой-то писос";
+        TITLE_4 = "Какой-то писос2";
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
         scaleSatiety = (ImageView) findViewById(R.id.scale_satiety);
