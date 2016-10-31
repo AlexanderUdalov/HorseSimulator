@@ -13,7 +13,7 @@ import android.widget.Button;
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_1 extends Fragment {
+public class Page_1 extends StepFragment {
     private Button buttonHaveSleep;
     private Button buttonGoToWatering;
     private Button buttonGoToDrinkers;
@@ -29,59 +29,45 @@ public class Page_1 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_1, null);
 
-        buttonHaveSleep = (Button) view.findViewById(R.id.button_have_sleep);
+        buttonHaveSleep    = (Button) view.findViewById(R.id.button_have_sleep);
         buttonGoToWatering = (Button) view.findViewById(R.id.button_go_to_watering);
         buttonGoToDrinkers = (Button) view.findViewById(R.id.button_go_to_drinkers);
-        buttonGetMassage = (Button) view.findViewById(R.id.button_get_massage);
-        buttonSwimInLake = (Button) view.findViewById(R.id.button_swim_in_lake);
+        buttonGetMassage   = (Button) view.findViewById(R.id.button_get_massage);
+        buttonSwimInLake   = (Button) view.findViewById(R.id.button_swim_in_lake);
 
         buttonHaveSleep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    MainActivity.controller.wasStep();
-                    MainActivity.controller.haveSleep();
-                } catch (HabitatNotFoundExceptoin e){
-
-                }
-                MainActivity.updateStats();
-                MainActivity.page_0.updatePage_0();
+                step();
+                MainActivity.controller.haveSleep();
             }
         });
         buttonGoToWatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.controller.wasStep();
+                step();
                 MainActivity.controller.goToWatering();
-                MainActivity.updateStats();
-                MainActivity.page_0.updatePage_0();
             }
         });
         buttonGoToDrinkers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.controller.wasStep();
+                step();
                 MainActivity.controller.goToDrinkers();
-                MainActivity.updateStats();
-                MainActivity.page_0.updatePage_0();
             }
         });
         buttonGetMassage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.controller.wasStep();
+                step();
                 MainActivity.controller.getMassage();
-                MainActivity.updateStats();
-                MainActivity.page_0.updatePage_0();
             }
         });
         buttonSwimInLake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.controller.wasStep();
+                step();
                 MainActivity.controller.swimInLake();
-                MainActivity.updateStats();
-                MainActivity.page_0.updatePage_0();
             }
         });
 

@@ -17,13 +17,13 @@ import android.widget.TextView;
  */
 
 public class Page_0 extends Fragment {
-    private static TextView valueRespectPeople;
-    private static TextView valueRespectHorses;
-    private static TextView valueTotalScore;
-    private static TextView valueLevel;
-    private static TextView valueHabitat;
-    private static TextView valueCountRomaAttack;
-    private static TextView valueTimeToAttack;
+    private TextView valueRespectPeople;
+    private TextView valueRespectHorses;
+    private TextView valueTotalScore;
+    private TextView valueLevel;
+    private TextView valueHabitat;
+    private TextView valueCountRomaAttack;
+    private TextView valueTimeToAttack;
     private Button buttonTableLevel;
 
 
@@ -45,24 +45,6 @@ public class Page_0 extends Fragment {
         valueTimeToAttack = (TextView) view.findViewById(R.id.value_time_to_attack);
         buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
 
-        updatePage_0();
-
-        buttonTableLevel.setText(R.string.table_level);
-        buttonTableLevel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle(R.string.table_level).setCancelable(true);
-                View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
-                builder.setView(v);
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
-        return view;
-    }
-
-    public static void updatePage_0(){
         switch (MainActivity.controller.getHorse().getHabitat()){
             case TABOR: { valueHabitat.setText(R.string.tabor); break; }
             case WASTELAND: { valueHabitat.setText(R.string.wasteland); break;  }
@@ -83,7 +65,8 @@ public class Page_0 extends Fragment {
                 break;
             }
             default:{
-                valueTimeToAttack.setText(new String().valueOf(MainActivity.controller.getTimeToAttack()) + " дней");
+                valueTimeToAttack.setText(new String().valueOf(MainActivity.controller.getTimeToAttack()) + " " +
+                getString(R.string.days));
                 break;
             }
         }
@@ -91,5 +74,20 @@ public class Page_0 extends Fragment {
         valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));
         valueCountRomaAttack.setText(new String().valueOf(MainActivity.controller.getCountRomaAtack()));
+        buttonTableLevel.setText(R.string.table_level);
+        buttonTableLevel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.table_level).setCancelable(true);
+                View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
+                builder.setView(v);
+                AlertDialog alert = builder.create();
+                alert.show();
+
+            }
+        });
+        return view;
     }
+
 }

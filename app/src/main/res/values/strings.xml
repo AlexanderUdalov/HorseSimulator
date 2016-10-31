@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Симулятор коня</string>
     <string name="stamina">Энергия</string>
+    <string name="food">Елда</string>
     <string name="satiety">Голод</string>
     <string name="happiness">Счастье</string>
     <string name="respect_horses">Уважение сородичей:</string>
@@ -34,6 +35,9 @@
     <string name="go_to_drinkers">Сходить к поилке</string>
     <string name="get_massage">Массаж</string>
     <string name="swim_in_lake">Искупаться в озере</string>
-    <string name="introducing_speech">Вы - конь. Вы смогли сбежать от цыган, но они не дремлют. Подкачайтесь до того ,как вас отпиздят </string>
-    <string name="introducing_speech_title">Заголовок вступительной речи</string>
+    <string name="eat_grass">Поесть травы</string>
+    <string name="stealing_food">Украсть еду</string>
+    <string name="begging_sugar">Молить о сахаре</string>
+    <string name="ask_for_food">Попросить еду</string>
+    <string name="eat_apple">Съесть ялбоко</string>
 </resources>
