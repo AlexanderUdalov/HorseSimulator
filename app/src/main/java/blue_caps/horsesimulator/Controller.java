@@ -33,9 +33,7 @@ public class Controller {
 
     public void romaAttack(){
         Random rd = new Random();
-        if (mLifeTime < mTimeToAttack)
-            return;
-        else if (rd.nextInt(100) > mChanceAttackPercent){
+        if (mLifeTime > mTimeToAttack && rd.nextInt(100) > mChanceAttackPercent) {
             // РќР°РїР°СЃС‚СЊ С†С‹РіР°РЅР°Рј
         }
     }

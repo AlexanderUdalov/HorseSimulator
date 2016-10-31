@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         valueSatiety = (TextView) findViewById(R.id.value_satiety);
         valueHappiness = (TextView) findViewById(R.id.value_happiness);
 
-        valueStamina.setText(new String().valueOf(controller.getHorse().getStamina()) + "%");
-        valueSatiety.setText(new String().valueOf(controller.getHorse().getSatiety()) + "%");
-        valueHappiness.setText(new String().valueOf(controller.getHorse().getHappiness()) + "%");
-        valueDays.setText(" " + new String().valueOf(controller.getLifeTime()));
-        valueGoldApple.setText(new String().valueOf(controller.getGoldApple()));
+        valueStamina.setText(controller.getHorse().getStamina() + "%");
+        valueSatiety.setText(controller.getHorse().getSatiety() + "%");
+        valueHappiness.setText(controller.getHorse().getHappiness() + "%");
+        valueDays.setText(" " + controller.getLifeTime());
+        valueGoldApple.setText("" + controller.getGoldApple());
 
         pager = (ViewPager) findViewById(R.id.pager);
         PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
