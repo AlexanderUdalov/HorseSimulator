@@ -77,7 +77,7 @@ public class Controller {
 
     /* Function for stamina  */
 
-    public void haveSleep() throws HabitatNotFoundExceptoin {
+    public void haveSleep() {
         switch (mHorse.getHabitat()){
             case TABOR: { sleepParamChange(Constants.haveSleepUpStaminaTABOR, Constants.haveSleepDownSatietyTABOR); break; }
             case WASTELAND: { sleepParamChange(Constants.haveSleepUpStaminaWASTELAND, Constants.haveSleepDownSatietyWASTELAND); break; }
@@ -90,7 +90,6 @@ public class Controller {
             case RANCH: { sleepParamChange(Constants.haveSleepUpStaminaRANCH, Constants.haveSleepDownSatietyRANCH); break; }
             case HORSE_CLUB: { sleepParamChange(Constants.haveSleepUpStaminaHORSE_CLUB, Constants.haveSleepDownSatietyHORSE_CLUB, Constants.haveSleepUpHappinessHORSE_CLUB); break; }
             case PRIVATE_FARM:{ sleepParamChange(Constants.haveSleepUpStaminaPRICATE_FARM, Constants.haveSleepDownSatietyPRICATE_FARM, Constants.haveSleepUpHappinessPRICATE_FARM); break; }
-            default: throw new HabitatNotFoundExceptoin();
         }
     }
 
