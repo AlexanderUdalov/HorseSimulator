@@ -10,7 +10,7 @@ import java.util.zip.CheckedInputStream;
 // РџСЂРѕРІРµСЂРєР° Р·Р°РїСѓСЃРєР° СЃ РіРёС‚С…Р°Р±Р° Рё РєРѕРјРјРјРёС‚Р° РѕР±СЂР°С‚РЅРѕ fzsfzed
 
 public class Controller {
-    private static int mTimeToAttack = 60;
+    private int mTimeToAttack = 60;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = 10;

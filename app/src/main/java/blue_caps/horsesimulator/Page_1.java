@@ -45,6 +45,7 @@ public class Page_1 extends Fragment {
 
                 }
                 MainActivity.updateStats();
+                MainActivity.page_0.updatePage_0();
             }
         });
         buttonGoToWatering.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,7 @@ public class Page_1 extends Fragment {
                 MainActivity.controller.wasStep();
                 MainActivity.controller.goToWatering();
                 MainActivity.updateStats();
+                MainActivity.page_0.updatePage_0();
             }
         });
         buttonGoToDrinkers.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,7 @@ public class Page_1 extends Fragment {
                 MainActivity.controller.wasStep();
                 MainActivity.controller.goToDrinkers();
                 MainActivity.updateStats();
+                MainActivity.page_0.updatePage_0();
             }
         });
         buttonGetMassage.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +72,7 @@ public class Page_1 extends Fragment {
                 MainActivity.controller.wasStep();
                 MainActivity.controller.getMassage();
                 MainActivity.updateStats();
+                MainActivity.page_0.updatePage_0();
             }
         });
         buttonSwimInLake.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +81,7 @@ public class Page_1 extends Fragment {
                 MainActivity.controller.wasStep();
                 MainActivity.controller.swimInLake();
                 MainActivity.updateStats();
+                MainActivity.page_0.updatePage_0();
             }
         });
 
