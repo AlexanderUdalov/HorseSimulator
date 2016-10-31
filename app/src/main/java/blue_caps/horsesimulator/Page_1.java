@@ -13,7 +13,7 @@ import android.widget.Button;
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_1 extends StepFragment {
+public class Page_1 extends StepFragment implements View.OnClickListener {
     private Button buttonHaveSleep;
     private Button buttonGoToWatering;
     private Button buttonGoToDrinkers;
@@ -35,42 +35,25 @@ public class Page_1 extends StepFragment {
         buttonGetMassage   = (Button) view.findViewById(R.id.button_get_massage);
         buttonSwimInLake   = (Button) view.findViewById(R.id.button_swim_in_lake);
 
-        buttonHaveSleep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.haveSleep();
-            }
-        });
-        buttonGoToWatering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.goToWatering();
-            }
-        });
-        buttonGoToDrinkers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.goToDrinkers();
-            }
-        });
-        buttonGetMassage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.getMassage();
-            }
-        });
-        buttonSwimInLake.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.swimInLake();
-            }
-        });
+        buttonHaveSleep.setOnClickListener(this);
+        buttonGoToWatering.setOnClickListener(this);
+        buttonGoToDrinkers.setOnClickListener(this);
+        buttonGetMassage.setOnClickListener(this);
+        buttonSwimInLake.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        step();
+
+        switch (view.getId()) {
+            case R.id.button_have_sleep: MainActivity.controller.haveSleep(); break;
+            case R.id.button_go_to_watering: MainActivity.controller.goToWatering(); break;
+            case R.id.button_go_to_drinkers: MainActivity.controller.goToDrinkers(); break;
+            case R.id.button_get_massage: MainActivity.controller.getMassage(); break;
+            case R.id.button_swim_in_lake: MainActivity.controller.swimInLake(); break;
+        }
     }
 }

@@ -15,7 +15,7 @@ import java.util.Random;
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_2 extends StepFragment {
+public class Page_2 extends StepFragment implements View.OnClickListener {
     private Button
         buttonEatGrass,
         buttonStealingFood,
@@ -39,46 +39,25 @@ public class Page_2 extends StepFragment {
         buttonAskForFood   = (Button) view.findViewById(R.id.button_ask_for_food);
         buttonEatApple     = (Button) view.findViewById(R.id.button_eat_apple);
 
-        buttonEatGrass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.eatGrass();
-            }
-        });
-
-        buttonStealingFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.stealingFood();
-            }
-        });
-
-        buttonBeggingSugar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.beggingSugar();
-            }
-        });
-
-        buttonAskForFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.askForFood();
-            }
-        });
-
-        buttonEatApple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                step();
-                MainActivity.controller.eatApple();
-            }
-        });
+        buttonEatGrass.setOnClickListener(this);
+        buttonStealingFood.setOnClickListener(this);
+        buttonBeggingSugar.setOnClickListener(this);
+        buttonAskForFood.setOnClickListener(this);
+        buttonEatApple.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        step();
+
+        switch (view.getId()) {
+            case R.id.button_eat_grass:     MainActivity.controller.eatGrass(); break;
+            case R.id.button_stealing_food: MainActivity.controller.stealingFood(); break;
+            case R.id.button_begging_sugar: MainActivity.controller.beggingSugar(); break;
+            case R.id.button_ask_for_food:  MainActivity.controller.askForFood(); break;
+            case R.id.button_eat_apple:     MainActivity.controller.eatApple(); break;
+        }
     }
 }
