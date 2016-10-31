@@ -17,6 +17,16 @@ public class Controller {
     private int mGoldApple = 0;
     private int mTotalScore = 0;
     private int mCountRomaAtack = 0;
+    private int mDieTime = 4;
+
+    public int getDieTime() {
+        return mDieTime;
+    }
+
+    public void downDieTime() {
+        this.mDieTime--;
+    }
+
     private Horse mHorse  = new Horse();
 
     public void wasStep(){
@@ -26,7 +36,8 @@ public class Controller {
         mLifeTime++;
         if (mTimeToAttack != 0)
             mTimeToAttack--;
-        mTimeToChampionship--;
+        if (mTimeToChampionship != 0)
+            mTimeToChampionship--;
         romaAttack();
     }
 

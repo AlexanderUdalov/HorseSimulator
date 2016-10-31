@@ -169,9 +169,17 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="15dp" />
-    <Button
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:id="@+id/button_table_level"/>
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_table_level"/>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/button_how_to_play"/>
+    </TableRow>
 </LinearLayout>

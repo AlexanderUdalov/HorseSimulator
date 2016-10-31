@@ -2,7 +2,7 @@
     <string name="app_name">Симулятор коня</string>
     <string name="stamina">Энергия</string>
     <string name="food">Еда</string>
-    <string name="satiety">Голод</string>
+    <string name="satiety">Сытость</string>
     <string name="happiness">Счастье</string>
     <string name="respect_horses">Уважение сородичей:</string>
     <string name="respect_peoples">Любовь людей:</string>
@@ -40,6 +40,13 @@
     <string name="begging_sugar">Молить о сахаре</string>
     <string name="ask_for_food">Попросить еду</string>
     <string name="eat_apple">Съесть ялбоко</string>
-    <string name="introducing_speech_title">Начало конской истории</string>
-    <string name="introducing_speech">Ты конь, ты сбежал от цыган!</string>
+    <string name="introducing_speech">Вы - конь. Вы смогли убежать от цыган, но они не дремлют.
+        Следите за параметрами и не дайте себе умереть.
+        Подкачайтесь, пока вас не забрали обратно</string>
+    <string name="introducing_speech_title">Начало коня</string>
+    <string name="die_speech">Вы сдохли!</string>
+    <string name="die_speech_title">Вы сдохли!</string>
+    <string name="die_alert_speech">Вы cкоро сдохнете!</string>
+    <string name="die_alert_speech_title">Вы скоро сдохнете!</string>
+    <string name="how_to_play">Как играть</string>
 </resources>

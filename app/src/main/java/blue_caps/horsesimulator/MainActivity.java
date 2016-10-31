@@ -1,6 +1,9 @@
 package blue_caps.horsesimulator;
 
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -28,9 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private static float staminaWidth;
     private static float satietyWidth;
     private static float happinessWidth;
-    public static String TITLE_0, TITLE_1, TITLE_2, TITLE_3, TITLE_4;
+    public static String TITLE_0;
+    public static String TITLE_1;
+    public static String TITLE_2;
+    public static String TITLE_3;
+    public static String TITLE_4;
     static Controller controller;
-    static Page_0 page_0;
 
 
     @Override
@@ -39,23 +45,15 @@ public class MainActivity extends AppCompatActivity {
         controller = new Controller();
         setContentView(R.layout.activity_main);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.introducing_speech_title).setCancelable(true);
-        View v = LayoutInflater.from(this).inflate(R.layout.introducing_speech, null);
-        builder.setView(v);
-        AlertDialog alert = builder.create();
-        alert.show();
+        showHowToPlay(this);
 
         windowSize = getWindowManager().getDefaultDisplay().getWidth();
         DPI = (int) getResources().getDisplayMetrics().density;
 
-        page_0 = new Page_0();
-
-        TITLE_0 = getString(R.string.stat);
         TITLE_1 = getString(R.string.stamina);
+        TITLE_0 = getString(R.string.stat);
         TITLE_2 = getString(R.string.food);
-        TITLE_3 = "Какой-то писос";
-        TITLE_4 = "Какой-то писос2";
+
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
         scaleSatiety = (ImageView) findViewById(R.id.scale_satiety);
@@ -121,5 +119,50 @@ public class MainActivity extends AppCompatActivity {
 
     public static int getGreenColorFromValue(float value){
         return (int) (255*value);
+    }
+
+    public static void showHowToPlay(Activity act){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.introducing_speech_title).setCancelable(true)
+                .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        View v = LayoutInflater.from(act).inflate(R.layout.introducing_speech, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showDieAlert(Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.die_alert_speech_title).setCancelable(false)
+                .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        View v = LayoutInflater.from(act).inflate(R.layout.die_alert, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showDieDialog(final Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.die_speech_title).setCancelable(false)
+                .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        act.recreate();
+                    }
+                });
+        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

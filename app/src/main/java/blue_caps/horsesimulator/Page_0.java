@@ -25,6 +25,7 @@ public class Page_0 extends Fragment {
     private TextView valueCountRomaAttack;
     private TextView valueTimeToAttack;
     private Button buttonTableLevel;
+    private Button buttonHowToPlay;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class Page_0 extends Fragment {
         valueCountRomaAttack = (TextView) view.findViewById(R.id.value_roma_attack);
         valueTimeToAttack = (TextView) view.findViewById(R.id.value_time_to_attack);
         buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
+        buttonHowToPlay = (Button) view.findViewById(R.id.button_how_to_play);
 
         switch (MainActivity.controller.getHorse().getHabitat()){
             case TABOR: { valueHabitat.setText(R.string.tabor); break; }
@@ -66,7 +68,7 @@ public class Page_0 extends Fragment {
             }
             default:{
                 valueTimeToAttack.setText(new String().valueOf(MainActivity.controller.getTimeToAttack()) + " " +
-                getString(R.string.days));
+                        getString(R.string.days));
                 break;
             }
         }
@@ -74,6 +76,7 @@ public class Page_0 extends Fragment {
         valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));
         valueCountRomaAttack.setText(new String().valueOf(MainActivity.controller.getCountRomaAtack()));
+
         buttonTableLevel.setText(R.string.table_level);
         buttonTableLevel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +90,14 @@ public class Page_0 extends Fragment {
 
             }
         });
+        buttonHowToPlay.setText(R.string.how_to_play);
+        buttonHowToPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.showHowToPlay(getActivity());
+            }
+        });
+
         return view;
     }
 

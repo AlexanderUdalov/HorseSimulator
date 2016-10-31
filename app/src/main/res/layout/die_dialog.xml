@@ -9,7 +9,7 @@
         android:paddingTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/introducing_speech"
-        android:text="@string/introducing_speech"/>
+        android:id="@+id/die_speech"
+        android:text="@string/die_speech"/>
 
 </LinearLayout>
