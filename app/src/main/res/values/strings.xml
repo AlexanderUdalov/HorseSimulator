@@ -24,5 +24,7 @@
     <string name="horse_club">Конный клуб</string>
     <string name="paddock">Загон</string>
     <string name="stable">Конюшня</string>
+    <string name="table_level">Таблица уровней</string>
     <string name="days">дней</string>
+    <string name="ok">Ясно</string>
 </resources>

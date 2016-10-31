@@ -166,4 +166,12 @@
         android:textSize="30dp"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_height="wrap_content" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_table_level"/>
 </LinearLayout>

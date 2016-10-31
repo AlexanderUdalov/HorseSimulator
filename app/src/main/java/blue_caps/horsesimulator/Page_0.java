@@ -1,11 +1,14 @@
 package blue_caps.horsesimulator;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -21,6 +24,7 @@ public class Page_0 extends Fragment {
     private TextView valueHabitat;
     private TextView valueCountRomaAttack;
     private TextView valueTimeToAttack;
+    private Button buttonTableLevel;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class Page_0 extends Fragment {
         valueHabitat = (TextView) view.findViewById(R.id.value_habitat);
         valueCountRomaAttack = (TextView) view.findViewById(R.id.value_roma_attack);
         valueTimeToAttack = (TextView) view.findViewById(R.id.value_time_to_attack);
+        buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
 
         switch (MainActivity.controller.getHorse().getHabitat()){
             case TABOR: { valueHabitat.setText(R.string.tabor); break; }
@@ -69,7 +74,26 @@ public class Page_0 extends Fragment {
         valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));
         valueCountRomaAttack.setText(new String().valueOf(MainActivity.controller.getCountRomaAtack()));
+        buttonTableLevel.setText(R.string.table_level);
+        buttonTableLevel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.table_level)
+                        .setCancelable(false)
+                        .setNegativeButton(R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
+                builder.setView(v);
+                AlertDialog alert = builder.create();
+                alert.show();
 
+            }
+        });
         return view;
     }
 
