@@ -1,31 +1,31 @@
 package blue_caps.horsesimulator;
 
 import java.util.Random;
+import java.util.zip.CheckedInputStream;
 
 
 /**
  * Created by AlexUD on 25.10.2016.
  */
-// Проверка запуска с гитхаба и комммита обратно fzsfzed
+// РџСЂРѕРІРµСЂРєР° Р·Р°РїСѓСЃРєР° СЃ РіРёС‚С…Р°Р±Р° Рё РєРѕРјРјРјРёС‚Р° РѕР±СЂР°С‚РЅРѕ fzsfzed
 
 public class Controller {
     private static final int mTimeToAttack = 60;
-    private int mChanceAttackPercent;
-    private static int mLifeTime;
-    private static int mTimeToChampionship = 10;
-    private int mGoldApple;
+    private int mChanceAttackPercent = 10;
+    private int mLifeTime = 1;
+    private int mTimeToChampionship = 10;
+    private int mGoldApple = 0;
+    private int mTotalScore = 0;
+    private int mCountRomaAtack = 0;
     private Horse mHorse  = new Horse();;
 
     Controller(){
-        mChanceAttackPercent = 10;
-        mLifeTime = 0;
-        mGoldApple = 0;
     }
 
     public void wasStep(){
-        mHorse.downHappiness(2);
-        mHorse.downSatiety(3);
-        mHorse.downStamina(3);
+        mHorse.downHappiness(Constants.wasStepDownHappiness);
+        mHorse.downSatiety(Constants.wasStepDownSatiety);
+        mHorse.downStamina(Constants.wasStepDownStamina);
         mLifeTime++;
         mTimeToChampionship--;
         romaAttack();
@@ -36,45 +36,45 @@ public class Controller {
         if (mLifeTime < mTimeToAttack)
             return;
         else if (rd.nextInt(100) > mChanceAttackPercent){
-            // Напасть цыганам
+            // РќР°РїР°СЃС‚СЊ С†С‹РіР°РЅР°Рј
         }
     }
     /* Function for satiety   */
 
     public void eatGrass(){
         mLifeTime++;
-        mHorse.upSatiety(4);
-        mHorse.downStamina(6);
+        mHorse.upSatiety(Constants.eatGrassUpSatiety);
+        mHorse.downStamina(Constants.eatGrassDownStamina);
     }
 
     public void stealingFood(){
-        mHorse.upSatiety(8);
-        mHorse.downStamina(8);
-        mHorse.downHappiness(3);
-        mHorse.upRespectHorses(4);
-        mHorse.downRespectPeoples(4);
+        mHorse.upSatiety(Constants.stealingFoodUpSatiety);
+        mHorse.downStamina(Constants.stealingFoodDownStamina);
+        mHorse.downHappiness(Constants.stealingFoodDownHappiness);
+        mHorse.upRespectHorses(Constants.stealingFoodUpRespectHorses);
+        mHorse.downRespectPeoples(Constants.stealingFoodDownRespectPeoples);
     }
 
     public void beggingSugar(){
-        mHorse.upSatiety(2);
-        mHorse.downStamina(6);
-        mHorse.upHappiness(4);
-        mHorse.downRespectHorses(2);
-        mHorse.upRespectPeoples(2);
+        mHorse.upSatiety(Constants.beggingSugarUpSatiety);
+        mHorse.downStamina(Constants.beggingSugarDownStamina);
+        mHorse.upHappiness(Constants.beggingSugarUpHappiness);
+        mHorse.downRespectHorses(Constants.beggingSugarDownRespectHorses);
+        mHorse.upRespectPeoples(Constants.beggingSugarUpRespectPeoples);
     }
 
 
     public void askForFood(){
-        mHorse.upSatiety(8);
-        mHorse.upHappiness(4);
-        mHorse.downStamina(6);
+        mHorse.upSatiety(Constants.askForFoodUpSatiety);
+        mHorse.upHappiness(Constants.askForFoodUpHappiness);
+        mHorse.downStamina(Constants.askForFoodDownStamina);
     }
 
     public void eatApple(){
         if (mGoldApple > 0){
             mGoldApple--;
-            mHorse.upHappiness(20);
-            mHorse.upSatiety(50);
+            mHorse.upHappiness(Constants.eatAppleUpHappiness);
+            mHorse.upSatiety(Constants.eatAppleUpSatiety);
         }
         else return;
     }
@@ -83,41 +83,41 @@ public class Controller {
 
     public void haveSleep() throws HabitatNotFoundExceptoin {
         switch (mHorse.getHabitat()){
-            case TABOR: { sleepParamChange(6, 3); break; }
-            case WASTELAND: { sleepParamChange(8, 4); break; }
-            case CLEAR_FIELD: { sleepParamChange(10, 5); break; }
-            case MEADOWS: { sleepParamChange(15, 7); break; }
-            case PRAIRIE: { sleepParamChange(20, 10, 4); break; }
-            case KAZAKHSTAN: { sleepParamChange(25, 12, 10); break; }
-            case PADDOCK: { sleepParamChange(8, 4); break; }
-            case STABLE: { sleepParamChange(10, 5); break; }
-            case RANCH: { sleepParamChange(15, 7); break; }
-            case HORSE_CLUB: { sleepParamChange(20, 10, 4); break; }
-            case PRICATE_FARM:{ sleepParamChange(25, 12, 10); break; }
+            case TABOR: { sleepParamChange(Constants.haveSleepUpStaminaTABOR, Constants.haveSleepDownSatietyTABOR); break; }
+            case WASTELAND: { sleepParamChange(Constants.haveSleepUpStaminaWASTELAND, Constants.haveSleepDownSatietyWASTELAND); break; }
+            case CLEAR_FIELD: { sleepParamChange(Constants.haveSleepUpStaminaCLEAR_FIELD, Constants.haveSleepDownSatietyCLEAR_FIELD); break; }
+            case MEADOWS: { sleepParamChange(Constants.haveSleepUpStaminaMEADOWS, Constants.haveSleepDownSatietyMEADOWS); break; }
+            case PRAIRIE: { sleepParamChange(Constants.haveSleepUpStaminaPRAIRIE, Constants.haveSleepDownSatietyPRAIRIE, Constants.haveSleepUpHappinessPRAIRIE); break; }
+            case KAZAKHSTAN: { sleepParamChange(Constants.haveSleepUpStaminaKAZAKHSTAN, Constants.haveSleepDownSatietyKAZAKHSTAN, Constants.haveSleepUpHappinessKAZAKHSTAN); break; }
+            case PADDOCK: { sleepParamChange(Constants.haveSleepUpStaminaPADDOCK, Constants.haveSleepDownSatietyPADDOCK); break; }
+            case STABLE: { sleepParamChange(Constants.haveSleepUpStaminaSTABLE, Constants.haveSleepDownSatietySTABLE); break; }
+            case RANCH: { sleepParamChange(Constants.haveSleepUpStaminaRANCH, Constants.haveSleepDownSatietyRANCH); break; }
+            case HORSE_CLUB: { sleepParamChange(Constants.haveSleepUpStaminaHORSE_CLUB, Constants.haveSleepDownSatietyHORSE_CLUB, Constants.haveSleepUpHappinessHORSE_CLUB); break; }
+            case PRIVATE_FARM:{ sleepParamChange(Constants.haveSleepUpStaminaPRICATE_FARM, Constants.haveSleepDownSatietyPRICATE_FARM, Constants.haveSleepUpHappinessPRICATE_FARM); break; }
             default: throw new HabitatNotFoundExceptoin();
         }
     }
 
     public void goToWatering(){
-        mHorse.upStamina(10);
-        mHorse.downSatiety(4);
-        mHorse.upHappiness(4);
+        mHorse.upStamina(Constants.goToWateringUpStamina);
+        mHorse.downSatiety(Constants.goToWateringDownSatiety);
+        mHorse.upHappiness(Constants.goToWateringUpHappiness);
     }
 
     public void goToDrinkers(){
-        mHorse.upStamina(10);
-        mHorse.downSatiety(4);
-        mHorse.upHappiness(4);
+        mHorse.upStamina(Constants.goToDrinkersUpStamina);
+        mHorse.downSatiety(Constants.goToDrinkersDownSatiety);
+        mHorse.upHappiness(Constants.goToDrinkersUpHappiness);
     }
 
     public void getMassage(){
-        mHorse.upStamina(14);
-        mHorse.upHappiness(5);
+        mHorse.upStamina(Constants.getMassageUpStamina);
+        mHorse.upHappiness(Constants.getMassageUpHappiness);
     }
 
     public void swimInLake(){
-        mHorse.upStamina(14);
-        mHorse.upHappiness(5);
+        mHorse.upStamina(Constants.swimInLakeUpStamina);
+        mHorse.upHappiness(Constants.swimInLakeUpHappiness);
     }
 
     /* Other function  */
@@ -127,63 +127,63 @@ public class Controller {
 
     public int findApple(){
         Random rd = new Random();
-        mHorse.downStamina(15);
-        mHorse.downSatiety(15);
+        mHorse.downStamina(Constants.findAppleDownStamina);
+        mHorse.downSatiety(Constants.findAppleDownSatiety);
         int difference = rd.nextInt(5) + 1;
         mGoldApple += difference;
         return difference;
     }
 
     public void plowedField(){
-        mHorse.downStamina();
-        mHorse.downSatiety();
-        mHorse.downRespectHorses();
-        mHorse.upRespectPeoples();
+        mHorse.downStamina(Constants.plowedFieldDownStamina);
+        mHorse.downSatiety(Constants.plowedFieldDownSatiety);
+        mHorse.downRespectHorses(Constants.plowedFieldDownRespectHorses);
+        mHorse.upRespectPeoples(Constants.plowedFieldUpRespectPeoples);
     }
 
     public void drugLoads(){
-        mHorse.downStamina();
-        mHorse.downSatiety();
-        mHorse.downRespectHorses();
-        mHorse.upRespectPeoples();
+        mHorse.downStamina(Constants.drugLoadsDownStamina);
+        mHorse.downSatiety(Constants.drugLoadsDownSatiety);
+        mHorse.downRespectHorses(Constants.drugLoadsDownRespectHorses);
+        mHorse.upRespectPeoples(Constants.drugLoadsUpRespectPeoples);
     }
 
     public void knockCorralGate(){
-        mHorse.downSatiety();
-        mHorse.downStamina();
-        mHorse.downRespectPeoples();
-        mHorse.upRespectHorses();
+        mHorse.downSatiety(Constants.knockCorralGateDownSatiety);
+        mHorse.downStamina(Constants.knockCorralGateDownStamina);
+        mHorse.downRespectPeoples(Constants.knockCorralGateDownRespectPeoples);
+        mHorse.upRespectHorses(Constants.knockCorralGateUpRespectHorses);
     }
 
     public void participateHorseRace(){
-        mHorse.downSatiety();
-        mHorse.downStamina();
-        mHorse.upRespectHorses();
+        mHorse.downSatiety(Constants.participateHorseRaceDownSatiety);
+        mHorse.downStamina(Constants.participateHorseRaceDownStamina);
+        mHorse.upRespectHorses(Constants.participateHorseRaceUpRespectHorses);
     }
 
 
     public void bobMuscles(){
-        mHorse.downSatiety();
-        mHorse.downSatiety();
+        mHorse.downSatiety(Constants.bobMusclesDownSatiety);
+        mHorse.downStamina(Constants.bobMusclesDownStamina);
         mHorse.setMaxSpeed(mHorse.getMaxSpeed() + 0.3);
         mGoldApple -= 1;
     }
 
-    public boolean participateChampionchip(){
+    public boolean participateChampionship(){
         Random rd = new Random();
         mTimeToChampionship = 10;
-        mHorse.downStamina();
-        mHorse.downSatiety();
+        mHorse.downStamina(Constants.participateChampionshipDownStamina);
+        mHorse.downSatiety(Constants.participateChampionshipDownSatiety);
         if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 100){
             mGoldApple += 5;
-            mHorse.upRespectHorses();
-            mHorse.upRespectPeoples();
-            mHorse.upHappiness();
+            mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
+            mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
+            mHorse.upHappiness(Constants.participateChampionshipUpHappiness);
             return true;
         }
-        mHorse.downRespectHorses();
-        mHorse.downRespectPeoples();
-        mHorse.downHappiness();
+        mHorse.downRespectHorses(Constants.participateChampionshipDownRespectHorses);
+        mHorse.downRespectPeoples(Constants.participateChampionshipDownRespectPeoples);
+        mHorse.downHappiness(Constants.participateChampionshipDownHappiness);
         return false;
     }
     public void sleepParamChange(int stamina, int satiety){
@@ -194,5 +194,33 @@ public class Controller {
     public void sleepParamChange(int stamina, int satiety, int happiness){
         sleepParamChange(stamina, satiety);
         mHorse.upHappiness(happiness);
+    }
+
+    public Horse getHorse() {
+        return mHorse;
+    }
+
+    public int getLifeTime() {
+        return mLifeTime;
+    }
+
+    public int getTimeToChampionship() {
+        return mTimeToChampionship;
+    }
+
+    public int getGoldApple() {
+        return mGoldApple;
+    }
+
+    public int getTotalScore() {
+        return mTotalScore;
+    }
+
+    public int getTimeToAttack() {
+        return mTimeToAttack;
+    }
+
+    public int getCountRomaAtack() {
+        return mCountRomaAtack;
     }
 }

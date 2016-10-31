@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">HorseSimulator</string>
+    <string name="app_name">Симулятор коня</string>
+    <string name="stamina">Энергия</string>
+    <string name="satiety">Голод</string>
+    <string name="happiness">Счастье</string>
+    <string name="respect_horses">Уважение сородичей:</string>
+    <string name="respect_peoples">Любовь людей:</string>
+    <string name="total_score">Общие очки:</string>
+    <string name="day">День </string>
+    <string name="stat">Статистика</string>
+    <string name="level">Уровень:</string>
+    <string name="habitat">Место обитания:</string>
+    <string name="roma_attack">Атак цыган отбито:</string>
+    <string name="time_to_attack">До войны с цыганами:</string>
+    <string name="war_yet">война уже идет</string>
+    <string name="tabor">Табор</string>
+    <string name="prairie">Прерии</string>
+    <string name="clear_field">Чистое поле</string>
+    <string name="meadows">Заливные луга</string>
+    <string name="wasteland">Пустырь</string>
+    <string name="ranch">Ранчо</string>
+    <string name="kazakhstan">Казахстан</string>
+    <string name="private_farm">Частная ферма</string>
+    <string name="horse_club">Конный клуб</string>
+    <string name="paddock">Загон</string>
+    <string name="stable">Конюшня</string>
+    <string name="days">дней</string>
 </resources>
