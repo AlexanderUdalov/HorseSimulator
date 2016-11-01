@@ -1,5 +1,7 @@
 package blue_caps.horsesimulator;
 
+import android.app.Activity;
+
 import java.util.Random;
 import java.util.zip.CheckedInputStream;
 
@@ -7,7 +9,6 @@ import java.util.zip.CheckedInputStream;
 /**
  * Created by AlexUD on 25.10.2016.
  */
-// РџСЂРѕРІРµСЂРєР° Р·Р°РїСѓСЃРєР° СЃ РіРёС‚С…Р°Р±Р° Рё РєРѕРјРјРјРёС‚Р° РѕР±СЂР°С‚РЅРѕ fzsfzed
 
 public class Controller {
     private int mTimeToAttack = 60;
@@ -19,32 +20,45 @@ public class Controller {
     private int mCountRomaAtack = 0;
     private int mDieTime = 4;
 
-    public int getDieTime() {
-        return mDieTime;
-    }
-
-    public void downDieTime() {
-        this.mDieTime--;
-    }
 
     private Horse mHorse  = new Horse();
 
-    public void wasStep(){
+    public void wasStep(Activity act){
         mHorse.downHappiness(Constants.wasStepDownHappiness);
         mHorse.downSatiety(Constants.wasStepDownSatiety);
         mHorse.downStamina(Constants.wasStepDownStamina);
         mLifeTime++;
+
         if (mTimeToAttack != 0)
             mTimeToAttack--;
         if (mTimeToChampionship != 0)
             mTimeToChampionship--;
-        romaAttack();
+
+        dieAlert(act);
+        dieDialog(act);
+        romaAttack(act);
     }
 
-    public void romaAttack(){
+    public void dieAlert(Activity act){
+        if (mHorse.getSatiety() == 0 ||
+                mHorse.getStamina() == 0 ||
+                mHorse.getHappiness() == 0) {
+            if (mDieTime == 4)
+                MainActivity.showDieAlert(act);
+            mDieTime--;
+        }
+        else mDieTime = 4;
+    }
+
+    public void dieDialog(Activity act){
+        if (mDieTime == 0)
+            MainActivity.showDieDialog(act);
+    }
+
+    public void romaAttack(Activity act){
         Random rd = new Random();
         if (mTimeToAttack == 0&& rd.nextInt(100) < mChanceAttackPercent) {
-            // РќР°РїР°СЃС‚СЊ С†С‹РіР°РЅР°Рј
+            MainActivity.showRomaAttack(act);
         }
     }
     /* Function for satiety   */

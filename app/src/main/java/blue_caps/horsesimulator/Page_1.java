@@ -1,24 +1,26 @@
 package blue_caps.horsesimulator;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_1 extends StepFragment {
-    private Button buttonHaveSleep;
-    private Button buttonGoToWatering;
-    private Button buttonGoToDrinkers;
-    private Button buttonGetMassage;
-    private Button buttonSwimInLake;
+public class Page_1 extends Fragment implements View.OnClickListener {
+    private Button
+            buttonHaveSleep,
+            buttonGoToWatering,
+            buttonGoToDrinkers,
+            buttonGetMassage,
+            buttonSwimInLake;
+    private TextView paramText;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,41 +37,143 @@ public class Page_1 extends StepFragment {
         buttonGetMassage   = (Button) view.findViewById(R.id.button_get_massage);
         buttonSwimInLake   = (Button) view.findViewById(R.id.button_swim_in_lake);
 
-        buttonHaveSleep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.controller.haveSleep();
-                step();
-            }
-        });
-        buttonGoToWatering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.controller.goToWatering();
-                step();
-            }
-        });
-        buttonGoToDrinkers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.controller.goToDrinkers();
-                step();
-            }
-        });
-        buttonGetMassage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.controller.getMassage();
-                step();
-            }
-        });
-        buttonSwimInLake.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.controller.swimInLake();
-                step();
-            }
-        });
+        paramText = (TextView) view.findViewById(R.id.text_have_sleep);
+
+        paramText.setText(makeParamString());
+
+        buttonHaveSleep.setOnClickListener(this);
+        buttonGoToWatering.setOnClickListener(this);
+        buttonGoToDrinkers.setOnClickListener(this);
+        buttonGetMassage.setOnClickListener(this);
+        buttonSwimInLake.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        MainActivity.controller.wasStep(getActivity());
+
+        switch (view.getId()) {
+            case R.id.button_have_sleep:     MainActivity.controller.haveSleep(); break;
+            case R.id.button_go_to_watering: MainActivity.controller.goToWatering(); break;
+            case R.id.button_go_to_drinkers: MainActivity.controller.goToDrinkers(); break;
+            case R.id.button_get_massage:  MainActivity.controller.getMassage(); break;
+            case R.id.button_swim_in_lake:     MainActivity.controller.swimInLake(); break;
+        }
+
+        MainActivity.updateStats();
+    }
+    public String makeParamString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(getActivity().getString(R.string.stamina));
+        sb.append(": +");
+        switch (MainActivity.controller.getHorse().getHabitat()){
+            case TABOR: {
+                sb.append(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety);
+                break;
+            }
+            case WASTELAND:{
+                sb.append(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety);
+                break;
+            }
+            case CLEAR_FIELD:{
+                sb.append(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety);
+                break;
+            }
+            case MEADOWS:{
+                sb.append(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety);
+                break;
+            }
+            case PRAIRIE: {
+                sb.append(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.happiness));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness);
+                break;
+            }
+            case KAZAKHSTAN: {
+                sb.append(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.happiness));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness);
+                break;
+            }
+            case PADDOCK: {
+                sb.append(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety);
+                break;
+            }
+            case STABLE: {
+                sb.append(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety);
+                break;
+            }
+            case RANCH: {
+                sb.append(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety);
+                break;
+            }
+            case HORSE_CLUB: {
+                sb.append(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.happiness));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness);
+                break;
+            }
+            case PRIVATE_FARM:{
+                sb.append(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.satiety));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(getActivity().getString(R.string.happiness));
+                sb.append(": ");
+                sb.append(- Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness);
+                break;
+            }
+        }
+        return sb.toString();
     }
 }

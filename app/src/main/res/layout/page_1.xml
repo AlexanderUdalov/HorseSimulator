@@ -24,25 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/stamina"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/value_dif_stamina"/>
-        <TextView
-            android:text="@string/satiety"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/value_dif_satiety"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/happiness"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/value_dif_happiness"/>
-
+            android:id="@+id/text_have_sleep"/>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"

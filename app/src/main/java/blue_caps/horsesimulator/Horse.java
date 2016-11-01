@@ -35,7 +35,6 @@ public class Horse {
     public int getRespectHorses() {return mRespectHorses;}
     public int getRespectPeoples() {return mRespectPeoples;}
     public double getMaxSpeed() {return mMaxSpeed;}
-    public int getHousing() {return mHousing;}
 
     public void upStamina(int x) {
         if (mStamina <= mMaxStamina - x)

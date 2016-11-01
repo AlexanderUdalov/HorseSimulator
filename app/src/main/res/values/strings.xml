@@ -45,8 +45,17 @@
         Подкачайтесь, пока вас не забрали обратно</string>
     <string name="introducing_speech_title">Начало коня</string>
     <string name="die_speech">Вы сдохли!</string>
-    <string name="die_speech_title">Вы сдохли!</string>
+    <string name="die_speech_title">Лох,Соснул,Начинай с начала, ебучий плебей</string>
     <string name="die_alert_speech">Вы cкоро сдохнете!</string>
     <string name="die_alert_speech_title">Вы скоро сдохнете!</string>
     <string name="how_to_play">Как играть</string>
+    <string name="roma_attack_title">Цыгане пидоры</string>
+    <string name="choose_action">Что нужно сделать?</string>
+    <string name="roma_attack_speech">Вы пидор, цыгане пидоры, выиграет сымай длинный писос.</string>
+    <string name="fight">Отбиваться</string>
+    <string name="run">Сбежать</string>
+    <string name="god">Молить Бога о помощи</string>
+    <string name="stamina_plus">Энергия: +</string>
+    <string name="satiety_minus"> Сытость: -</string>
+    <string name="happiness_plus"> Счастье: +</string>
 </resources>

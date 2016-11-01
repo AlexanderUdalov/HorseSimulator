@@ -13,29 +13,35 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
-    private static TextView valueStamina;
-    private static TextView valueSatiety;
-    private static TextView valueHappiness;
-    private static TextView valueDays;
-    private static TextView valueGoldApple;
-    private static ImageView scaleStamina;
-    private static ImageView scaleSatiety;
-    private static ImageView scaleHappiness;
-    private static int DPI;
-    private static int windowSize;
-    private static float staminaWidth;
-    private static float satietyWidth;
-    private static float happinessWidth;
-    public static String TITLE_0;
-    public static String TITLE_1;
-    public static String TITLE_2;
-    public static String TITLE_3;
-    public static String TITLE_4;
+    private static TextView
+            valueStamina,
+            valueSatiety,
+            valueHappiness,
+            valueDays,
+            valueGoldApple;
+    private static ImageView
+            scaleStamina,
+            scaleSatiety,
+            scaleHappiness;
+    private static int
+            DPI,
+            windowSize;
+    private static float
+            staminaWidth,
+            satietyWidth,
+            happinessWidth;
+    public static String
+            TITLE_0,
+            TITLE_1,
+            TITLE_2,
+            TITLE_3,
+            TITLE_4;
     static Controller controller;
 
 
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*Следующая функция написана самым быдлокодерским способом, потому что я не знаю
-        как по-другому закинуть туда размеры(
+        как по-другому закинуть туда размеры =(
         */
 
     public static void updateStats(){
@@ -161,6 +167,23 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showRomaAttack(final Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.roma_attack_title).setCancelable(true);
+        View v = LayoutInflater.from(act).inflate(R.layout.roma_attack, null);
+        TextView speechRomaAttack = (TextView) v.findViewById(R.id.roma_attack_speech);
+        Button buttonRun = (Button) v.findViewById(R.id.button_run);
+        Button buttonFight = (Button) v.findViewById(R.id.button_fight);
+        Button buttonGod = (Button) v.findViewById(R.id.button_horse_god);
+        speechRomaAttack.setText(act.getString(R.string.roma_attack_speech));
+        buttonRun.setText(act.getString(R.string.run));
+        buttonGod.setText(act.getString(R.string.god));
+        buttonFight.setText(act.getString(R.string.fight));
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();

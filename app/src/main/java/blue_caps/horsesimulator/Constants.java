@@ -4,14 +4,13 @@ package blue_caps.horsesimulator;
 /**
  * Created by alex on 27.10.16.
  */
-// Пуш от Игоря
 public interface Constants {
     int wasStepDownHappiness = 2,
         wasStepDownSatiety = 3,
         wasStepDownStamina = 3,
 
-        eatGrassUpSatiety = 4,
-        eatGrassDownStamina = 6,
+        eatGrassUpSatiety = 10,
+        eatGrassDownStamina = 0,
 
         stealingFoodUpSatiety = 8,
         stealingFoodDownStamina = 8,

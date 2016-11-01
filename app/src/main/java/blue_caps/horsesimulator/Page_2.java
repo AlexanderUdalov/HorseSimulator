@@ -1,6 +1,7 @@
 package blue_caps.horsesimulator;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,7 @@ import android.widget.Button;
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_2 extends StepFragment {
+public class Page_2 extends Fragment implements View.OnClickListener{
     private Button
             buttonEatGrass,
             buttonStealingFood,
@@ -32,7 +33,7 @@ public class Page_2 extends StepFragment {
         buttonBeggingSugar = (Button) view.findViewById(R.id.button_begging_sugar);
         buttonAskForFood = (Button) view.findViewById(R.id.button_ask_for_food);
         buttonEatApple = (Button) view.findViewById(R.id.button_eat_apple);
-/*
+
         buttonEatGrass.setOnClickListener(this);
         buttonStealingFood.setOnClickListener(this);
         buttonBeggingSugar.setOnClickListener(this);
@@ -44,7 +45,7 @@ public class Page_2 extends StepFragment {
 
     @Override
     public void onClick(View view) {
-        step();
+        MainActivity.controller.wasStep(getActivity());
 
         switch (view.getId()) {
             case R.id.button_eat_grass:     MainActivity.controller.eatGrass(); break;
@@ -53,9 +54,7 @@ public class Page_2 extends StepFragment {
             case R.id.button_ask_for_food:  MainActivity.controller.askForFood(); break;
             case R.id.button_eat_apple:     MainActivity.controller.eatApple(); break;
         }
-    }
-}
-*/
-        return view;
-    }
+
+        MainActivity.updateStats();
+   }
 }
