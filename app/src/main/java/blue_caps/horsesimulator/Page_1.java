@@ -79,15 +79,18 @@ public class Page_1 extends Fragment implements View.OnClickListener {
     }
     public String makeParamString(int id) {
         StringBuilder sb = new StringBuilder();
+        String tmpStamina = getActivity().getString(R.string.stamina);
+        String tmpSatiety = getActivity().getString(R.string.satiety);
+        String tmpHappiness = getActivity().getString(R.string.happiness);
         switch (id) {
             case R.id.text_have_sleep: {
-                sb.append(getActivity().getString(R.string.stamina));
+                sb.append(tmpStamina);
                 sb.append(": +");
                 switch (MainActivity.controller.getHorse().getHabitat()) {
                     case TABOR: {
                         sb.append(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety);
                         break;
@@ -95,7 +98,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case WASTELAND: {
                         sb.append(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety);
                         break;
@@ -103,7 +106,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case CLEAR_FIELD: {
                         sb.append(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety);
                         break;
@@ -111,7 +114,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case MEADOWS: {
                         sb.append(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety);
                         break;
@@ -119,11 +122,11 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case PRAIRIE: {
                         sb.append(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.happiness));
+                        sb.append(tmpHappiness);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness);
                         break;
@@ -131,11 +134,11 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case KAZAKHSTAN: {
                         sb.append(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.happiness));
+                        sb.append(tmpHappiness);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness);
                         break;
@@ -143,7 +146,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case PADDOCK: {
                         sb.append(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety);
                         break;
@@ -151,7 +154,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case STABLE: {
                         sb.append(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety);
                         break;
@@ -159,7 +162,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case RANCH: {
                         sb.append(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety);
                         break;
@@ -167,11 +170,11 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case HORSE_CLUB: {
                         sb.append(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.happiness));
+                        sb.append(tmpHappiness);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness);
                         break;
@@ -179,11 +182,11 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     case PRIVATE_FARM: {
                         sb.append(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.satiety));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety);
                         sb.append("; ");
-                        sb.append(getActivity().getString(R.string.happiness));
+                        sb.append(tmpSatiety);
                         sb.append(": ");
                         sb.append(-Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness);
                         break;
@@ -192,57 +195,57 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 return sb.toString();
             }
             case R.id.text_go_to_watering:{
-                sb.append(R.string.stamina);
+                sb.append(tmpStamina);
                 sb.append(": +");
                 sb.append(Constants.goToWateringUpStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
-                sb.append(R.string.satiety);
+                sb.append(tmpSatiety);
                 sb.append(": ");
                 sb.append(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
-                sb.append(R.string.happiness);
+                sb.append(tmpHappiness);
                 sb.append(": ");
                 sb.append(Constants.goToWateringUpHappiness - Constants.wasStepDownHappiness);
                 return sb.toString();
             }
             case R.id.text_go_to_drinkers:{
-                sb.append(R.string.stamina);
+                sb.append(tmpStamina);
                 sb.append(": +");
                 sb.append(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
-                sb.append(R.string.satiety);
+                sb.append(tmpSatiety);
                 sb.append(": ");
                 sb.append(-Constants.goToDrinkersDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
-                sb.append(R.string.happiness);
+                sb.append(tmpHappiness);
                 sb.append(": ");
                 sb.append(Constants.goToDrinkersUpHappiness - Constants.wasStepDownHappiness);
                 return sb.toString();
             }
             case R.id.text_get_massage:{
-                sb.append(R.string.stamina);
+                sb.append(tmpStamina);
                 sb.append(": +");
                 sb.append(Constants.getMassageUpStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
-                sb.append(R.string.satiety);
+                sb.append(tmpSatiety);
                 sb.append(": ");
                 sb.append(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
-                sb.append(R.string.happiness);
+                sb.append(tmpHappiness);
                 sb.append(": ");
                 sb.append(Constants.getMassageUpHappiness- Constants.wasStepDownHappiness);
                 return sb.toString();
             }
             case R.id.text_swim_in_lake:{
-                sb.append(R.string.stamina);
+                sb.append(tmpStamina);
                 sb.append(": +");
                 sb.append(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
-                sb.append(R.string.satiety);
+                sb.append(tmpSatiety);
                 sb.append(": ");
                 sb.append(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
-                sb.append(R.string.happiness);
+                sb.append(tmpHappiness);
                 sb.append(": ");
                 sb.append(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness);
                 return sb.toString();
