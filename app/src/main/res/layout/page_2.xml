@@ -16,6 +16,17 @@
             android:text="@string/eat_grass"
             android:id="@+id/button_eat_grass"/>
     </TableLayout>
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_eat_grass"/>
+    </TableRow>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +39,17 @@
             android:text="@string/stealing_food"
             android:id="@+id/button_stealing_food"/>
     </TableLayout>
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_stealing_food"/>
+    </TableRow>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +62,17 @@
             android:text="@string/begging_sugar"
             android:id="@+id/button_begging_sugar"/>
     </TableLayout>
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_begging_sugar"/>
+    </TableRow>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +85,17 @@
             android:text="@string/ask_for_food"
             android:id="@+id/button_ask_for_food"/>
     </TableLayout>
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_ask_for_food"/>
+    </TableRow>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,4 +108,15 @@
             android:text="@string/eat_apple"
             android:id="@+id/button_eat_apple"/>
     </TableLayout>
+    <TableRow
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_eat_apple"/>
+    </TableRow>
 </LinearLayout>
