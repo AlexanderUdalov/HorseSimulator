@@ -68,8 +68,10 @@ public interface Constants {
 
         getMassageUpStamina = 14,
         getMassageUpHappiness = 5,
+        getMassageDownSatiety = 0,
 
         swimInLakeUpStamina = 14,
+        swimInLakeDownSatiety = 0,
         swimInLakeUpHappiness = 5,
 
         findAppleDownStamina = 15,
