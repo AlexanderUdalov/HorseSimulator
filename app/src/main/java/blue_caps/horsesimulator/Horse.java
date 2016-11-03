@@ -11,7 +11,6 @@ public class Horse {
     private int mRespectHorses;
     private int mRespectPeoples;
     private double mMaxSpeed;
-    private int mHousing;
     private Habitat habitat;
 
     public static final int mMaxStamina = 100;
@@ -25,7 +24,6 @@ public class Horse {
         mRespectHorses = 0;
         mRespectPeoples = 0;
         mMaxSpeed = 20;
-        mHousing = 0;
         habitat = Habitat.TABOR;
     }
 
@@ -98,10 +96,6 @@ public class Horse {
 
     public void setMaxSpeed(double maxSpeed) {
         mMaxSpeed = maxSpeed;
-    }
-
-    public void setHousing(int housing) {
-        mHousing = housing;
     }
 
     public Habitat getHabitat() {

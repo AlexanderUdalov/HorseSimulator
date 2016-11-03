@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
             TITLE_2,
             TITLE_3,
             TITLE_4;
+    public static Page_0 page_0;
+    public static Page_1 page_1;
+    public static Page_2 page_2;
+    public static Page_3 page_3;
+    public static Page_4 page_4;
     static Controller controller;
 
 
@@ -53,12 +58,20 @@ public class MainActivity extends AppCompatActivity {
 
         showHowToPlay(this);
 
+        page_0 = new Page_0();
+        page_1 = new Page_1();
+        page_2 = new Page_2();
+        page_3 = new Page_3();
+        page_4 = new Page_4();
+
+
         windowSize = getWindowManager().getDefaultDisplay().getWidth();
         DPI = (int) getResources().getDisplayMetrics().density;
 
         TITLE_1 = getString(R.string.stamina);
         TITLE_0 = getString(R.string.stat);
         TITLE_2 = getString(R.string.food);
+        TITLE_3 = getString(R.string.habitat);
 
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);

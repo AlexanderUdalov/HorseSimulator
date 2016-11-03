@@ -12,7 +12,7 @@ import android.widget.TextView;
  * Created by alexu on 30.10.2016.
  */
 
-public class Page_2 extends Fragment implements View.OnClickListener{
+public class Page_2 extends Fragment implements View.OnClickListener {
     private Button
             buttonEatGrass,
             buttonStealingFood,
@@ -60,12 +60,13 @@ public class Page_2 extends Fragment implements View.OnClickListener{
         buttonAskForFood.setOnClickListener(this);
         buttonEatApple.setOnClickListener(this);
 
+        update();
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        MainActivity.controller.wasStep(getActivity());
 
         switch (view.getId()) {
             case R.id.button_eat_grass:     MainActivity.controller.eatGrass(); break;
@@ -74,7 +75,8 @@ public class Page_2 extends Fragment implements View.OnClickListener{
             case R.id.button_ask_for_food:  MainActivity.controller.askForFood(); break;
             case R.id.button_eat_apple:     MainActivity.controller.eatApple(); break;
         }
-
+        MainActivity.controller.wasStep(getActivity());
+        update();
         MainActivity.updateStats();
    }
 
@@ -143,7 +145,7 @@ public class Page_2 extends Fragment implements View.OnClickListener{
                 sb.append("; ");
                 sb.append(tmpSatiety);
                 sb.append(": +");
-                sb.append(-Constants.beggingSugarUpSatiety - Constants.wasStepDownSatiety);
+                sb.append(Constants.beggingSugarUpSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
                 sb.append(tmpHappiness);
                 sb.append(": +");
@@ -152,6 +154,10 @@ public class Page_2 extends Fragment implements View.OnClickListener{
                 sb.append(tmpHorseRespect);
                 sb.append(" ");
                 sb.append(-Constants.beggingSugarDownRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.beggingSugarUpRespectPeoples);
                 return sb.toString();
             }
             case R.id.text_eat_apple:{
@@ -170,5 +176,10 @@ public class Page_2 extends Fragment implements View.OnClickListener{
             }
             default: return null;
         }
+    }
+    public void update(){
+        if (MainActivity.controller.getGoldApple() == 0)
+            buttonEatApple.setEnabled(false);
+        else buttonEatApple.setEnabled(true);
     }
 }

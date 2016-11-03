@@ -60,6 +60,8 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         buttonGetMassage.setOnClickListener(this);
         buttonSwimInLake.setOnClickListener(this);
 
+        update();
+
         return view;
     }
 
@@ -74,9 +76,11 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             case R.id.button_get_massage:  MainActivity.controller.getMassage(); break;
             case R.id.button_swim_in_lake:     MainActivity.controller.swimInLake(); break;
         }
-
+        MainActivity.page_0.update();
+        MainActivity.page_2.update();
         MainActivity.updateStats();
     }
+
     public String makeParamString(int id) {
         StringBuilder sb = new StringBuilder();
         String tmpStamina = getActivity().getString(R.string.stamina);
@@ -251,6 +255,83 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 return sb.toString();
             }
             default: return null;
+        }
+    }
+
+    public void update(){
+        switch (MainActivity.controller.getHorse().getHabitat()){
+            case TABOR:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(R.string.need_bester_habitat);
+                textGetMassage.setText(R.string.need_bester_habitat);
+                textGoToWatering.setText(R.string.need_bester_habitat);
+                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case WASTELAND:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(getString(R.string.need_bester_habitat));
+                textGetMassage.setText(R.string.need_bester_habitat);
+                textGoToWatering.setText(R.string.need_bester_habitat);
+                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case PADDOCK:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(R.string.need_bester_habitat);
+                textGetMassage.setText(R.string.need_bester_habitat);
+                textGoToWatering.setText(R.string.need_bester_habitat);
+                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case STABLE:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(R.string.need_bester_habitat);
+                textGetMassage.setText(R.string.need_bester_habitat);
+                textGoToWatering.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case CLEAR_FIELD:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(true);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(R.string.need_bester_habitat);
+                textGetMassage.setText(R.string.need_bester_habitat);
+                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case PRAIRIE:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(true);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(true);
+                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                textGetMassage.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case HORSE_CLUB:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(true);
+                buttonSwimInLake.setEnabled(false);
+                textSwimInLake.setText(R.string.need_bester_habitat);
+                textGoToWatering.setText(R.string.need_bester_habitat);
+                break;
+            }
+            default: return;
         }
     }
 }

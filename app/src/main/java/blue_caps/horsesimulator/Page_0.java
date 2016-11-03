@@ -45,6 +45,33 @@ public class Page_0 extends Fragment {
         buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
         buttonHowToPlay = (Button) view.findViewById(R.id.button_how_to_play);
 
+        update();
+
+        buttonTableLevel.setText(R.string.table_level);
+        buttonTableLevel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.table_level).setCancelable(true);
+                View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
+                builder.setView(v);
+                AlertDialog alert = builder.create();
+                alert.show();
+
+            }
+        });
+        buttonHowToPlay.setText(R.string.how_to_play);
+        buttonHowToPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.showHowToPlay(getActivity());
+            }
+        });
+
+        return view;
+    }
+
+    public void update(){
         switch (MainActivity.controller.getHorse().getHabitat()){
             case TABOR: { valueHabitat.setText(R.string.tabor); break; }
             case WASTELAND: { valueHabitat.setText(R.string.wasteland); break;  }
@@ -74,29 +101,6 @@ public class Page_0 extends Fragment {
         valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));
         valueCountRomaAttack.setText(new String().valueOf(MainActivity.controller.getCountRomaAtack()));
-
-        buttonTableLevel.setText(R.string.table_level);
-        buttonTableLevel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle(R.string.table_level).setCancelable(true);
-                View v = LayoutInflater.from(getActivity()).inflate(R.layout.table_level, null);
-                builder.setView(v);
-                AlertDialog alert = builder.create();
-                alert.show();
-
-            }
-        });
-        buttonHowToPlay.setText(R.string.how_to_play);
-        buttonHowToPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.showHowToPlay(getActivity());
-            }
-        });
-
-        return view;
     }
 
 }

@@ -5,9 +5,9 @@ package blue_caps.horsesimulator;
  * Created by alex on 27.10.16.
  */
 public interface Constants {
-    int wasStepDownHappiness = 2,
-        wasStepDownSatiety = 3,
-        wasStepDownStamina = 3,
+    int wasStepDownHappiness = 0,
+        wasStepDownSatiety = 0,
+        wasStepDownStamina = 0,
 
         eatGrassUpSatiety = 10,
         eatGrassDownStamina = 0,
@@ -107,5 +107,16 @@ public interface Constants {
 
         participateChampionshipDownRespectHorses = 0,
         participateChampionshipDownRespectPeoples = 0,
-        participateChampionshipDownHappiness = 0;
+        participateChampionshipDownHappiness = 0,
+
+        paddockRespect = 30,
+        stableRespect = 60,
+        ranchRespect = 120,
+        horseClubRespect = 240,
+        privateFarmRespect = 500,
+        wastelandRespect = 30,
+        clearFieldRespect = 60,
+        meadowsRespect = 120,
+        prairieRespect = 240,
+        kazahstanRespect = 500;
 }

@@ -55,7 +55,5 @@
     <string name="fight">Отбиваться</string>
     <string name="run">Сбежать</string>
     <string name="god">Молить Бога о помощи</string>
-    <string name="stamina_plus">Энергия: +</string>
-    <string name="satiety_minus"> Сытость: -</string>
-    <string name="happiness_plus"> Счастье: +</string>
+    <string name="need_bester_habitat">Нужно более крутое жилье</string>
 </resources>
