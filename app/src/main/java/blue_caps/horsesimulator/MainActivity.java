@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,11 +14,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ViewPager pager;
     private static TextView
             valueStamina,
@@ -53,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
+        if (Build.VERSION.SDK_INT < 19) {
+            getWindow().getDecorView().setSystemUiVisibility(View.GONE);
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+
         controller = new Controller();
         setContentView(R.layout.activity_main);
 
@@ -200,5 +212,21 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.button_run: {
+
+            }
+            case R.id.button_fight: {
+
+            }
+            case R.id.button_horse_god: {
+
+            }
+        }
     }
 }
