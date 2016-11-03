@@ -4,6 +4,7 @@ package blue_caps.horsesimulator;
  * Created by alexu on 26.10.2016.
  */
 
+// Тест второго компа
 public enum Habitat {
     TABOR,
     PADDOCK,
