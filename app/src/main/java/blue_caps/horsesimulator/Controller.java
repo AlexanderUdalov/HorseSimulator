@@ -18,9 +18,10 @@ public class Controller {
     private int mGoldApple = 0;
     private int mTotalScore = 0;
     private int mCountRomaAttack = 0;
+    private int mCountBattlesWon = 0;
     private int mDieTime = 4;
 
-
+    Random rd = new Random();
     private Horse mHorse  = new Horse();
 
     public void wasStep(Activity act){
@@ -58,7 +59,7 @@ public class Controller {
     public void romaAttack(Activity act){
         Random rd = new Random();
         if (mTimeToAttack == 0&& rd.nextInt(100) < mChanceAttackPercent) {
-            MainActivity.showRomaAttack(act);
+            MainActivity.showRomaAttack((MainActivity)act);
         }
     }
     /* Function for satiety   */
@@ -198,11 +199,10 @@ public class Controller {
     }
 
     public boolean participateChampionship(){
-        Random rd = new Random();
         mTimeToChampionship = 10;
         mHorse.downStamina(Constants.participateChampionshipDownStamina);
         mHorse.downSatiety(Constants.participateChampionshipDownSatiety);
-        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 100){
+        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 125){
             mGoldApple += Constants.participateChampionshipUpApples;
             mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
             mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
@@ -222,6 +222,21 @@ public class Controller {
     public void sleepParamChange(int stamina, int satiety, int happiness){
         sleepParamChange(stamina, satiety);
         mHorse.upHappiness(happiness);
+    }
+
+    public boolean runFromRoma() {
+        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 125) {
+            mHorse.downStamina(mHorse.getStamina()/2);
+            mHorse.downSatiety(mHorse.getSatiety()/2);
+            mCountRomaAttack++;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean fightWithRoma() {
+
     }
 
     public Horse getHorse() {

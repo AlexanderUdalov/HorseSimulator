@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -205,18 +204,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alert.show();
     }
 
-    public static void showRomaAttack(final Activity act) {
+    public static void showRomaAttack(final MainActivity act) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
         builder.setTitle(R.string.roma_attack_title).setCancelable(true);
         View v = LayoutInflater.from(act).inflate(R.layout.roma_attack, null);
         TextView speechRomaAttack = (TextView) v.findViewById(R.id.roma_attack_speech);
+
         Button buttonRun = (Button) v.findViewById(R.id.button_run);
         Button buttonFight = (Button) v.findViewById(R.id.button_fight);
-        Button buttonGod = (Button) v.findViewById(R.id.button_horse_god);
+
         speechRomaAttack.setText(act.getString(R.string.roma_attack_speech));
         buttonRun.setText(act.getString(R.string.run));
-        buttonGod.setText(act.getString(R.string.god));
         buttonFight.setText(act.getString(R.string.fight));
+
+        buttonRun.setOnClickListener(act);
+        buttonFight.setOnClickListener(act);
+
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
@@ -227,12 +230,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         {
             case R.id.button_run: {
-
+                if
             }
             case R.id.button_fight: {
-
-            }
-            case R.id.button_horse_god: {
 
             }
         }
