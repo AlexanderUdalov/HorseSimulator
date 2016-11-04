@@ -8,6 +8,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -67,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
-
         showHowToPlay(this);
 
         page_0 = new Page_0();
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TITLE_0 = getString(R.string.stat);
         TITLE_2 = getString(R.string.food);
         TITLE_3 = getString(R.string.habitat);
-        TITLE_4 = getString(R.string.other);
+        TITLE_4 = getString(R.string.habitat);
 
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
