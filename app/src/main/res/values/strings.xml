@@ -75,5 +75,6 @@
     <string name="now_your_habitat">Теперь ваше место обитания: </string>
     <string name="successful_run_massage">Вы успешно убежали от цыган</string>
     <string name="ad_run_title">Вы не смогли убежать</string>
-    <string name="ad_run_speech">Помолитесь Богу, посмотрите рекламу</string>
+    <string name="ad_fight_title">Вы проиграли в битве с цыганами</string>
+    <string name="ad_speech">Помолитесь Богу, посмотрите рекламу</string>
 </resources>

@@ -202,7 +202,7 @@ public class Controller {
         mTimeToChampionship = 10;
         mHorse.downStamina(Constants.participateChampionshipDownStamina);
         mHorse.downSatiety(Constants.participateChampionshipDownSatiety);
-        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 125){
+        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 2 * Horse.mMaxSpeedLimit + 5){
             mGoldApple += Constants.participateChampionshipUpApples;
             mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
             mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
@@ -225,7 +225,7 @@ public class Controller {
     }
 
     public boolean runFromRoma() {
-        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 125) {
+        if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 2 * Horse.mMaxSpeedLimit + 5) {
             mHorse.downStamina(mHorse.getStamina()/2);
             mHorse.downSatiety(mHorse.getSatiety()/2);
             mCountRomaAttack++;
@@ -236,9 +236,35 @@ public class Controller {
         return false;
     }
 
-    //public boolean fightWithRoma() {
+    public boolean fightWithRoma() {
+        int param;
 
-    //}
+        switch (mHorse.getHabitat()) {
+            case TABOR:
+                param = Math.max(mHorse.getRespectHorses(), mHorse.getRespectPeoples());
+                break;
+            case PADDOCK:
+            case STABLE:
+            case RANCH:
+            case HORSE_CLUB:
+            case PRIVATE_FARM:
+                param = mHorse.getRespectPeoples();
+                break;
+            default:
+                param = mHorse.getRespectHorses();
+                break;
+        }
+
+        if (rd.nextInt(1500) + 2 + 3*param > 1600) {
+            mHorse.downStamina(mHorse.getStamina()/2);
+            mHorse.downSatiety(mHorse.getSatiety()/2);
+            mCountRomaAttack++;
+            mTimeToAttack = Constants.timeToRomaAttack;
+            return true;
+        }
+
+        return false;
+    }
 
     public Horse getHorse() {
         return mHorse;

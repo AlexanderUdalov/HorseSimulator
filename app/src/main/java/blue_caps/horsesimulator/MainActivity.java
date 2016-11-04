@@ -2,7 +2,6 @@ package blue_caps.horsesimulator;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
@@ -233,13 +231,13 @@ public class MainActivity extends AppCompatActivity {
                     alert.hide();
                     final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
                     builderAd.setTitle(R.string.ad_run_title).setCancelable(true);
-                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_after_run, null);
-                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_run_speech);
+                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
+                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
 
                     Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
                     Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
 
-                    speechAdRun.setText(act.getString(R.string.ad_run_speech));
+                    speechAdRun.setText(act.getString(R.string.ad_speech));
                     buttonAd.setText(act.getString(R.string.god));
                     buttonDie.setText(act.getString(R.string.die));
 
@@ -269,7 +267,43 @@ public class MainActivity extends AppCompatActivity {
         buttonFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (controller.fightWithRoma()) {
+                    alert.hide();
+                }
+                else {
+                    alert.hide();
+                    final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
+                    builderAd.setTitle(R.string.ad_fight_title).setCancelable(true);
+                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
+                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
 
+                    Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
+                    Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
+
+                    speechAdRun.setText(act.getString(R.string.ad_speech));
+                    buttonAd.setText(act.getString(R.string.god));
+                    buttonDie.setText(act.getString(R.string.die));
+
+                    builderAd.setView(vAd);
+                    final AlertDialog adAlert = builderAd.create();
+                    adAlert.show();
+
+                    buttonAd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            // реклама
+                            controller.setmTimeToAttack(Constants.timeToRomaAttack);
+                            adAlert.hide();
+                        }
+                    });
+                    buttonDie.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            adAlert.hide();
+                            act.recreate();
+                        }
+                    });
+                }
             }
         });
     }
