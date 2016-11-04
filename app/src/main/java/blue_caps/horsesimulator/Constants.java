@@ -128,7 +128,12 @@ public interface Constants {
         kazahstanRespect = 500,
 
         timeToChampionship = 30,
-        timeToRomaAttack = 10;
+        timeToRomaAttack = 10,
+
+        amazingHorse = 10000,
+        pickupMasterHorse = 25000,
+        bossHorse = 50000,
+        godHorse = 100000;
 
     double bobMusclesUpMaxSpeed = 0.3;
 }

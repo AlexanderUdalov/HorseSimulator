@@ -20,6 +20,9 @@ public class Controller {
     private int mCountRomaAttack = 0;
     private int mCountBattlesWon = 0;
     private int mDieTime = 4;
+    private int [] mNextLevel = {Constants.amazingHorse, Constants.pickupMasterHorse, Constants.bossHorse,Constants.godHorse};
+    private int index = 0;
+
 
     Random rd = new Random();
     private Horse mHorse  = new Horse();
@@ -28,6 +31,21 @@ public class Controller {
         mHorse.downHappiness(Constants.wasStepDownHappiness);
         mHorse.downSatiety(Constants.wasStepDownSatiety);
         mHorse.downStamina(Constants.wasStepDownStamina);
+       /* mTotalScore = (int) ((getHorse().getMaxSpeed())-20)*100 +
+                mLifeTime*100 +
+                getHorse().getRespectHorses()*20 +
+                getHorse().getRespectPeoples()*20 +
+                mCountBattlesWon*1000;
+
+        */
+        mTotalScore = mLifeTime*1000;
+        if (mHorse.getLevel() != Level.HORSE_GOD)
+            if (mTotalScore > mNextLevel[index]){
+                index++;
+                mHorse.setLevel(Level.values()[index]);
+                MainActivity.showHorsePicture(index, act);
+            }
+
         mLifeTime++;
 
         if (mTimeToAttack > 0)

@@ -97,6 +97,12 @@ public class Page_0 extends Fragment {
                 break;
             }
         }
+        switch (MainActivity.controller.getHorse().getLevel()){
+            case AMAZING_HORSE: valueLevel.setText(getString(R.string.amazing_horse));break;
+            case PICKUP_MASTER_HORSE: valueLevel.setText(getString(R.string.pickup_master_horse));break;
+            case BOSS_HORSE: valueLevel.setText(getString(R.string.boss_horse));break;
+            case HORSE_GOD: valueLevel.setText(getString(R.string.horse_god));break;
+        }
         valueRespectHorses.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectHorses()));
         valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));

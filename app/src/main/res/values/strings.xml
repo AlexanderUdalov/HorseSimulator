@@ -73,6 +73,13 @@
     <string name="if_lose">При проигрыше</string>
     <string name="apples">Яблоки</string>
     <string name="now_your_habitat">Теперь ваше место обитания: </string>
+    <string name="new_level">Новый уровень!</string>
+    <string name="amazing_horse">Эмейзинг-конь</string>
+    <string name="pickup_master_horse">Конь - пикап-мастер</string>
+    <string name="boss_horse">Босс коней</string>
+    <string name="horse_god">Конь-бог</string>
+    <string name="simple_horse">Просто конь</string>
+    <string name="you_are">Вы теперь:</string>
     <string name="successful_run_massage">Вы успешно убежали от цыган</string>
     <string name="ad_run_title">Вы не смогли убежать</string>
     <string name="ad_fight_title">Вы проиграли в битве с цыганами</string>

@@ -12,6 +12,7 @@ public class Horse {
     private int mRespectPeoples;
     private double mMaxSpeed;
     private Habitat habitat;
+    private Level level;
 
     public static final int mMaxStamina = 100;
     public static final int mMaxSatiety = 100;
@@ -24,8 +25,9 @@ public class Horse {
         mHappiness = mMaxHappiness/2;
         mRespectHorses = 0;
         mRespectPeoples = 0;
-        mMaxSpeed = 40;
-        habitat = Habitat.TABOR;
+        mMaxSpeed = 20;
+        level = Level.SIMPLE_HORSE;
+        habitat = Habitat.KAZAKHSTAN;
     }
 
     public int getStamina() {return mStamina;}
@@ -100,13 +102,19 @@ public class Horse {
             mMaxSpeed++;
     }
 
-
-
     public Habitat getHabitat() {
         return habitat;
     }
 
     public void setHabitat(Habitat habitat) {
         this.habitat = habitat;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 }

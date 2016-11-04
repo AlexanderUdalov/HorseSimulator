@@ -143,13 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void showHowToPlay(Activity act){
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(R.string.introducing_speech_title).setCancelable(true)
-                .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
+        builder.setTitle(R.string.introducing_speech_title).setCancelable(true);
         View v = LayoutInflater.from(act).inflate(R.layout.introducing_speech, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
@@ -158,13 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void showDieAlert(Activity act) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(R.string.die_alert_speech_title).setCancelable(false)
-                .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
+        builder.setTitle(R.string.die_alert_speech_title).setCancelable(true);
         View v = LayoutInflater.from(act).inflate(R.layout.die_alert, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
@@ -199,6 +187,38 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
         builder.setTitle(R.string.lose_title).setCancelable(true);
         View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showHorsePicture(int index, Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.new_level).setCancelable(true);
+        View v = LayoutInflater.from(act).inflate(R.layout.new_level, null);
+        TextView text = (TextView) v.findViewById(R.id.new_level_text);
+        TextView textValue = (TextView) v.findViewById(R.id.new_level_text_value);
+        ImageView image = (ImageView) v.findViewById(R.id.new_level_image);
+        switch (index) {
+            case 1: {
+                text.setText(act.getString(R.string.you_are));
+                textValue.setText(act.getString(R.string.amazing_horse));
+                //image.setImageResource(R.drawable.amazing_horse);
+                break;
+            }
+            case 2: {
+                text.setText(act.getString(R.string.you_are));
+                textValue.setText(act.getString(R.string.pickup_master_horse));
+                image.setImageResource(R.drawable.pickup_master_horse);
+                break;
+            }
+            case 3: {
+
+            }
+            case 4: {
+
+            }
+        }
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
@@ -248,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // реклама
+                            // СЂРµРєР»Р°РјР°
                             controller.setmTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }
@@ -291,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // реклама
+                            // СЂРµРєР»Р°РјР°
                             controller.setmTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }
