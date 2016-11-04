@@ -11,7 +11,7 @@ import java.util.zip.CheckedInputStream;
  */
 
 public class Controller {
-    private int mTimeToAttack = 60;
+    private int mTimeToAttack = Constants.timeToRomaAttack;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;
@@ -229,15 +229,16 @@ public class Controller {
             mHorse.downStamina(mHorse.getStamina()/2);
             mHorse.downSatiety(mHorse.getSatiety()/2);
             mCountRomaAttack++;
+            mTimeToAttack = Constants.timeToRomaAttack;
             return true;
         }
 
         return false;
     }
 
-    public boolean fightWithRoma() {
+    //public boolean fightWithRoma() {
 
-    }
+    //}
 
     public Horse getHorse() {
         return mHorse;
@@ -265,6 +266,10 @@ public class Controller {
 
     public void setTimeToChampionship(int timeToChampionship) {
         mTimeToChampionship = timeToChampionship;
+    }
+
+    public void setmTimeToAttack(int TimeToAttack) {
+        mTimeToAttack = TimeToAttack;
     }
 
     public int getCountRomaAtack() {

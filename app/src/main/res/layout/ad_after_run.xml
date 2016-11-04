@@ -8,7 +8,7 @@
         android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/roma_attack_speech"/>
+        android:id="@+id/ad_run_speech"/>
     <TextView
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -26,10 +26,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button_run"/>
+            android:id="@+id/button_ad"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button_fight"/>
+            android:id="@+id/button_die"/>
     </LinearLayout>
 </LinearLayout>

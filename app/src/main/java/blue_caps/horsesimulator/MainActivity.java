@@ -2,6 +2,7 @@ package blue_caps.horsesimulator;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
@@ -15,8 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
     private static TextView
             valueStamina,
@@ -217,24 +219,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonRun.setText(act.getString(R.string.run));
         buttonFight.setText(act.getString(R.string.fight));
 
-        buttonRun.setOnClickListener(act);
-        buttonFight.setOnClickListener(act);
-
         builder.setView(v);
-        AlertDialog alert = builder.create();
+        final AlertDialog alert = builder.create();
         alert.show();
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId())
-        {
-            case R.id.button_run: {
-                if
+        buttonRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (controller.runFromRoma()) {
+                    alert.hide();
+                }
+                else {
+                    alert.hide();
+                    final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
+                    builderAd.setTitle(R.string.ad_run_title).setCancelable(true);
+                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_after_run, null);
+                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_run_speech);
+
+                    Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
+                    Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
+
+                    speechAdRun.setText(act.getString(R.string.ad_run_speech));
+                    buttonAd.setText(act.getString(R.string.god));
+                    buttonDie.setText(act.getString(R.string.die));
+
+                    builderAd.setView(vAd);
+                    final AlertDialog adAlert = builderAd.create();
+                    adAlert.show();
+
+                    buttonAd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            // реклама
+                            controller.setmTimeToAttack(Constants.timeToRomaAttack);
+                            adAlert.hide();
+                        }
+                    });
+                    buttonDie.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            adAlert.hide();
+                            act.recreate();
+                        }
+                    });
+                }
             }
-            case R.id.button_fight: {
+        });
+
+        buttonFight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
-        }
+        });
     }
 }

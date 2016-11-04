@@ -127,7 +127,8 @@ public interface Constants {
         prairieRespect = 240,
         kazahstanRespect = 500,
 
-        timeToChampionship = 30;
+        timeToChampionship = 30,
+        timeToRomaAttack = 10;
 
     double bobMusclesUpMaxSpeed = 0.3;
 }

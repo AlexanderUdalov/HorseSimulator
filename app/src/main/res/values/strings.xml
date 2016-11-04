@@ -55,6 +55,7 @@
     <string name="fight">Отбиваться</string>
     <string name="run">Сбежать</string>
     <string name="god">Молить Бога о помощи</string>
+    <string name="die">Умереть</string>
     <string name="need_bester_habitat">Нужно более крутое жилье</string>
     <string name="lose_title">Соснул!</string>
     <string name="win_title">Победа!</string>
@@ -72,4 +73,7 @@
     <string name="if_lose">При проигрыше</string>
     <string name="apples">Яблоки</string>
     <string name="now_your_habitat">Теперь ваше место обитания: </string>
+    <string name="successful_run_massage">Вы успешно убежали от цыган</string>
+    <string name="ad_run_title">Вы не смогли убежать</string>
+    <string name="ad_run_speech">Помолитесь Богу, посмотрите рекламу</string>
 </resources>
