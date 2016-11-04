@@ -193,7 +193,7 @@ public class Controller {
     public void bobMuscles(){
         mHorse.downSatiety(Constants.bobMusclesDownSatiety);
         mHorse.downStamina(Constants.bobMusclesDownStamina);
-        mHorse.setMaxSpeed(mHorse.getMaxSpeed() + Constants.bobMusclesUpMaxSpeed);
+        mHorse.upMaxSpeed();
         mGoldApple -= 1;
     }
 

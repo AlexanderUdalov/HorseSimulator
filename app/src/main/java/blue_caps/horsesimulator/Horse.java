@@ -16,6 +16,7 @@ public class Horse {
     public static final int mMaxStamina = 100;
     public static final int mMaxSatiety = 100;
     public static final int mMaxHappiness = 100;
+    public static final int mMaxSpeedLimit = 60;
 
     public Horse(){
         mStamina = mMaxStamina/2;
@@ -94,8 +95,9 @@ public class Horse {
     }
 
 
-    public void setMaxSpeed(double maxSpeed) {
-        mMaxSpeed = maxSpeed;
+    public void upMaxSpeed() {
+        if (mMaxSpeed < mMaxSpeedLimit)
+            mMaxSpeed++;
     }
 
     public Habitat getHabitat() {
