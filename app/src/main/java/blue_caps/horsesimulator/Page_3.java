@@ -3,11 +3,13 @@ package blue_caps.horsesimulator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by alexu on 30.10.2016.
@@ -102,16 +104,57 @@ public class Page_3 extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_clear_field: MainActivity.controller.getHorse().setHabitat(Habitat.CLEAR_FIELD); break;
-            case R.id.button_meadows: MainActivity.controller.getHorse().setHabitat(Habitat.MEADOWS); break;
-            case R.id.button_prairie: MainActivity.controller.getHorse().setHabitat(Habitat.PRAIRIE); break;
-            case R.id.button_kazahstan: MainActivity.controller.getHorse().setHabitat(Habitat.KAZAKHSTAN); break;
-            case R.id.button_wasteland: MainActivity.controller.getHorse().setHabitat(Habitat.WASTELAND); break;
-            case R.id.button_paddock: MainActivity.controller.getHorse().setHabitat(Habitat.PADDOCK); break;
-            case R.id.button_stable: MainActivity.controller.getHorse().setHabitat(Habitat.STABLE); break;
-            case R.id.button_ranch: MainActivity.controller.getHorse().setHabitat(Habitat.RANCH); break;
-            case R.id.button_horse_club: MainActivity.controller.getHorse().setHabitat(Habitat.HORSE_CLUB); break;
-            case R.id.button_private_farm: MainActivity.controller.getHorse().setHabitat(Habitat.PRIVATE_FARM); break;
+            case R.id.button_clear_field: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.CLEAR_FIELD);
+                showToast(getString(R.string.clear_field));
+                break;
+            }
+            case R.id.button_meadows: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.MEADOWS);
+
+                showToast(getString(R.string.meadows));
+                break;
+            }
+            case R.id.button_prairie: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.PRAIRIE);
+                showToast(getString(R.string.prairie));
+                break;
+            }
+            case R.id.button_kazahstan: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.KAZAKHSTAN);
+                showToast(getString(R.string.kazakhstan));
+                break;
+            }
+            case R.id.button_wasteland: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.WASTELAND);
+                showToast(getString(R.string.wasteland));
+                break;
+            }
+            case R.id.button_paddock: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.PADDOCK);
+                showToast(getString(R.string.paddock));
+                break;
+            }
+            case R.id.button_stable: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.STABLE);
+                showToast(getString(R.string.stable));
+                break;
+            }
+            case R.id.button_ranch: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.RANCH);
+                showToast(getString(R.string.ranch));
+                break;
+            }
+            case R.id.button_horse_club: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.HORSE_CLUB);
+                showToast(getString(R.string.horse_club));
+                break;
+            }
+            case R.id.button_private_farm: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.PRIVATE_FARM);
+                showToast(getString(R.string.private_farm));
+                break;
+            }
         }
         MainActivity.page_0.update();
         MainActivity.page_1.update();
@@ -259,5 +302,14 @@ public class Page_3 extends Fragment implements View.OnClickListener{
             }
             default: return null;
         }
+    }
+
+    public void showToast(String habitat) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getString(R.string.now_your_habitat));
+        sb.append(" ");
+        sb.append(habitat);
+        Toast toast = Toast.makeText(getActivity().getApplicationContext(), sb.toString(), Toast.LENGTH_LONG);
+        toast.show();
     }
 }

@@ -71,4 +71,5 @@
     <string name="if_win">При выигрыше</string>
     <string name="if_lose">При проигрыше</string>
     <string name="apples">Яблоки</string>
+    <string name="now_your_habitat">Теперь ваше место обитания: </string>
 </resources>
