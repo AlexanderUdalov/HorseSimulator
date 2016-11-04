@@ -55,13 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
 
-        if (Build.VERSION.SDK_INT < 19) {
-            getWindow().getDecorView().setSystemUiVisibility(View.GONE);
-        } else {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-
         controller = new Controller();
         setContentView(R.layout.activity_main);
         showHowToPlay(this);
