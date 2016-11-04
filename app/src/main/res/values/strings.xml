@@ -56,4 +56,19 @@
     <string name="run">Сбежать</string>
     <string name="god">Молить Бога о помощи</string>
     <string name="need_bester_habitat">Нужно более крутое жилье</string>
+    <string name="lose_title">Соснул!</string>
+    <string name="win_title">Победа!</string>
+    <string name="find_apple">Найти яблоки</string>
+    <string name="help_people">Помочь людям</string>
+    <string name="help_horses">Помочь лошадкам</string>
+    <string name="plowed_field">Вспахать поле</string>
+    <string name="knock_corral_gate">Сломать ворота загона</string>
+    <string name="bob_muscles">Качать мышцы</string>
+    <string name="participate_horse_race">Поучаствовать в гонке</string>
+    <string name="participate_championship">Поучаствовать в чемпионате</string>
+    <string name="other">Другое</string>
+    <string name="max_speed">Максимальная скорость</string>
+    <string name="if_win">При выигрыше</string>
+    <string name="if_lose">При проигрыше</string>
+    <string name="apples">Яблоки</string>
 </resources>

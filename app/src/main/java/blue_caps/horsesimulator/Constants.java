@@ -77,33 +77,40 @@ public interface Constants {
         findAppleDownStamina = 15,
         findAppleDownSatiety = 15,
 
-        plowedFieldDownStamina = 0,
-        plowedFieldDownSatiety = 0,
-        plowedFieldDownRespectHorses = 0,
-        plowedFieldUpRespectPeoples = 0,
+        plowedFieldDownStamina = 30,
+        plowedFieldDownSatiety = 25,
+        plowedFieldDownRespectHorses = 10,
+        plowedFieldUpRespectPeoples = 10,
 
-        drugLoadsDownStamina = 0,
-        drugLoadsDownSatiety = 0,
-        drugLoadsDownRespectHorses = 0,
-        drugLoadsUpRespectPeoples = 0,
+        helpPeopleDownStamina = 20,
+        helpPeopleDownSatiety = 15,
+        helpPeopleDownRespectHorses = 6,
+        helpPeopleUpRespectPeoples = 6,
 
-        knockCorralGateDownSatiety = 0,
-        knockCorralGateDownStamina = 0,
-        knockCorralGateDownRespectPeoples = 0,
-        knockCorralGateUpRespectHorses = 0,
+        helpHorsesDownStamina = 20,
+        helpHorsesDownSatiety = 15,
+        helpHorsesUpRespectHorses = 6,
+        helpHorsesDownRespectPeoples = 6,
 
-        participateHorseRaceDownSatiety = 0,
-        participateHorseRaceDownStamina = 0,
-        participateHorseRaceUpRespectHorses = 0,
+        knockCorralGateDownSatiety = 30,
+        knockCorralGateDownStamina = 25,
+        knockCorralGateDownRespectPeoples = 10,
+        knockCorralGateUpRespectHorses = 10,
 
-        bobMusclesDownSatiety = 0,
-        bobMusclesDownStamina = 0,
+        participateHorseRaceDownSatiety = 10,
+        participateHorseRaceDownStamina = 10,
+        participateHorseRaceUpRespectHorses = 7,
+        participateHorseRaceUpRespectPeople = 7,
+
+        bobMusclesDownSatiety = 20,
+        bobMusclesDownStamina = 20,
 
         participateChampionshipDownStamina = 0,
         participateChampionshipDownSatiety = 0,
         participateChampionshipUpRespectHorses = 0,
         participateChampionshipUpRespectPeoples = 0,
         participateChampionshipUpHappiness = 0,
+        participateChampionshipUpApples = 0,
 
         participateChampionshipDownRespectHorses = 0,
         participateChampionshipDownRespectPeoples = 0,
@@ -118,5 +125,9 @@ public interface Constants {
         clearFieldRespect = 60,
         meadowsRespect = 120,
         prairieRespect = 240,
-        kazahstanRespect = 500;
+        kazahstanRespect = 500,
+
+        timeToChampionship = 30;
+
+    double bobMusclesUpMaxSpeed = 0.3;
 }

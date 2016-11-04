@@ -14,10 +14,10 @@ public class Controller {
     private int mTimeToAttack = 60;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
-    private int mTimeToChampionship = 10;
+    private int mTimeToChampionship = Constants.timeToChampionship;
     private int mGoldApple = 0;
     private int mTotalScore = 0;
-    private int mCountRomaAtack = 0;
+    private int mCountRomaAttack = 0;
     private int mDieTime = 4;
 
 
@@ -29,9 +29,9 @@ public class Controller {
         mHorse.downStamina(Constants.wasStepDownStamina);
         mLifeTime++;
 
-        if (mTimeToAttack != 0)
+        if (mTimeToAttack > 0)
             mTimeToAttack--;
-        if (mTimeToChampionship != 0)
+        if (mTimeToChampionship > 0)
             mTimeToChampionship--;
 
         dieAlert(act);
@@ -145,13 +145,12 @@ public class Controller {
 
     }
 
-    public int findApple(){
+    public void findApple(){
         Random rd = new Random();
         mHorse.downStamina(Constants.findAppleDownStamina);
         mHorse.downSatiety(Constants.findAppleDownSatiety);
         int difference = rd.nextInt(5) + 1;
         mGoldApple += difference;
-        return difference;
     }
 
     public void plowedField(){
@@ -161,11 +160,18 @@ public class Controller {
         mHorse.upRespectPeoples(Constants.plowedFieldUpRespectPeoples);
     }
 
-    public void drugLoads(){
-        mHorse.downStamina(Constants.drugLoadsDownStamina);
-        mHorse.downSatiety(Constants.drugLoadsDownSatiety);
-        mHorse.downRespectHorses(Constants.drugLoadsDownRespectHorses);
-        mHorse.upRespectPeoples(Constants.drugLoadsUpRespectPeoples);
+    public void helpPeople(){
+        mHorse.downStamina(Constants.helpPeopleDownStamina);
+        mHorse.downSatiety(Constants.helpPeopleDownSatiety);
+        mHorse.downRespectHorses(Constants.helpPeopleDownRespectHorses);
+        mHorse.upRespectPeoples(Constants.helpPeopleUpRespectPeoples);
+    }
+
+    public void helpHorses(){
+        mHorse.downStamina(Constants.helpHorsesDownStamina);
+        mHorse.downSatiety(Constants.helpHorsesDownSatiety);
+        mHorse.upRespectHorses(Constants.helpHorsesUpRespectHorses);
+        mHorse.downRespectPeoples(Constants.helpHorsesDownRespectPeoples);
     }
 
     public void knockCorralGate(){
@@ -179,13 +185,15 @@ public class Controller {
         mHorse.downSatiety(Constants.participateHorseRaceDownSatiety);
         mHorse.downStamina(Constants.participateHorseRaceDownStamina);
         mHorse.upRespectHorses(Constants.participateHorseRaceUpRespectHorses);
+        mHorse.upRespectPeoples(Constants.participateHorseRaceUpRespectPeople);
+        bobMuscles();
     }
 
 
     public void bobMuscles(){
         mHorse.downSatiety(Constants.bobMusclesDownSatiety);
         mHorse.downStamina(Constants.bobMusclesDownStamina);
-        mHorse.setMaxSpeed(mHorse.getMaxSpeed() + 0.3);
+        mHorse.setMaxSpeed(mHorse.getMaxSpeed() + Constants.bobMusclesUpMaxSpeed);
         mGoldApple -= 1;
     }
 
@@ -195,7 +203,7 @@ public class Controller {
         mHorse.downStamina(Constants.participateChampionshipDownStamina);
         mHorse.downSatiety(Constants.participateChampionshipDownSatiety);
         if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 100){
-            mGoldApple += 5;
+            mGoldApple += Constants.participateChampionshipUpApples;
             mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
             mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
             mHorse.upHappiness(Constants.participateChampionshipUpHappiness);
@@ -240,7 +248,11 @@ public class Controller {
         return mTimeToAttack;
     }
 
+    public void setTimeToChampionship(int timeToChampionship) {
+        mTimeToChampionship = timeToChampionship;
+    }
+
     public int getCountRomaAtack() {
-        return mCountRomaAtack;
+        return mCountRomaAttack;
     }
 }

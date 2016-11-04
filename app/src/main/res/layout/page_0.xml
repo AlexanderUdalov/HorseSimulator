@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_width="wrap_content"
@@ -166,13 +169,11 @@
         android:textSize="30dp"
         android:textColor="@android:color/holo_orange_dark"
         android:layout_height="wrap_content" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-    <TableRow
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -181,5 +182,9 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/button_how_to_play"/>
-    </TableRow>
-</LinearLayout>
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+    </LinearLayout>
+</ScrollView>

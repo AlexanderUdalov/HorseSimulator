@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TITLE_0 = getString(R.string.stat);
         TITLE_2 = getString(R.string.food);
         TITLE_3 = getString(R.string.habitat);
+        TITLE_4 = getString(R.string.other);
 
 
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         valueDays.setText(" " + controller.getLifeTime());
         valueGoldApple.setText("" + controller.getGoldApple());
 
-        int border = DPI*16;
+        int border = DPI*0;
         staminaWidth = (windowSize - 2*border)*((float)controller.getHorse().getStamina())/Horse.mMaxStamina;
         satietyWidth = (windowSize - 2*border)*((float)controller.getHorse().getSatiety())/Horse.mMaxSatiety;
         happinessWidth = (windowSize - 2*border)*((float)controller.getHorse().getHappiness())/Horse.mMaxHappiness;
@@ -191,6 +192,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         act.recreate();
                     }
                 });
+        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showWinChampionship(final Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.win_title).setCancelable(true);
+        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showLoseChampionship(final Activity act) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(R.string.lose_title).setCancelable(true);
         View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
