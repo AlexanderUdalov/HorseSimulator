@@ -277,6 +277,7 @@ public class Controller {
             mHorse.downStamina(mHorse.getStamina()/2);
             mHorse.downSatiety(mHorse.getSatiety()/2);
             mCountRomaAttack++;
+            mCountBattlesWon++;
             mTimeToAttack = Constants.timeToRomaAttack;
             return true;
         }

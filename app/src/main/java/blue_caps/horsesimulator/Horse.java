@@ -27,7 +27,7 @@ public class Horse {
         mRespectPeoples = 0;
         mMaxSpeed = 45;
         level = Level.SIMPLE_HORSE;
-        habitat = Habitat.KAZAKHSTAN;
+        habitat = Habitat.TABOR;
     }
 
     public int getStamina() {return mStamina;}

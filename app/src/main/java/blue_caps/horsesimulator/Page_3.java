@@ -96,6 +96,18 @@ public class Page_3 extends Fragment implements View.OnClickListener{
         buttonHorseClub.setOnClickListener(this);
         buttonPrivateFarm.setOnClickListener(this);
 
+        buttonTabor.setTextColor(Color.BLACK);
+        buttonClearField.setTextColor(Color.BLACK);
+        buttonMeadows.setTextColor(Color.BLACK);
+        buttonPrairie.setTextColor(Color.BLACK);
+        buttonKazahstan.setTextColor(Color.BLACK);
+        buttonWasteland.setTextColor(Color.BLACK);
+        buttonPaddock.setTextColor(Color.BLACK);
+        buttonStable.setTextColor(Color.BLACK);
+        buttonRanch.setTextColor(Color.BLACK);
+        buttonHorseClub.setTextColor(Color.BLACK);
+        buttonPrivateFarm.setTextColor(Color.BLACK);
+
         update();
 
         return view;
@@ -104,54 +116,69 @@ public class Page_3 extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.button_tabor: {
+                MainActivity.controller.getHorse().setHabitat(Habitat.TABOR);
+                buttonTabor.setTextColor(Color.BLUE);
+                showToast(getString(R.string.tabor));
+                break;
+            }
             case R.id.button_clear_field: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.CLEAR_FIELD);
+                buttonClearField.setTextColor(Color.BLUE);
                 showToast(getString(R.string.clear_field));
                 break;
             }
             case R.id.button_meadows: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.MEADOWS);
-
+                buttonMeadows.setTextColor(Color.BLUE);
                 showToast(getString(R.string.meadows));
                 break;
             }
             case R.id.button_prairie: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PRAIRIE);
+                buttonPrairie.setTextColor(Color.BLUE);
                 showToast(getString(R.string.prairie));
                 break;
             }
             case R.id.button_kazahstan: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.KAZAKHSTAN);
+                buttonKazahstan.setTextColor(Color.BLUE);
                 showToast(getString(R.string.kazakhstan));
                 break;
             }
             case R.id.button_wasteland: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.WASTELAND);
+                buttonWasteland.setTextColor(Color.BLUE);
                 showToast(getString(R.string.wasteland));
                 break;
             }
             case R.id.button_paddock: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PADDOCK);
+                buttonPaddock.setTextColor(Color.BLUE);
                 showToast(getString(R.string.paddock));
                 break;
             }
             case R.id.button_stable: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.STABLE);
+                buttonStable.setTextColor(Color.BLUE);
                 showToast(getString(R.string.stable));
                 break;
             }
             case R.id.button_ranch: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.RANCH);
+                buttonRanch.setTextColor(Color.BLUE);
                 showToast(getString(R.string.ranch));
                 break;
             }
             case R.id.button_horse_club: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.HORSE_CLUB);
+                buttonHorseClub.setTextColor(Color.BLUE);
                 showToast(getString(R.string.horse_club));
                 break;
             }
             case R.id.button_private_farm: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PRIVATE_FARM);
+                buttonPrivateFarm.setTextColor(Color.BLUE);
                 showToast(getString(R.string.private_farm));
                 break;
             }

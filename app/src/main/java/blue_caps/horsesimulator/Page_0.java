@@ -71,7 +71,7 @@ public class Page_0 extends Fragment {
         return view;
     }
 
-    public void update(){
+    public void update() {
         switch (MainActivity.controller.getHorse().getHabitat()){
             case TABOR: { valueHabitat.setText(R.string.tabor); break; }
             case WASTELAND: { valueHabitat.setText(R.string.wasteland); break;  }
@@ -84,7 +84,6 @@ public class Page_0 extends Fragment {
             case RANCH: { valueHabitat.setText(R.string.ranch); break;  }
             case HORSE_CLUB: { valueHabitat.setText(R.string.horse_club); break;  }
             case PRIVATE_FARM:{ valueHabitat.setText(R.string.private_farm); break;  }
-            default: break;
         }
         switch (MainActivity.controller.getTimeToAttack()){
             case 0:{
@@ -92,7 +91,7 @@ public class Page_0 extends Fragment {
                 break;
             }
             default:{
-                valueTimeToAttack.setText(new String().valueOf(MainActivity.controller.getTimeToAttack()) + " " +
+                valueTimeToAttack.setText(String.valueOf(MainActivity.controller.getTimeToAttack()) + " " +
                         getString(R.string.days));
                 break;
             }
@@ -103,10 +102,11 @@ public class Page_0 extends Fragment {
             case BOSS_HORSE: valueLevel.setText(getString(R.string.boss_horse));break;
             case HORSE_GOD: valueLevel.setText(getString(R.string.horse_god));break;
         }
-        valueRespectHorses.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectHorses()));
-        valueRespectPeople.setText(new String().valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
-        valueTotalScore.setText(" " + new String().valueOf(MainActivity.controller.getTotalScore()));
-        valueCountRomaAttack.setText(new String().valueOf(MainActivity.controller.getCountRomaAtack()));
+
+        valueRespectHorses.setText(String.valueOf(MainActivity.controller.getHorse().getRespectHorses()));
+        valueRespectPeople.setText(String.valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
+        valueTotalScore.setText(" " + String.valueOf(MainActivity.controller.getTotalScore()));
+        valueCountRomaAttack.setText(String.valueOf(MainActivity.controller.getCountRomaAtack()));
     }
 
 }
