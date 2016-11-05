@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void showRomaAttack(final MainActivity act) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(R.string.roma_attack_title).setCancelable(true);
+        builder.setTitle(R.string.roma_attack_title).setCancelable(false);
         View v = LayoutInflater.from(act).inflate(R.layout.roma_attack, null);
         TextView speechRomaAttack = (TextView) v.findViewById(R.id.roma_attack_speech);
 
@@ -246,11 +246,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (controller.runFromRoma()) {
                     alert.hide();
+                    AlertDialog.Builder successBuilder = new AlertDialog.Builder(act);
+                    successBuilder.setTitle(R.string.success).setCancelable(true);
+                    successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_run, null));
+
+                    final AlertDialog successRun = successBuilder.create();
+                    successRun.show();
                 }
                 else {
                     alert.hide();
                     final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
-                    builderAd.setTitle(R.string.ad_run_title).setCancelable(true);
+                    builderAd.setTitle(R.string.ad_run_title).setCancelable(false);
                     View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
                     TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
 
@@ -289,11 +295,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (controller.fightWithRoma()) {
                     alert.hide();
+                    AlertDialog.Builder successBuilder = new AlertDialog.Builder(act);
+                    successBuilder.setTitle(R.string.success).setCancelable(true);
+                    successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_fight, null));
+
+                    final AlertDialog successRun = successBuilder.create();
+                    successRun.show();
                 }
                 else {
                     alert.hide();
                     final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
-                    builderAd.setTitle(R.string.ad_fight_title).setCancelable(true);
+                    builderAd.setTitle(R.string.ad_fight_title).setCancelable(false);
                     View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
                     TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
 
@@ -328,3 +340,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+
