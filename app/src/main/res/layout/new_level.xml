@@ -20,8 +20,8 @@
         android:layout_gravity="center"
         android:id="@+id/new_level_text_value"/>
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/new_level_image"/>
 </LinearLayout>

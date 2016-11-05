@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
             case 1: {
                 text.setText(act.getString(R.string.you_are));
                 textValue.setText(act.getString(R.string.amazing_horse));
-                //image.setImageResource(R.drawable.amazing_horse);
+                image.setImageResource(R.drawable.amazing_horse);
                 break;
             }
             case 2: {
@@ -213,10 +213,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case 3: {
-
+                text.setText(act.getString(R.string.you_are));
+                textValue.setText(act.getString(R.string.boss_horse));
+                image.setImageResource(R.drawable.boss_horse);
+                break;
             }
             case 4: {
-
+                text.setText(act.getString(R.string.you_are));
+                textValue.setText(act.getString(R.string.horse_god));
+                image.setImageResource(R.drawable.god_horse);
+                break;
             }
         }
         builder.setView(v);
