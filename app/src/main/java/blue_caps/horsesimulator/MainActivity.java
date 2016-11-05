@@ -3,6 +3,7 @@ package blue_caps.horsesimulator;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -165,7 +166,9 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        act.recreate();
+                        Intent starterIntent = act.getIntent();
+                        act.finish();
+                        act.startActivity(starterIntent);
                     }
                 });
         View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);

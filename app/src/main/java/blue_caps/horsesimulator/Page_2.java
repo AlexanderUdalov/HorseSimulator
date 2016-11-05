@@ -67,6 +67,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        MainActivity.controller.wasStep(getActivity());
 
         switch (view.getId()) {
             case R.id.button_eat_grass:     MainActivity.controller.eatGrass(); break;
@@ -75,7 +76,6 @@ public class Page_2 extends Fragment implements View.OnClickListener {
             case R.id.button_ask_for_food:  MainActivity.controller.askForFood(); break;
             case R.id.button_eat_apple:     MainActivity.controller.eatApple(); break;
         }
-        MainActivity.controller.wasStep(getActivity());
         update();
         MainActivity.updateStats();
    }
