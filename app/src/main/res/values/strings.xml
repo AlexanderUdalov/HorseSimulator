@@ -85,6 +85,8 @@
     <string name="ad_fight_title">Вы проиграли в битве с цыганами</string>
     <string name="ad_speech">Помолитесь Богу, посмотрите рекламу</string>
     <string name="success">Поздравляем!</string>
-    <string name="success_run">Вы сбежали от цыган. Готовьтесь к следующему набегу.</string>
-    <string name="success_fight">Вы победили цыган. Готовьтесь к следующему набегу.</string>
+    <string name="success_run">Цыгане напали внезапно, на этот раз вы смогли сбежать от них,
+        но готовтесь, они обязательно нападут на вас снова.</string>
+    <string name="success_fight">Цыгане напали внезапно, на этот раз вы смогли отбиться от них,
+        но готовтесь, они обязательно нападут на вас снова.</string>
 </resources>
