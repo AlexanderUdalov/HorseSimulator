@@ -27,7 +27,7 @@
     <string name="stable">Конюшня</string>
     <string name="table_level">Таблица уровней</string>
     <string name="days">дней</string>
-    <string name="ok">Ясно</string>
+    <string name="ok">ОК</string>
     <string name="level_title">Уровень</string>
     <string name="level_title_score">Очки</string>
     <string name="have_sleep">Поспать</string>
@@ -84,4 +84,7 @@
     <string name="ad_run_title">Вы не смогли убежать</string>
     <string name="ad_fight_title">Вы проиграли в битве с цыганами</string>
     <string name="ad_speech">Помолитесь Богу, посмотрите рекламу</string>
+    <string name="success">Поздравляем!</string>
+    <string name="success_run">Вы сбежали от цыган. Готовьтесь к следующему набегу.</string>
+    <string name="success_fight">Вы победили цыган. Готовьтесь к следующему набегу.</string>
 </resources>
