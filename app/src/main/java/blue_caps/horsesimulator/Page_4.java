@@ -122,7 +122,7 @@ public class Page_4 extends Fragment implements View.OnClickListener {
                 sb.append(-Constants.findAppleDownStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
                 sb.append(tmpSatiety);
-                sb.append(": -");
+                sb.append(": ");
                 sb.append(-Constants.findAppleDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
                 sb.append(tmpHappiness);
@@ -224,7 +224,7 @@ public class Page_4 extends Fragment implements View.OnClickListener {
                 sb.append(-Constants.bobMusclesDownStamina - Constants.wasStepDownStamina);
                 sb.append("; ");
                 sb.append(tmpSatiety);
-                sb.append(": -");
+                sb.append(": ");
                 sb.append(-Constants.bobMusclesDownSatiety - Constants.wasStepDownSatiety);
                 sb.append("; ");
                 sb.append(getString(R.string.max_speed));
