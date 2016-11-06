@@ -31,14 +31,12 @@ public class Controller {
         mHorse.downHappiness(Constants.wasStepDownHappiness);
         mHorse.downSatiety(Constants.wasStepDownSatiety);
         mHorse.downStamina(Constants.wasStepDownStamina);
-       /* mTotalScore = (int) ((getHorse().getMaxSpeed())-20)*100 +
+        mTotalScore = (int) ((getHorse().getMaxSpeed())-20)*100 +
                 mLifeTime*100 +
                 getHorse().getRespectHorses()*20 +
                 getHorse().getRespectPeoples()*20 +
                 mCountBattlesWon*1000;
 
-        */
-        mTotalScore = mLifeTime*1000;
         if (mHorse.getLevel() != Level.HORSE_GOD)
             if (mTotalScore > mNextLevel[index]){
                 index++;

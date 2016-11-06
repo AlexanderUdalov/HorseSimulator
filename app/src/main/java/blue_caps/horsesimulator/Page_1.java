@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -23,11 +24,18 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             buttonGetMassage,
             buttonSwimInLake;
     private TextView
-            textHaveSleep,
+            haveSleepStaminaText,
+            haveSleepSatietyText,
+            haveSleepHappinessText,
             textGoToWatering,
             textGoToDrinkers,
             textGetMassage,
             textSwimInLake;
+    private ImageView
+            haveSleepStaminaImage,
+            haveSleepSatietyImage,
+            haveSleepHappinessImage;
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,17 +52,28 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         buttonGetMassage   = (Button) view.findViewById(R.id.button_get_massage);
         buttonSwimInLake   = (Button) view.findViewById(R.id.button_swim_in_lake);
 
-        textHaveSleep = (TextView) view.findViewById(R.id.text_have_sleep);
+        haveSleepStaminaText = (TextView) view.findViewById(R.id.have_sleep_stamina_text);
+        haveSleepSatietyText = (TextView) view.findViewById(R.id.have_sleep_satiety_text);
+        haveSleepHappinessText = (TextView) view.findViewById(R.id.have_sleep_happiness_text);
         textGoToWatering = (TextView) view.findViewById(R.id.text_go_to_watering);
         textGoToDrinkers = (TextView) view.findViewById(R.id.text_go_to_drinkers);
         textGetMassage = (TextView) view.findViewById(R.id.text_get_massage);
         textSwimInLake = (TextView) view.findViewById(R.id.text_swim_in_lake);
 
-        textHaveSleep.setText(makeParamString(R.id.text_have_sleep));
+        haveSleepStaminaImage = (ImageView) view.findViewById(R.id.have_sleep_stamina_image);
+        haveSleepSatietyImage  = (ImageView) view.findViewById(R.id.have_sleep_satiety_image);
+        haveSleepHappinessImage = (ImageView) view.findViewById(R.id.have_sleep_happiness_image);
+
         textGoToWatering.setText(makeParamString(R.id.text_go_to_watering));
         textGoToDrinkers.setText(makeParamString(R.id.text_go_to_drinkers));
         textGetMassage.setText(makeParamString(R.id.text_get_massage));
         textSwimInLake.setText(makeParamString(R.id.text_swim_in_lake));
+
+        haveSleepStaminaImage.setImageResource(R.drawable.stamina);
+        haveSleepSatietyImage.setImageResource(R.drawable.satiety);
+        haveSleepStaminaText.setText("+" + Constants.haveSleepUpStaminaTABOR);
+        haveSleepSatietyText.setText("-" + Constants.haveSleepDownSatietyTABOR);
+
 
         buttonHaveSleep.setOnClickListener(this);
         buttonGoToWatering.setOnClickListener(this);
@@ -88,7 +107,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         String tmpSatiety = getActivity().getString(R.string.satiety);
         String tmpHappiness = getActivity().getString(R.string.happiness);
         switch (id) {
-            case R.id.text_have_sleep: {
+            /*case R.id.text_have_sleep: {
                 sb.append(tmpStamina);
                 sb.append(": +");
                 switch (MainActivity.controller.getHorse().getHabitat()) {
@@ -198,7 +217,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                     }
                 }
                 return sb.toString();
-            }
+            }*/
             case R.id.text_go_to_watering:{
                 sb.append(tmpStamina);
                 sb.append(": +");

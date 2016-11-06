@@ -27,7 +27,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_have_sleep"/>
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/have_sleep_stamina_text"/>
+        <ImageView
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:id="@+id/have_sleep_stamina_image"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
+            android:id="@+id/have_sleep_satiety_text"/>
+        <ImageView
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:id="@+id/have_sleep_satiety_image"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
+            android:id="@+id/have_sleep_happiness_text"/>
+        <ImageView
+            android:layout_width="20sp"
+            android:layout_height="20sp"
+            android:id="@+id/have_sleep_happiness_image"/>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
