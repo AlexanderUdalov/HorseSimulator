@@ -2,6 +2,8 @@ package blue_caps.horsesimulator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -332,5 +334,14 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             }
             default: return;
         }
+    }
+
+    public int getCountsOfDigits(long number) {
+        int count = (number == 0) ? 1 : 0;
+        while (number != 0) {
+            count++;
+            number /= 10;
+        }
+        return count;
     }
 }

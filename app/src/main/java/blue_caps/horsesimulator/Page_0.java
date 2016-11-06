@@ -97,6 +97,7 @@ public class Page_0 extends Fragment {
             }
         }
         switch (MainActivity.controller.getHorse().getLevel()){
+            case SIMPLE_HORSE: valueLevel.setText(getString(R.string.simple_horse));break;
             case AMAZING_HORSE: valueLevel.setText(getString(R.string.amazing_horse));break;
             case PICKUP_MASTER_HORSE: valueLevel.setText(getString(R.string.pickup_master_horse));break;
             case BOSS_HORSE: valueLevel.setText(getString(R.string.boss_horse));break;

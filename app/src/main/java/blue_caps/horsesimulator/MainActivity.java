@@ -29,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
             scaleStamina,
             scaleSatiety,
             scaleHappiness,
-            imageGoldApple;
+            imageGoldApple,
+            imageStamina,
+            imageSatiety,
+            imageHappiness;
     private static int
             DPI,
             windowSize;
@@ -76,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
         TITLE_3 = getString(R.string.habitat);
         TITLE_4 = getString(R.string.other);
 
-
+        imageStamina = (ImageView) findViewById(R.id.image_stamina);
+        imageSatiety = (ImageView) findViewById(R.id.image_satiety);
+        imageHappiness = (ImageView) findViewById(R.id.image_happiness);
         imageGoldApple = (ImageView) findViewById(R.id.image_goldapple);
         scaleStamina = (ImageView) findViewById(R.id.scale_stamina);
         scaleSatiety = (ImageView) findViewById(R.id.scale_satiety);
@@ -89,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageGoldApple.setImageResource(R.drawable.image_goldapple);
+        imageStamina.setImageResource(R.drawable.stamina);
+        imageSatiety.setImageResource(R.drawable.satiety);
+        imageHappiness.setImageResource(R.drawable.happiness);
 
         pager = (ViewPager) findViewById(R.id.pager);
         PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
