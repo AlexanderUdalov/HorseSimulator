@@ -105,6 +105,7 @@ public class Page_4 extends Fragment implements View.OnClickListener {
         }
         MainActivity.controller.wasStep(getActivity());
         update();
+        MainActivity.page_3.update();
         MainActivity.updateStats();
     }
 

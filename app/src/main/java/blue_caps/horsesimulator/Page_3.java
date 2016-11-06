@@ -96,18 +96,6 @@ public class Page_3 extends Fragment implements View.OnClickListener{
         buttonHorseClub.setOnClickListener(this);
         buttonPrivateFarm.setOnClickListener(this);
 
-        buttonTabor.setTextColor(Color.BLACK);
-        buttonClearField.setTextColor(Color.BLACK);
-        buttonMeadows.setTextColor(Color.BLACK);
-        buttonPrairie.setTextColor(Color.BLACK);
-        buttonKazahstan.setTextColor(Color.BLACK);
-        buttonWasteland.setTextColor(Color.BLACK);
-        buttonPaddock.setTextColor(Color.BLACK);
-        buttonStable.setTextColor(Color.BLACK);
-        buttonRanch.setTextColor(Color.BLACK);
-        buttonHorseClub.setTextColor(Color.BLACK);
-        buttonPrivateFarm.setTextColor(Color.BLACK);
-
         update();
 
         return view;
@@ -183,8 +171,9 @@ public class Page_3 extends Fragment implements View.OnClickListener{
                 break;
             }
         }
-        MainActivity.page_3.update();
-        //MainActivity.page_4.update();
+        update();
+        MainActivity.page_2.update();
+        MainActivity.page_4.update();
     }
 
     public void update(){

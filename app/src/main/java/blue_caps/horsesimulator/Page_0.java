@@ -45,8 +45,6 @@ public class Page_0 extends Fragment {
         buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
         buttonHowToPlay = (Button) view.findViewById(R.id.button_how_to_play);
 
-        update();
-
         buttonTableLevel.setText(R.string.table_level);
         buttonTableLevel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +65,8 @@ public class Page_0 extends Fragment {
                 MainActivity.showHowToPlay(getActivity());
             }
         });
+
+        update();
 
         return view;
     }

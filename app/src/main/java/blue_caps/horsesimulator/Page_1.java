@@ -97,7 +97,9 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             case R.id.button_get_massage:    MainActivity.controller.getMassage(); break;
             case R.id.button_swim_in_lake:   MainActivity.controller.swimInLake(); break;
         }
+        update();
         MainActivity.page_0.update();
+        MainActivity.page_2.update();
         MainActivity.updateStats();
     }
 
