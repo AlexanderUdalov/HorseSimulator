@@ -65,6 +65,75 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_2, null);
 
+        switch (MainActivity.controller.getHorse().getHabitat()) {
+            case TABOR:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case PADDOCK:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case STABLE:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case WASTELAND:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case CLEAR_FIELD:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case HORSE_CLUB:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness));
+            }
+            case PRIVATE_FARM:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness));
+            }
+            case PRAIRIE:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness));
+            }
+            case KAZAKHSTAN:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness));
+            }
+            case RANCH:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case MEADOWS:{
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+        }
+        goToWateringStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        goToWateringSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
+        goToWateringHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+        goToDrinkersStaminaText.setText(withSign(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina));
+        goToDrinkersSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
+        goToDrinkersHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
+        getMassageStaminaText.setText(withSign(Constants.getMassageUpStamina - Constants.wasStepDownStamina));
+        getMassageSatietyText.setText(withSign(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety));
+        getMassageHappinessText.setText(withSign(Constants.getMassageUpHappiness - Constants.wasStepDownHappiness));
+        swimInLakeStaminaText.setText(withSign(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina));
+        swimInLakeSatietyText.setText(withSign(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety));
+        swimInLakeHappinessText.setText(withSign(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness));
         buttonHaveSleep = (Button) view.findViewById(R.id.button_have_sleep);
         buttonGoToWatering = (Button) view.findViewById(R.id.button_go_to_watering);
         buttonGoToDrinkers = (Button) view.findViewById(R.id.button_go_to_drinkers);
@@ -148,182 +217,6 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         MainActivity.updateStats();
     }
 
-    public String makeParamString(int id) {
-        StringBuilder sb = new StringBuilder();
-        String tmpStamina = getActivity().getString(R.string.stamina);
-        String tmpSatiety = getActivity().getString(R.string.satiety);
-        String tmpHappiness = getActivity().getString(R.string.happiness);
-        switch (id) {
-            /*case R.id.text_have_sleep: {
-                sb.append(tmpStamina);
-                sb.append(": +");
-                switch (MainActivity.controller.getHorse().getHabitat()) {
-                    case TABOR: {
-                        sb.append(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case WASTELAND: {
-                        sb.append(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case CLEAR_FIELD: {
-                        sb.append(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case MEADOWS: {
-                        sb.append(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case PRAIRIE: {
-                        sb.append(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety);
-                        sb.append("; ");
-                        sb.append(tmpHappiness);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness);
-                        break;
-                    }
-                    case KAZAKHSTAN: {
-                        sb.append(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety);
-                        sb.append("; ");
-                        sb.append(tmpHappiness);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness);
-                        break;
-                    }
-                    case PADDOCK: {
-                        sb.append(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case STABLE: {
-                        sb.append(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case RANCH: {
-                        sb.append(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety);
-                        break;
-                    }
-                    case HORSE_CLUB: {
-                        sb.append(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety);
-                        sb.append("; ");
-                        sb.append(tmpHappiness);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness);
-                        break;
-                    }
-                    case PRIVATE_FARM: {
-                        sb.append(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety);
-                        sb.append("; ");
-                        sb.append(tmpSatiety);
-                        sb.append(": ");
-                        sb.append(-Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness);
-                        break;
-                    }
-                }
-                return sb.toString();
-            }*/
-            case R.id.text_go_to_watering:{
-                sb.append(tmpStamina);
-                sb.append(": +");
-                sb.append(Constants.goToWateringUpStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(Constants.goToWateringUpHappiness - Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            case R.id.text_go_to_drinkers:{
-                sb.append(tmpStamina);
-                sb.append(": +");
-                sb.append(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.goToDrinkersDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(Constants.goToDrinkersUpHappiness - Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            case R.id.text_get_massage:{
-                sb.append(tmpStamina);
-                sb.append(": +");
-                sb.append(Constants.getMassageUpStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(Constants.getMassageUpHappiness- Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            case R.id.text_swim_in_lake:{
-                sb.append(tmpStamina);
-                sb.append(": +");
-                sb.append(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            default: return null;
-        }
-    }
 
     public void update(){
         switch (MainActivity.controller.getHorse().getHabitat()){
@@ -332,10 +225,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(R.string.need_bester_habitat);
-                textGetMassage.setText(R.string.need_bester_habitat);
-                textGoToWatering.setText(R.string.need_bester_habitat);
-                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             case WASTELAND:{
@@ -343,10 +236,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(getString(R.string.need_bester_habitat));
-                textGetMassage.setText(R.string.need_bester_habitat);
-                textGoToWatering.setText(R.string.need_bester_habitat);
-                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             case PADDOCK:{
@@ -354,10 +247,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(R.string.need_bester_habitat);
-                textGetMassage.setText(R.string.need_bester_habitat);
-                textGoToWatering.setText(R.string.need_bester_habitat);
-                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             case STABLE:{
@@ -365,9 +258,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(R.string.need_bester_habitat);
-                textGetMassage.setText(R.string.need_bester_habitat);
-                textGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             case CLEAR_FIELD:{
@@ -375,9 +269,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(true);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(R.string.need_bester_habitat);
-                textGetMassage.setText(R.string.need_bester_habitat);
-                textGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.go_to_watering);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             case PRAIRIE:{
@@ -385,8 +280,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(true);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(true);
-                textGoToDrinkers.setText(R.string.need_bester_habitat);
-                textGetMassage.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.go_to_watering);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.swim_in_lake);
                 break;
             }
             case HORSE_CLUB:{
@@ -394,20 +291,41 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(true);
                 buttonSwimInLake.setEnabled(false);
-                textSwimInLake.setText(R.string.need_bester_habitat);
-                textGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.get_massage);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
+                break;
+            }
+            case KAZAKHSTAN:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(true);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(true);
+                buttonGoToWatering.setText(R.string.go_to_watering);
+                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonSwimInLake.setText(R.string.swim_in_lake);
+                break;
+            }
+            case PRIVATE_FARM:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(true);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.get_massage);
+                buttonSwimInLake.setText(R.string.need_bester_habitat);
                 break;
             }
             default: return;
         }
     }
 
-    public int getCountsOfDigits(long number) {
-        int count = (number == 0) ? 1 : 0;
-        while (number != 0) {
-            count++;
-            number /= 10;
-        }
-        return count;
+    public String withSign(int value){
+        if (value > 0)
+            return "+" + value;
+        return "" + value;
     }
 }

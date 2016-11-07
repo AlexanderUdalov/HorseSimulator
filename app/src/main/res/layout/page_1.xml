@@ -24,36 +24,51 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <TableRow
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:id="@+id/have_sleep_stamina_text"/>
-        <ImageView
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:id="@+id/have_sleep_stamina_image"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:id="@+id/have_sleep_stamina_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/have_sleep_stamina_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="5dp"
-            android:id="@+id/have_sleep_satiety_text"/>
-        <ImageView
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:id="@+id/have_sleep_satiety_image"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/have_sleep_satiety_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/have_sleep_satiety_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="5dp"
-            android:id="@+id/have_sleep_happiness_text"/>
-        <ImageView
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:id="@+id/have_sleep_happiness_image"/>
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/have_sleep_happiness_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/have_sleep_happiness_image"/>
+        </TableRow>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
@@ -74,10 +89,51 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_go_to_watering"/>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_watering_stamina_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_watering_stamina_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_watering_satiety_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_watering_satiety_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_watering_happiness_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_watering_happiness_image"/>
+        </TableRow>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
@@ -98,10 +154,51 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_go_to_drinkers"/>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_drinkers_stamina_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_drinkers_stamina_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_drinkers_satiety_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_drinkers_satiety_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/go_to_drinkers_happiness_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/go_to_drinkers_happiness_image"/>
+        </TableRow>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
@@ -113,8 +210,6 @@
             android:layout_height="wrap_content"
             android:text="@string/get_massage"
             android:id="@+id/button_get_massage"/>
-
-
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
@@ -122,10 +217,51 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_get_massage"/>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:id="@+id/get_massage_stamina_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/get_massage_stamina_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/get_massage_satiety_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/get_massage_satiety_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/get_massage_happiness_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/get_massage_happiness_image"/>
+        </TableRow>
     </TableRow>
     <TableRow
         android:paddingLeft="20dp"
@@ -146,10 +282,51 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text_swim_in_lake"/>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:id="@+id/swim_in_lake_stamina_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/swim_in_lake_stamina_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/swim_in_lake_satiety_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/swim_in_lake_satiety_image"/>
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/swim_in_lake_happiness_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/swim_in_lake_happiness_image"/>
+        </TableRow>
     </TableRow>
     <View
         android:layout_width="match_parent"
