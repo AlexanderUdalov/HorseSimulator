@@ -171,6 +171,7 @@ public class Page_3 extends Fragment implements View.OnClickListener{
                 break;
             }
         }
+        MainActivity.controller.dieCheck(getActivity());
         update();
         MainActivity.page_2.update();
         MainActivity.page_4.update();

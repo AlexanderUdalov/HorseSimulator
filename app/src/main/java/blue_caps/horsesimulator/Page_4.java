@@ -85,7 +85,7 @@ public class Page_4 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
+        MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
@@ -103,7 +103,7 @@ public class Page_4 extends Fragment implements View.OnClickListener {
                 break;
             }
         }
-        MainActivity.controller.wasStep(getActivity());
+        MainActivity.controller.dieCheck(getActivity());
         update();
         MainActivity.page_3.update();
         MainActivity.updateStats();

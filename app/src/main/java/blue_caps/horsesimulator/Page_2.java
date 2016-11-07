@@ -169,6 +169,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
             case R.id.button_ask_for_food:  MainActivity.controller.askForFood(); break;
             case R.id.button_eat_apple:     MainActivity.controller.eatApple(); break;
         }
+        MainActivity.controller.dieCheck(getActivity());
         update();
         MainActivity.page_1.update();
         MainActivity.page_3.update();

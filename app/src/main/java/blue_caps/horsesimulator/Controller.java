@@ -19,7 +19,9 @@ public class Controller {
     private int mTotalScore = 0;
     private int mCountRomaAttack = 0;
     private int mCountBattlesWon = 0;
-    private int mDieTime = 4;
+    private int mDieTimeSatiety = 4;
+    private int mDieTimeStamina = 4;
+    private int mDieTimeHappiness = 4;
     private int [] mNextLevel = {Constants.amazingHorse, Constants.pickupMasterHorse, Constants.bossHorse,Constants.godHorse};
     private int index = 0;
 
@@ -50,25 +52,37 @@ public class Controller {
             mTimeToAttack--;
         if (mTimeToChampionship > 0)
             mTimeToChampionship--;
-
-        dieAlert(act);
-        dieDialog(act);
         romaAttack(act);
     }
 
+    public void dieCheck(Activity act){
+        dieAlert(act);
+        dieDialog(act);
+    }
+
     public void dieAlert(Activity act){
-        if (mHorse.getSatiety() == 0 ||
-                mHorse.getStamina() == 0 ||
-                mHorse.getHappiness() == 0) {
-            if (mDieTime == 4)
+        if (mHorse.getStamina() == 0) {
+            if (mDieTimeStamina == 4)
                 MainActivity.showDieAlert(act);
-            mDieTime--;
+            mDieTimeStamina--;
         }
-        else mDieTime = 4;
+        else mDieTimeStamina = 4;
+        if (mHorse.getSatiety() == 0) {
+            if ((mDieTimeSatiety == 4)&&(mDieTimeStamina > 3))
+                MainActivity.showDieAlert(act);
+            mDieTimeSatiety--;
+        }
+        else mDieTimeSatiety = 4;
+        if (mHorse.getHappiness() == 0) {
+            if ((mDieTimeHappiness == 4)&&(mDieTimeStamina > 3)&&(mDieTimeSatiety > 3))
+                MainActivity.showDieAlert(act);
+            mDieTimeHappiness--;
+        }
+        else mDieTimeHappiness = 4;
     }
 
     public void dieDialog(Activity act){
-        if (mDieTime == 0)
+        if ((mDieTimeStamina == 0)||(mDieTimeSatiety == 0)||(mDieTimeHappiness == 0))
             MainActivity.showDieDialog(act);
     }
 
