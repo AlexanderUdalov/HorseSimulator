@@ -27,7 +27,9 @@ public class Page_3 extends Fragment implements View.OnClickListener{
             buttonStable,
             buttonRanch,
             buttonHorseClub,
-            buttonPrivateFarm;
+            buttonPrivateFarm,
+
+            currentHabitat;
     private TextView
             textTabor,
             textClearField,
@@ -61,6 +63,22 @@ public class Page_3 extends Fragment implements View.OnClickListener{
         buttonRanch = (Button) view.findViewById(R.id.button_ranch);
         buttonHorseClub = (Button) view.findViewById(R.id.button_horse_club);
         buttonPrivateFarm = (Button) view.findViewById(R.id.button_private_farm);
+
+        switch (MainActivity.controller.getHorse().getHabitat()) {
+            case TABOR:        currentHabitat = buttonTabor; break;
+            case CLEAR_FIELD:  currentHabitat = buttonClearField; break;
+            case MEADOWS:      currentHabitat = buttonMeadows; break;
+            case PRAIRIE:      currentHabitat = buttonPrairie; break;
+            case KAZAKHSTAN:   currentHabitat = buttonKazahstan; break;
+            case WASTELAND:    currentHabitat = buttonWasteland; break;
+            case PADDOCK:      currentHabitat = buttonPaddock; break;
+            case STABLE:       currentHabitat = buttonStable; break;
+            case RANCH:        currentHabitat = buttonRanch; break;
+            case HORSE_CLUB:   currentHabitat = buttonHorseClub; break;
+            case PRIVATE_FARM: currentHabitat = buttonPrivateFarm; break;
+        }
+
+        currentHabitat.setTextColor(Color.BLUE);
 
         textClearField = (TextView) view.findViewById(R.id.text_clear_field);
         textMeddow = (TextView) view.findViewById(R.id.text_meadows);
@@ -106,67 +124,67 @@ public class Page_3 extends Fragment implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.button_tabor: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.TABOR);
-                buttonTabor.setTextColor(Color.BLUE);
+                changeHabitat(buttonTabor);
                 showToast(getString(R.string.tabor));
                 break;
             }
             case R.id.button_clear_field: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.CLEAR_FIELD);
-                buttonClearField.setTextColor(Color.BLUE);
+                changeHabitat(buttonClearField);
                 showToast(getString(R.string.clear_field));
                 break;
             }
             case R.id.button_meadows: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.MEADOWS);
-                buttonMeadows.setTextColor(Color.BLUE);
+                changeHabitat(buttonMeadows);
                 showToast(getString(R.string.meadows));
                 break;
             }
             case R.id.button_prairie: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PRAIRIE);
-                buttonPrairie.setTextColor(Color.BLUE);
+                changeHabitat(buttonPrairie);
                 showToast(getString(R.string.prairie));
                 break;
             }
             case R.id.button_kazahstan: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.KAZAKHSTAN);
-                buttonKazahstan.setTextColor(Color.BLUE);
+                changeHabitat(buttonKazahstan);
                 showToast(getString(R.string.kazakhstan));
                 break;
             }
             case R.id.button_wasteland: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.WASTELAND);
-                buttonWasteland.setTextColor(Color.BLUE);
+                changeHabitat(buttonWasteland);
                 showToast(getString(R.string.wasteland));
                 break;
             }
             case R.id.button_paddock: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PADDOCK);
-                buttonPaddock.setTextColor(Color.BLUE);
+                changeHabitat(buttonPaddock);
                 showToast(getString(R.string.paddock));
                 break;
             }
             case R.id.button_stable: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.STABLE);
-                buttonStable.setTextColor(Color.BLUE);
+                changeHabitat(buttonStable);
                 showToast(getString(R.string.stable));
                 break;
             }
             case R.id.button_ranch: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.RANCH);
-                buttonRanch.setTextColor(Color.BLUE);
+                changeHabitat(buttonRanch);
                 showToast(getString(R.string.ranch));
                 break;
             }
             case R.id.button_horse_club: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.HORSE_CLUB);
-                buttonHorseClub.setTextColor(Color.BLUE);
+                changeHabitat(buttonHorseClub);
                 showToast(getString(R.string.horse_club));
                 break;
             }
             case R.id.button_private_farm: {
                 MainActivity.controller.getHorse().setHabitat(Habitat.PRIVATE_FARM);
-                buttonPrivateFarm.setTextColor(Color.BLUE);
+                changeHabitat(buttonPrivateFarm);
                 showToast(getString(R.string.private_farm));
                 break;
             }
@@ -180,7 +198,6 @@ public class Page_3 extends Fragment implements View.OnClickListener{
     public void update(){
         int tmpRespectHorse = MainActivity.controller.getHorse().getRespectHorses();
         int tmpRespectPeople = MainActivity.controller.getHorse().getRespectPeoples();
-        buttonTabor.setClickable(false);
         if (tmpRespectHorse  > Constants.wastelandRespect){
             buttonWasteland.setEnabled(true);
             if (tmpRespectHorse  > Constants.clearFieldRespect){
@@ -323,7 +340,17 @@ public class Page_3 extends Fragment implements View.OnClickListener{
         sb.append(getString(R.string.now_your_habitat));
         sb.append(" ");
         sb.append(habitat);
-        Toast toast = Toast.makeText(getActivity().getApplicationContext(), sb.toString(), Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getActivity().getApplicationContext(), sb.toString(), Toast.LENGTH_SHORT);
         toast.show();
+    }
+    
+    private void changeHabitat(Button newHabitat) {
+        if (currentHabitat.isEnabled())
+            currentHabitat.setTextColor(Color.BLACK);
+        currentHabitat.setTextColor(Color.LTGRAY);
+
+        currentHabitat = newHabitat;
+        currentHabitat.setTextColor(Color.BLUE);
+
     }
 }
