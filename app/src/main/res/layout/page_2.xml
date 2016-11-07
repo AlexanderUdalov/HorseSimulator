@@ -12,6 +12,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="20dp"
+            android:paddingTop="8dp"
             android:paddingRight="20dp">
             <Button
                 android:layout_width="match_parent"
@@ -75,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="8dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
             <Button
@@ -145,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="8dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
             <Button
@@ -215,6 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="8dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
             <Button
@@ -279,6 +283,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="8dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
             <Button
@@ -338,6 +343,21 @@
                     android:layout_height="20sp"
                     android:id="@+id/eat_apple_happiness_image"/>
             </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/eat_apple_gold_apple_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/eat_apple_gold_apple_image"/>
+        </TableRow>
         </TableRow>
         <View
             android:layout_width="match_parent"

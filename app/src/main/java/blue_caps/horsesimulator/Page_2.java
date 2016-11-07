@@ -37,7 +37,8 @@ public class Page_2 extends Fragment implements View.OnClickListener {
             askForFoodHappinessText,
             eatAppleStaminaText,
             eatAppleSatietyText,
-            eatAppleHappinessText;
+            eatAppleHappinessText,
+            eatAppleGoldAppleText;
     private ImageView
             eatGrassStaminaImage,
             eatGrassSatietyImage,
@@ -53,7 +54,8 @@ public class Page_2 extends Fragment implements View.OnClickListener {
             askForFoodHappinessImage,
             eatAppleStaminaImage,
             eatAppleSatietyImage,
-            eatAppleHappinessImage;
+            eatAppleHappinessImage,
+            eatAppleGoldAppleImage;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
         eatAppleStaminaText = (TextView) view.findViewById(R.id.eat_apple_stamina_text);
         eatAppleSatietyText = (TextView) view.findViewById(R.id.eat_apple_satiety_text);
         eatAppleHappinessText = (TextView) view.findViewById(R.id.eat_apple_happiness_text);
+        eatAppleGoldAppleText = (TextView) view.findViewById(R.id.eat_apple_gold_apple_text);
 
         eatGrassStaminaImage = (ImageView) view.findViewById(R.id.eat_grass_stamina_image);
         eatGrassSatietyImage= (ImageView) view.findViewById(R.id.eat_grass_satiety_image);
@@ -103,6 +106,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
         eatAppleStaminaImage = (ImageView) view.findViewById(R.id.eat_apple_stamina_image);
         eatAppleSatietyImage = (ImageView) view.findViewById(R.id.eat_apple_satiety_image);
         eatAppleHappinessImage = (ImageView) view.findViewById(R.id.eat_apple_happiness_image);
+        eatAppleGoldAppleImage = (ImageView) view.findViewById(R.id.eat_apple_gold_apple_image);
 
         eatGrassStaminaImage.setImageResource(R.drawable.stamina);
         eatGrassSatietyImage.setImageResource(R.drawable.satiety);
@@ -119,6 +123,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
         eatAppleStaminaImage.setImageResource(R.drawable.stamina);
         eatAppleSatietyImage.setImageResource(R.drawable.satiety);
         eatAppleHappinessImage.setImageResource(R.drawable.happiness);
+        eatAppleGoldAppleImage.setImageResource(R.drawable.image_goldapple);
 
         eatGrassStaminaText.setText(withSign(-Constants.eatGrassDownStamina - Constants.wasStepDownStamina));
         eatGrassSatietyText.setText(withSign(Constants.eatGrassUpSatiety - Constants.wasStepDownSatiety));
@@ -139,6 +144,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
         eatAppleStaminaText.setText(withSign(-Constants.eatGrassDownStamina - Constants.wasStepDownStamina));
         eatAppleSatietyText.setText(withSign(Constants.eatAppleUpSatiety - Constants.wasStepDownSatiety));
         eatAppleHappinessText.setText(withSign(Constants.eatAppleUpHappiness - Constants.wasStepDownHappiness));
+        eatAppleGoldAppleText.setText(withSign(-1));
 
 
         buttonEatGrass.setOnClickListener(this);
