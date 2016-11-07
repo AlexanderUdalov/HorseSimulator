@@ -272,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
                     successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_run, null));
 
                     final AlertDialog successRun = successBuilder.create();
+                    MainActivity.updateStats();
                     successRun.show();
                 }
                 else {
@@ -321,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
                     successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_fight, null));
 
                     final AlertDialog successRun = successBuilder.create();
+                    MainActivity.updateStats();
                     successRun.show();
                 }
                 else {
