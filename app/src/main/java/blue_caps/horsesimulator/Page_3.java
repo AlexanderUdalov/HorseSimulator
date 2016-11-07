@@ -1,47 +1,93 @@
 package blue_caps.horsesimulator;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by alexu on 30.10.2016.
+ * Created by alexu on 4.11.2016.
  */
 
-public class Page_3 extends Fragment implements View.OnClickListener{
+public class Page_3 extends Fragment implements View.OnClickListener {
     private Button
-            buttonTabor,
-            buttonClearField,
-            buttonMeadows,
-            buttonPrairie,
-            buttonKazahstan,
-            buttonWasteland,
-            buttonPaddock,
-            buttonStable,
-            buttonRanch,
-            buttonHorseClub,
-            buttonPrivateFarm,
-
-            currentHabitat;
+            buttonFindApple,
+            buttonPlowedField,
+            buttonHelpHorses,
+            buttonHelpPeople,
+            buttonKnockCorralGate,
+            buttonParticipateHorseRace,
+            buttonBobMuscles,
+            buttonParticipateChampionship;
     private TextView
-            textTabor,
-            textClearField,
-            textMeddow,
-            textPrairie,
-            textKazahstan,
-            textWasteland,
-            textPaddock,
-            textStable,
-            textRanch,
-            textHorseClub,
-            textPrivateFarm;
+            findAppleStaminaText,
+            findAppleSatietyText,
+            findAppleHappinessText,
+            plowedFieldStaminaText,
+            plowedFieldSatietyText,
+            plowedFieldHappinessText,
+            plowedFieldOtherText,
+            helpHorsesStaminaText,
+            helpHorsesSatietyText,
+            helpHorsesHappinessText,
+            helpHorsesOtherText,
+            helpPeopleStaminaText,
+            helpPeopleSatietyText,
+            helpPeopleHappinessText,
+            helpPeopleOtherText,
+            knockCorralGateStaminaText,
+            knockCorralGateSatietyText,
+            knockCorralGateHappinessText,
+            knockCorralGateOtherText,
+            participateHorseRaceStaminaText,
+            participateHorseRaceSatietyText,
+            participateHorseRaceHappinessText,
+            participateHorseRaceGoldAppleText,
+            participateHorseRaceOtherText,
+            bobMusclesStaminaText,
+            bobMusclesSatietyText,
+            bobMusclesHappinessText,
+            bobMusclesGoldAppleText,
+            bobMusclesOtherText,
+            participateChampionshipStaminaText,
+            participateChampionshipSatietyText,
+            participateChampionshipHappinessText;
+    //не забудь добавить то, что хотел
+    private ImageView
+            findAppleStaminaImage,
+            findAppleSatietyImage,
+            findAppleHappinessImage,
+            plowedFieldStaminaImage,
+            plowedFieldSatietyImage,
+            plowedFieldHappinessImage,
+            helpHorsesStaminaImage,
+            helpHorsesSatietyImage,
+            helpHorsesHappinessImage,
+            helpPeopleStaminaImage,
+            helpPeopleSatietyImage,
+            helpPeopleHappinessImage,
+            knockCorralGateStaminaImage,
+            knockCorralGateSatietyImage,
+            knockCorralGateHappinessImage,
+            participateHorseRaceStaminaImage,
+            participateHorseRaceSatietyImage,
+            participateHorseRaceHappinessImage,
+            participateHorseRaceGoldAppleImage,
+            bobMusclesStaminaImage,
+            bobMusclesSatietyImage,
+            bobMusclesHappinessImage,
+            bobMusclesGoldAppleImage,
+            participateChampionshipStaminaImage,
+            participateChampionshipSatietyImage,
+            participateChampionshipHappinessImage;
+    //Аналогично
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,69 +96,131 @@ public class Page_3 extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.page_3, null);
+        View view = inflater.inflate(R.layout.page_4, null);
 
-        buttonTabor = (Button) view.findViewById(R.id.button_tabor);
-        buttonClearField = (Button) view.findViewById(R.id.button_clear_field);
-        buttonMeadows = (Button) view.findViewById(R.id.button_meadows);
-        buttonPrairie = (Button) view.findViewById(R.id.button_prairie);
-        buttonKazahstan = (Button) view.findViewById(R.id.button_kazahstan);
-        buttonWasteland = (Button) view.findViewById(R.id.button_wasteland);
-        buttonPaddock = (Button) view.findViewById(R.id.button_paddock);
-        buttonStable = (Button) view.findViewById(R.id.button_stable);
-        buttonRanch = (Button) view.findViewById(R.id.button_ranch);
-        buttonHorseClub = (Button) view.findViewById(R.id.button_horse_club);
-        buttonPrivateFarm = (Button) view.findViewById(R.id.button_private_farm);
+        buttonFindApple = (Button) view.findViewById(R.id.button_find_apple);
+        buttonPlowedField = (Button) view.findViewById(R.id.button_plowed_field);
+        buttonHelpHorses = (Button) view.findViewById(R.id.button_help_horses);
+        buttonHelpPeople = (Button) view.findViewById(R.id.button_help_people);
+        buttonKnockCorralGate = (Button) view.findViewById(R.id.button_knock_corral_gate);
+        buttonBobMuscles = (Button) view.findViewById(R.id.button_bob_muscles);
+        buttonParticipateHorseRace = (Button) view.findViewById(R.id.button_participate_horse_race);
+        buttonParticipateChampionship = (Button) view.findViewById(R.id.button_participate_championship);
 
-        switch (MainActivity.controller.getHorse().getHabitat()) {
-            case TABOR:        currentHabitat = buttonTabor; break;
-            case CLEAR_FIELD:  currentHabitat = buttonClearField; break;
-            case MEADOWS:      currentHabitat = buttonMeadows; break;
-            case PRAIRIE:      currentHabitat = buttonPrairie; break;
-            case KAZAKHSTAN:   currentHabitat = buttonKazahstan; break;
-            case WASTELAND:    currentHabitat = buttonWasteland; break;
-            case PADDOCK:      currentHabitat = buttonPaddock; break;
-            case STABLE:       currentHabitat = buttonStable; break;
-            case RANCH:        currentHabitat = buttonRanch; break;
-            case HORSE_CLUB:   currentHabitat = buttonHorseClub; break;
-            case PRIVATE_FARM: currentHabitat = buttonPrivateFarm; break;
-        }
+        findAppleStaminaText = (TextView) view.findViewById(R.id.find_apple_stamina_text);
+        findAppleSatietyText = (TextView) view.findViewById(R.id.find_apple_satiety_text);
+        findAppleHappinessText = (TextView) view.findViewById(R.id.find_apple_happiness_text);
+        plowedFieldStaminaText = (TextView) view.findViewById(R.id.plowed_field_stamina_text);
+        plowedFieldSatietyText = (TextView) view.findViewById(R.id.plowed_field_satiety_text);
+        plowedFieldHappinessText = (TextView) view.findViewById(R.id.plowed_field_happiness_text);
+        plowedFieldOtherText = (TextView) view.findViewById(R.id.plowed_field_other_text);
+        helpHorsesStaminaText = (TextView) view.findViewById(R.id.help_horses_stamina_text);
+        helpHorsesSatietyText = (TextView) view.findViewById(R.id.help_horsess_satiety_text);
+        helpHorsesHappinessText = (TextView) view.findViewById(R.id.help_horses_happiness_text);
+        helpHorsesOtherText = (TextView) view.findViewById(R.id.help_horses_other_text);
+        helpPeopleStaminaText = (TextView) view.findViewById(R.id.help_people_stamina_text);
+        helpPeopleSatietyText = (TextView) view.findViewById(R.id.help_people_satiety_text);
+        helpPeopleHappinessText = (TextView) view.findViewById(R.id.help_people_happiness_text);
+        helpPeopleOtherText = (TextView) view.findViewById(R.id.help_people_other_text);
+        knockCorralGateStaminaText = (TextView) view.findViewById(R.id.knock_corral_gate_stamina_text);
+        knockCorralGateSatietyText = (TextView) view.findViewById(R.id.knock_corral_gate_satiety_text);
+        knockCorralGateHappinessText = (TextView) view.findViewById(R.id.knock_corral_gate_happiness_text);
+        knockCorralGateOtherText = (TextView) view.findViewById(R.id.knock_corral_gate_other_text);
+        participateHorseRaceStaminaText = (TextView) view.findViewById(R.id.participate_horse_race_stamina_text);
+        participateHorseRaceSatietyText = (TextView) view.findViewById(R.id.participate_horse_race_satiety_text);
+        participateHorseRaceHappinessText = (TextView) view.findViewById(R.id.participate_horse_race_happiness_text);
+        participateHorseRaceGoldAppleText = (TextView) view.findViewById(R.id.participate_horse_race_gold_apple_text);
+        participateHorseRaceOtherText = (TextView) view.findViewById(R.id.participate_horse_race_other_text);
+        bobMusclesStaminaText = (TextView) view.findViewById(R.id.bob_muscles_stamina_text);
+        bobMusclesSatietyText = (TextView) view.findViewById(R.id.bob_muscles_satiety_text);
+        bobMusclesHappinessText = (TextView) view.findViewById(R.id.bob_muscles_happiness_text);
+        bobMusclesGoldAppleText = (TextView) view.findViewById(R.id.bob_muscles_gold_apple_text);
+        bobMusclesOtherText = (TextView) view.findViewById(R.id.bob_muscles_other_text);
+        participateChampionshipStaminaText = (TextView) view.findViewById(R.id.participate_championship_stamina_text);
+        participateChampionshipSatietyText = (TextView) view.findViewById(R.id.participate_championship_satiety_text);
+        participateChampionshipHappinessText = (TextView) view.findViewById(R.id.participate_championship_happiness_text);
 
-        currentHabitat.setTextColor(Color.BLUE);
+        findAppleStaminaImage = (ImageView) view.findViewById(R.id.find_apple_stamina_image);
+        findAppleSatietyImage= (ImageView) view.findViewById(R.id.find_apple_satiety_image);
+        findAppleHappinessImage = (ImageView) view.findViewById(R.id.find_apple_happiness_image);
+        plowedFieldStaminaImage = (ImageView) view.findViewById(R.id.plowed_field_stamina_image);
+        plowedFieldSatietyImage = (ImageView) view.findViewById(R.id.plowed_field_satiety_image);
+        plowedFieldHappinessImage = (ImageView) view.findViewById(R.id.plowed_field_happiness_image);
+        helpHorsesStaminaImage = (ImageView) view.findViewById(R.id.help_horses_stamina_image);
+        helpHorsesSatietyImage = (ImageView) view.findViewById(R.id.help_horses_satiety_image);
+        helpHorsesHappinessImage = (ImageView) view.findViewById(R.id.help_horses_happiness_image);
+        helpPeopleStaminaImage = (ImageView) view.findViewById(R.id.help_people_stamina_image);
+        helpPeopleSatietyImage = (ImageView) view.findViewById(R.id.help_people_satiety_image);
+        helpPeopleHappinessImage = (ImageView) view.findViewById(R.id.help_people_happiness_image);
+        knockCorralGateStaminaImage = (ImageView) view.findViewById(R.id.knock_corral_gate_stamina_image);
+        knockCorralGateSatietyImage = (ImageView) view.findViewById(R.id.knock_corral_gate_satiety_image);
+        knockCorralGateHappinessImage = (ImageView) view.findViewById(R.id.knock_corral_gate_happiness_image);
+        participateHorseRaceStaminaImage = (ImageView) view.findViewById(R.id.participate_horse_race_stamina_image);
+        participateHorseRaceSatietyImage = (ImageView) view.findViewById(R.id.participate_horse_race_satiety_image);
+        participateHorseRaceHappinessImage = (ImageView) view.findViewById(R.id.participate_horse_race_happiness_image);
+        participateHorseRaceGoldAppleImage = (ImageView) view.findViewById(R.id.participate_horse_race_gold_apple_image);
+        bobMusclesStaminaImage = (ImageView) view.findViewById(R.id.bob_muscles_stamina_image);
+        bobMusclesSatietyImage = (ImageView) view.findViewById(R.id.bob_muscles_satiety_image);
+        bobMusclesHappinessImage = (ImageView) view.findViewById(R.id.bob_muscles_happiness_image);
+        bobMusclesGoldAppleImage = (ImageView) view.findViewById(R.id.bob_muscles_gold_apple_image);
+        participateChampionshipStaminaImage = (ImageView) view.findViewById(R.id.participate_championship_stamina_image);
+        participateChampionshipSatietyImage = (ImageView) view.findViewById(R.id.participate_championship_satiety_image);
+        participateChampionshipHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_happiness_image);
+        //Участие в чемпионате, аналогично
 
-        textClearField = (TextView) view.findViewById(R.id.text_clear_field);
-        textMeddow = (TextView) view.findViewById(R.id.text_meadows);
-        textPrairie = (TextView) view.findViewById(R.id.text_prairie);
-        textKazahstan = (TextView) view.findViewById(R.id.text_kazahstan);
-        textWasteland = (TextView) view.findViewById(R.id.text_wasteland);
-        textPaddock = (TextView) view.findViewById(R.id.text_paddock);
-        textStable = (TextView) view.findViewById(R.id.text_stable);
-        textRanch = (TextView) view.findViewById(R.id.text_ranch);
-        textHorseClub = (TextView) view.findViewById(R.id.text_horse_club);
-        textPrivateFarm = (TextView) view.findViewById(R.id.text_private_farm);
+        findAppleStaminaImage.setImageResource(R.drawable.stamina);
+        findAppleSatietyImage.setImageResource(R.drawable.satiety);
+        findAppleHappinessImage.setImageResource(R.drawable.happiness);
+        plowedFieldStaminaImage.setImageResource(R.drawable.stamina);
+        plowedFieldSatietyImage.setImageResource(R.drawable.satiety);
+        plowedFieldHappinessImage.setImageResource(R.drawable.happiness);
+        helpHorsesStaminaImage.setImageResource(R.drawable.stamina);
+        helpHorsesSatietyImage.setImageResource(R.drawable.satiety);
+        helpHorsesHappinessImage.setImageResource(R.drawable.happiness);
+        helpPeopleStaminaImage.setImageResource(R.drawable.stamina);
+        helpPeopleSatietyImage.setImageResource(R.drawable.satiety);
+        helpPeopleHappinessImage.setImageResource(R.drawable.happiness);
+        knockCorralGateStaminaImage.setImageResource(R.drawable.stamina);
+        knockCorralGateSatietyImage.setImageResource(R.drawable.satiety);
+        knockCorralGateHappinessImage.setImageResource(R.drawable.happiness);
+        participateHorseRaceStaminaImage.setImageResource(R.drawable.stamina);
+        participateHorseRaceSatietyImage.setImageResource(R.drawable.satiety);
+        participateHorseRaceHappinessImage.setImageResource(R.drawable.happiness);
+        participateHorseRaceGoldAppleImage.setImageResource(R.drawable.image_goldapple);
+        bobMusclesStaminaImage.setImageResource(R.drawable.stamina);
+        bobMusclesSatietyImage.setImageResource(R.drawable.satiety);
+        bobMusclesHappinessImage.setImageResource(R.drawable.happiness);
+        bobMusclesGoldAppleImage.setImageResource(R.drawable.image_goldapple);
+        participateChampionshipStaminaImage.setImageResource(R.drawable.stamina);
+        participateChampionshipSatietyImage.setImageResource(R.drawable.satiety);
+        participateChampionshipHappinessImage.setImageResource(R.drawable.happiness);
+        //participateChampionshipGoldAppleImage.setImageResource(R.drawable.image_goldapple);
 
-        textClearField.setText(makeParamString(R.id.text_clear_field));
-        textMeddow.setText(makeParamString(R.id.text_meadows));
-        textPrairie.setText(makeParamString(R.id.text_prairie));
-        textKazahstan.setText(makeParamString(R.id.text_kazahstan));
-        textWasteland.setText(makeParamString(R.id.text_wasteland));
-        textPaddock.setText(makeParamString(R.id.text_paddock));
-        textStable.setText(makeParamString(R.id.text_stable));
-        textRanch.setText(makeParamString(R.id.text_ranch));
-        textHorseClub.setText(makeParamString(R.id.text_horse_club));
-        textPrivateFarm.setText(makeParamString(R.id.text_private_farm));
 
-        buttonTabor.setOnClickListener(this);
-        buttonClearField.setOnClickListener(this);
-        buttonMeadows.setOnClickListener(this);
-        buttonPrairie.setOnClickListener(this);
-        buttonKazahstan.setOnClickListener(this);
-        buttonWasteland.setOnClickListener(this);
-        buttonPaddock.setOnClickListener(this);
-        buttonStable.setOnClickListener(this);
-        buttonRanch.setOnClickListener(this);
-        buttonHorseClub.setOnClickListener(this);
-        buttonPrivateFarm.setOnClickListener(this);
+
+        //не догнал, что с этим надо делать, оставил, как было
+        goToWateringStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        goToWateringSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
+        goToWateringHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+        goToDrinkersStaminaText.setText(withSign(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina));
+        goToDrinkersSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
+        goToDrinkersHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
+        getMassageStaminaText.setText(withSign(Constants.getMassageUpStamina - Constants.wasStepDownStamina));
+        getMassageSatietyText.setText(withSign(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety));
+        getMassageHappinessText.setText(withSign(Constants.getMassageUpHappiness - Constants.wasStepDownHappiness));
+        swimInLakeStaminaText.setText(withSign(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina));
+        swimInLakeSatietyText.setText(withSign(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety));
+        swimInLakeHappinessText.setText(withSign(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness));
+
+        buttonFindApple.setOnClickListener(this);
+        buttonPlowedField.setOnClickListener(this);
+        buttonHelpHorses.setOnClickListener(this);
+        buttonHelpPeople.setOnClickListener(this);
+        buttonKnockCorralGate.setOnClickListener(this);
+        buttonParticipateHorseRace.setOnClickListener(this);
+        buttonBobMuscles.setOnClickListener(this);
+        buttonParticipateChampionship.setOnClickListener(this);
+
 
         update();
 
@@ -121,236 +229,238 @@ public class Page_3 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
-            case R.id.button_tabor: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.TABOR);
-                changeHabitat(buttonTabor);
-                showToast(getString(R.string.tabor));
-                break;
-            }
-            case R.id.button_clear_field: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.CLEAR_FIELD);
-                changeHabitat(buttonClearField);
-                showToast(getString(R.string.clear_field));
-                break;
-            }
-            case R.id.button_meadows: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.MEADOWS);
-                changeHabitat(buttonMeadows);
-                showToast(getString(R.string.meadows));
-                break;
-            }
-            case R.id.button_prairie: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.PRAIRIE);
-                changeHabitat(buttonPrairie);
-                showToast(getString(R.string.prairie));
-                break;
-            }
-            case R.id.button_kazahstan: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.KAZAKHSTAN);
-                changeHabitat(buttonKazahstan);
-                showToast(getString(R.string.kazakhstan));
-                break;
-            }
-            case R.id.button_wasteland: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.WASTELAND);
-                changeHabitat(buttonWasteland);
-                showToast(getString(R.string.wasteland));
-                break;
-            }
-            case R.id.button_paddock: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.PADDOCK);
-                changeHabitat(buttonPaddock);
-                showToast(getString(R.string.paddock));
-                break;
-            }
-            case R.id.button_stable: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.STABLE);
-                changeHabitat(buttonStable);
-                showToast(getString(R.string.stable));
-                break;
-            }
-            case R.id.button_ranch: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.RANCH);
-                changeHabitat(buttonRanch);
-                showToast(getString(R.string.ranch));
-                break;
-            }
-            case R.id.button_horse_club: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.HORSE_CLUB);
-                changeHabitat(buttonHorseClub);
-                showToast(getString(R.string.horse_club));
-                break;
-            }
-            case R.id.button_private_farm: {
-                MainActivity.controller.getHorse().setHabitat(Habitat.PRIVATE_FARM);
-                changeHabitat(buttonPrivateFarm);
-                showToast(getString(R.string.private_farm));
+            case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
+            case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
+            case R.id.button_help_horses: MainActivity.controller.helpHorses(); break;
+            case R.id.button_help_people:  MainActivity.controller.helpPeople(); break;
+            case R.id.button_knock_corral_gate:     MainActivity.controller.knockCorralGate(); break;
+            case R.id.button_participate_horse_race:     MainActivity.controller.participateHorseRace(); break;
+            case R.id.button_bob_muscles:     MainActivity.controller.bobMuscles(); break;
+            case R.id.button_participate_championship: {
+                if (MainActivity.controller.participateChampionship())
+                    MainActivity.showWinChampionship(getActivity());
+                else
+                    MainActivity.showLoseChampionship(getActivity());
+                MainActivity.controller.setTimeToChampionship(Constants.timeToChampionship);
                 break;
             }
         }
         MainActivity.controller.dieCheck(getActivity());
         update();
-        MainActivity.page_2.update();
-        MainActivity.page_4.update();
+        MainActivity.page_3.update();
+        MainActivity.updateStats();
     }
 
-    public void update(){
-        int tmpRespectHorse = MainActivity.controller.getHorse().getRespectHorses();
-        int tmpRespectPeople = MainActivity.controller.getHorse().getRespectPeoples();
-        if (tmpRespectHorse  > Constants.wastelandRespect){
-            buttonWasteland.setEnabled(true);
-            if (tmpRespectHorse  > Constants.clearFieldRespect){
-                buttonClearField.setEnabled(true);
-                if (tmpRespectHorse  > Constants.meadowsRespect){
-                    buttonMeadows.setEnabled(true);
-                    if (tmpRespectHorse  > Constants.prairieRespect){
-                        buttonPrairie.setEnabled(true);
-                        if (tmpRespectHorse  > Constants.kazahstanRespect) {
-                            buttonKazahstan.setEnabled(true);
-                        } else buttonKazahstan.setEnabled(false);
-                    } else{
-                        buttonPrairie.setEnabled(false);
-                        buttonKazahstan.setEnabled(false);
-                    }
-                } else {
-                    buttonMeadows.setEnabled(false);
-                    buttonPrairie.setEnabled(false);
-                    buttonKazahstan.setEnabled(false);
-                }
-            } else {
-                buttonClearField.setEnabled(false);
-                buttonMeadows.setEnabled(false);
-                buttonPrairie.setEnabled(false);
-                buttonKazahstan.setEnabled(false);
-            }
-        } else {
-            buttonWasteland.setEnabled(false);
-            buttonClearField.setEnabled(false);
-            buttonMeadows.setEnabled(false);
-            buttonPrairie.setEnabled(false);
-            buttonKazahstan.setEnabled(false);
-        }
-        if (tmpRespectPeople  > Constants.paddockRespect){
-            buttonPaddock.setEnabled(true);
-            if (tmpRespectPeople  > Constants.stableRespect){
-                buttonStable.setEnabled(true);
-                if (tmpRespectPeople  > Constants.ranchRespect){
-                    buttonRanch.setEnabled(true);
-                    if (tmpRespectPeople  > Constants.horseClubRespect) {
-                        buttonHorseClub.setEnabled(true);
-                        if (tmpRespectPeople  > Constants.privateFarmRespect) {
-                            buttonPrivateFarm.setEnabled(true);
-                        } else buttonPrivateFarm.setEnabled(false);
-                    } else {
-                        buttonHorseClub.setEnabled(false);
-                        buttonPrivateFarm.setEnabled(false);
-                    }
-                } else {
-                    buttonHorseClub.setEnabled(false);
-                    buttonPrivateFarm.setEnabled(false);
-                    buttonRanch.setEnabled(false);
-                }
-            } else {
-                buttonStable.setEnabled(false);
-                buttonHorseClub.setEnabled(false);
-                buttonPrivateFarm.setEnabled(false);
-                buttonRanch.setEnabled(false);
-            }
-        } else {
-            buttonPaddock.setEnabled(false);
-            buttonStable.setEnabled(false);
-            buttonHorseClub.setEnabled(false);
-            buttonPrivateFarm.setEnabled(false);
-            buttonRanch.setEnabled(false);
-        }
-    }
-
-    public String makeParamString(int id){
+    public String makeParamString(int id) {
         StringBuilder sb = new StringBuilder();
+        String tmpStamina = getActivity().getString(R.string.stamina);
+        String tmpSatiety = getActivity().getString(R.string.satiety);
+        String tmpHappiness = getActivity().getString(R.string.happiness);
         String tmpHorseRespect = getActivity().getString(R.string.respect_horses);
         String tmpPeopleREspect = getActivity().getString(R.string.respect_peoples);
         switch (id) {
-            case R.id.text_stable: {
-                sb.append(tmpPeopleREspect);
-                sb.append(" >");
-                sb.append(Constants.stableRespect);
+            case R.id.text_find_apple: {
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.findAppleDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.findAppleDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(- Constants.wasStepDownHappiness);
                 return sb.toString();
             }
-            case R.id.text_paddock: {
-                sb.append(tmpPeopleREspect);
-                sb.append(" >");
-                sb.append(Constants.paddockRespect);
-                return sb.toString();
-            }
-            case R.id.text_ranch: {
-                sb.append(tmpPeopleREspect);
-                sb.append(" >");
-                sb.append(Constants.ranchRespect);
-                return sb.toString();
-            }
-            case R.id.text_horse_club: {
-                sb.append(tmpPeopleREspect);
-                sb.append(" >");
-                sb.append(Constants.horseClubRespect);
-                return sb.toString();
-            }
-            case R.id.text_private_farm: {
-                sb.append(tmpPeopleREspect);
-                sb.append(" >");
-                sb.append(Constants.privateFarmRespect);
-                return sb.toString();
-            }
-            case R.id.text_wasteland: {
+            case R.id.text_plowed_field:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.plowedFieldDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.plowedFieldDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(- Constants.wasStepDownHappiness);
+                sb.append("; ");
                 sb.append(tmpHorseRespect);
-                sb.append(" >");
-                sb.append(Constants.wastelandRespect);
+                sb.append(" ");
+                sb.append(-Constants.plowedFieldDownRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.plowedFieldUpRespectPeoples);
                 return sb.toString();
             }
-            case R.id.text_clear_field: {
+            case R.id.text_help_horses:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.helpHorsesDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.helpHorsesDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(- Constants.wasStepDownHappiness);
+                sb.append("; ");
                 sb.append(tmpHorseRespect);
-                sb.append(" >");
-                sb.append(Constants.clearFieldRespect);
+                sb.append(" +");
+                sb.append(Constants.helpHorsesUpRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" ");
+                sb.append(-Constants.helpHorsesDownRespectPeoples);
                 return sb.toString();
             }
-            case R.id.text_meadows: {
+            case R.id.text_help_people:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.helpPeopleDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.helpPeopleDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(- Constants.wasStepDownHappiness);
+                sb.append("; ");
                 sb.append(tmpHorseRespect);
-                sb.append(" >");
-                sb.append(Constants.meadowsRespect);
+                sb.append(" ");
+                sb.append(-Constants.helpPeopleDownRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.helpPeopleUpRespectPeoples);
                 return sb.toString();
             }
-            case R.id.text_prairie: {
+            case R.id.text_knock_corral_gate:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.knockCorralGateDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.knockCorralGateDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(- Constants.wasStepDownHappiness);
+                sb.append("; ");
                 sb.append(tmpHorseRespect);
-                sb.append(" >");
-                sb.append(Constants.prairieRespect);
+                sb.append(" +");
+                sb.append(Constants.knockCorralGateUpRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" ");
+                sb.append(-Constants.knockCorralGateDownRespectPeoples);
                 return sb.toString();
             }
-            case R.id.text_kazahstan: {
+            case R.id.text_bob_muscles:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.bobMusclesDownStamina - Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.bobMusclesDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(getString(R.string.max_speed));
+                sb.append(": +");
+                sb.append(Constants.bobMusclesUpMaxSpeed);
+                sb.append("; ");
+                sb.append(getString(R.string.apples));
+                sb.append(": -1");
+                return sb.toString();
+            }
+            case R.id.text_participate_horse_race:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.participateHorseRaceDownStamina -Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.participateHorseRaceDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(-Constants.wasStepDownHappiness);
+                sb.append("; ");
                 sb.append(tmpHorseRespect);
-                sb.append(" >");
-                sb.append(Constants.kazahstanRespect);
+                sb.append(" +");
+                sb.append(Constants.participateHorseRaceUpRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.participateHorseRaceUpRespectPeople);
+                sb.append("; ");
+                sb.append(getString(R.string.apples));
+                sb.append(": -1");
+                return sb.toString();
+            }
+            case R.id.text_participate_championship:{
+                sb.append(tmpStamina);
+                sb.append(": ");
+                sb.append(-Constants.participateChampionshipDownStamina -Constants.wasStepDownStamina);
+                sb.append("; ");
+                sb.append(tmpSatiety);
+                sb.append(": ");
+                sb.append(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownSatiety);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(-Constants.wasStepDownHappiness);
+                sb.append("; ");
+                sb.append(getString(R.string.if_win));
+                sb.append(": ");
+                sb.append(tmpHorseRespect);
+                sb.append(" +");
+                sb.append(Constants.participateChampionshipUpRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.participateChampionshipUpRespectPeoples);
+                sb.append("; ");
+                sb.append(getString(R.string.apples));
+                sb.append(" +");
+                sb.append(Constants.participateChampionshipUpApples);
+                sb.append("; ");
+                sb.append(getString(R.string.if_lose));
+                sb.append(": ");
+                sb.append(tmpHorseRespect);
+                sb.append(" +");
+                sb.append(Constants.participateChampionshipDownRespectHorses);
+                sb.append("; ");
+                sb.append(tmpPeopleREspect);
+                sb.append(" +");
+                sb.append(Constants.participateChampionshipDownRespectPeoples);
+                sb.append("; ");
+                sb.append(tmpHappiness);
+                sb.append(": ");
+                sb.append(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness);
                 return sb.toString();
             }
             default: return null;
         }
     }
-
-    public void showToast(String habitat) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getString(R.string.now_your_habitat));
-        sb.append(" ");
-        sb.append(habitat);
-        Toast toast = Toast.makeText(getActivity().getApplicationContext(), sb.toString(), Toast.LENGTH_SHORT);
-        toast.show();
-    }
-    
-    private void changeHabitat(Button newHabitat) {
-        if (currentHabitat.isEnabled())
-            currentHabitat.setTextColor(Color.BLACK);
-        else currentHabitat.setTextColor(Color.LTGRAY);
-
-        currentHabitat = newHabitat;
-        currentHabitat.setTextColor(Color.BLUE);
-
+    public void update(){
+        if (MainActivity.controller.getTimeToChampionship() != 0)
+            buttonParticipateChampionship.setEnabled(false);
+        else buttonParticipateChampionship.setEnabled(true);
+        if (MainActivity.controller.getGoldApple() == 0){
+            buttonParticipateHorseRace.setEnabled(false);
+            buttonBobMuscles.setEnabled(false);
+        }
+        else {
+            buttonParticipateHorseRace.setEnabled(true);
+            buttonBobMuscles.setEnabled(true);
+        }
     }
 }

@@ -183,6 +183,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         swimInLakeStaminaText.setText(withSign(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina));
         swimInLakeSatietyText.setText(withSign(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety));
         swimInLakeHappinessText.setText(withSign(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness));
+
         buttonHaveSleep = (Button) view.findViewById(R.id.button_have_sleep);
         buttonGoToWatering = (Button) view.findViewById(R.id.button_go_to_watering);
         buttonGoToDrinkers = (Button) view.findViewById(R.id.button_go_to_drinkers);
