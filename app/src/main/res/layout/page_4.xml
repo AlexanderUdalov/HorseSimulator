@@ -1,198 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/button_tabor"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TableLayout
+        android:layout_height="wrap_content"
+        android:text="@string/tabor"
+        android:gravity="center">
+    </Button>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:layout_weight="1"
+            android:orientation="vertical">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/find_apple"
-                android:id="@+id/button_find_apple"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/paddock"
+                android:layout_weight="1"
+                android:id="@+id/button_paddock"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_find_apple"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_paddock"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/help_people"
-                android:id="@+id/button_help_people"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/stable"
+                android:layout_weight="1"
+                android:id="@+id/button_stable"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_help_people"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_stable"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/help_horses"
-                android:id="@+id/button_help_horses"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/ranch"
+                android:layout_weight="1"
+                android:id="@+id/button_ranch"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_help_horses"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_ranch"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/plowed_field"
-                android:id="@+id/button_plowed_field"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/horse_club"
+                android:layout_weight="1"
+                android:id="@+id/button_horse_club"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_plowed_field"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_horse_club"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/knock_corral_gate"
-                android:id="@+id/button_knock_corral_gate"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/private_farm"
+                android:id="@+id/button_private_farm"
+                android:layout_weight="1"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_knock_corral_gate"/>
-        </TableRow>
-        <TableLayout
+                android:layout_weight="1"
+                android:id="@+id/text_private_farm"/>
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:layout_weight="1"
+            android:orientation="vertical">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bob_muscles"
-                android:id="@+id/button_bob_muscles"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/wasteland"
+                android:layout_weight="1"
+                android:id="@+id/button_wasteland"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_bob_muscles"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_wasteland"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/participate_horse_race"
-                android:id="@+id/button_participate_horse_race"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/clear_field"
+                android:layout_weight="1"
+                android:id="@+id/button_clear_field"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_participate_horse_race"/>
-        </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+                android:layout_weight="1"
+                android:id="@+id/text_clear_field"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/participate_championship"
-                android:id="@+id/button_participate_championship"/>
-        </TableLayout>
-        <TableRow
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
+                android:text="@string/meadows"
+                android:layout_weight="1"
+                android:id="@+id/button_meadows"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_participate_championship"/>
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-    </LinearLayout>
+                android:layout_weight="1"
+                android:id="@+id/text_meadows"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/prairie"
+                android:layout_weight="1"
+                android:id="@+id/button_prairie"/>
+            <TextView
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/text_prairie"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kazakhstan"
+                android:layout_weight="1"
+                android:id="@+id/button_kazahstan"/>
+            <TextView
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/text_kazahstan"/>
+        </LinearLayout>
+    </TableRow>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+</LinearLayout>
 </ScrollView>

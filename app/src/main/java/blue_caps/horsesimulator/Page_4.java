@@ -50,7 +50,7 @@ public class Page_4 extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.page_3, null);
+        View view = inflater.inflate(R.layout.page_4, null);
 
         buttonTabor = (Button) view.findViewById(R.id.button_tabor);
         buttonClearField = (Button) view.findViewById(R.id.button_clear_field);

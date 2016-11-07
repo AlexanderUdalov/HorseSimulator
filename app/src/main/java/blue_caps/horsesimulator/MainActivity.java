@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         TITLE_1 = getString(R.string.stamina);
         TITLE_0 = getString(R.string.stat);
         TITLE_2 = getString(R.string.food);
-        TITLE_3 = getString(R.string.habitat);
-        TITLE_4 = getString(R.string.other);
+        TITLE_4 = getString(R.string.habitat);
+        TITLE_3 = getString(R.string.other);
 
         imageStamina = (ImageView) findViewById(R.id.image_stamina);
         imageSatiety = (ImageView) findViewById(R.id.image_satiety);

@@ -96,7 +96,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.page_4, null);
+        View view = inflater.inflate(R.layout.page_3, null);
 
         buttonFindApple = (Button) view.findViewById(R.id.button_find_apple);
         buttonPlowedField = (Button) view.findViewById(R.id.button_plowed_field);
@@ -115,7 +115,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         plowedFieldHappinessText = (TextView) view.findViewById(R.id.plowed_field_happiness_text);
         plowedFieldOtherText = (TextView) view.findViewById(R.id.plowed_field_other_text);
         helpHorsesStaminaText = (TextView) view.findViewById(R.id.help_horses_stamina_text);
-        helpHorsesSatietyText = (TextView) view.findViewById(R.id.help_horsess_satiety_text);
+        helpHorsesSatietyText = (TextView) view.findViewById(R.id.help_horses_satiety_text);
         helpHorsesHappinessText = (TextView) view.findViewById(R.id.help_horses_happiness_text);
         helpHorsesOtherText = (TextView) view.findViewById(R.id.help_horses_other_text);
         helpPeopleStaminaText = (TextView) view.findViewById(R.id.help_people_stamina_text);
@@ -198,19 +198,40 @@ public class Page_3 extends Fragment implements View.OnClickListener {
 
 
 
-        //не догнал, что с этим надо делать, оставил, как было
-        goToWateringStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        goToWateringSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToWateringHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-        goToDrinkersStaminaText.setText(withSign(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina));
-        goToDrinkersSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToDrinkersHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
-        getMassageStaminaText.setText(withSign(Constants.getMassageUpStamina - Constants.wasStepDownStamina));
-        getMassageSatietyText.setText(withSign(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety));
-        getMassageHappinessText.setText(withSign(Constants.getMassageUpHappiness - Constants.wasStepDownHappiness));
-        swimInLakeStaminaText.setText(withSign(Constants.swimInLakeUpStamina - Constants.wasStepDownStamina));
-        swimInLakeSatietyText.setText(withSign(-Constants.swimInLakeDownSatiety - Constants.wasStepDownSatiety));
-        swimInLakeHappinessText.setText(withSign(Constants.swimInLakeUpHappiness - Constants.wasStepDownHappiness));
+
+        findAppleStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        findAppleSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        findAppleHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        plowedFieldStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        plowedFieldSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        plowedFieldHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        plowedFieldOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpHorsesStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpHorsesSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpHorsesHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpHorsesOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpPeopleStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpPeopleSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpPeopleHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        helpPeopleOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        knockCorralGateStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        knockCorralGateSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        knockCorralGateHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        knockCorralGateOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateHorseRaceStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateHorseRaceSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateHorseRaceHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateHorseRaceGoldAppleText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateHorseRaceOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        bobMusclesStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        bobMusclesSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        bobMusclesHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        bobMusclesGoldAppleText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        bobMusclesOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateChampionshipStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateChampionshipSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        participateChampionshipHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+
 
         buttonFindApple.setOnClickListener(this);
         buttonPlowedField.setOnClickListener(this);
@@ -225,6 +246,12 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         update();
 
         return view;
+    }
+
+    public String withSign(int value){
+        if (value > 0)
+            return "+" + value;
+        return "" + value;
     }
 
     @Override
@@ -253,203 +280,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         MainActivity.updateStats();
     }
 
-    public String makeParamString(int id) {
-        StringBuilder sb = new StringBuilder();
-        String tmpStamina = getActivity().getString(R.string.stamina);
-        String tmpSatiety = getActivity().getString(R.string.satiety);
-        String tmpHappiness = getActivity().getString(R.string.happiness);
-        String tmpHorseRespect = getActivity().getString(R.string.respect_horses);
-        String tmpPeopleREspect = getActivity().getString(R.string.respect_peoples);
-        switch (id) {
-            case R.id.text_find_apple: {
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.findAppleDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.findAppleDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(- Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            case R.id.text_plowed_field:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.plowedFieldDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.plowedFieldDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(- Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(tmpHorseRespect);
-                sb.append(" ");
-                sb.append(-Constants.plowedFieldDownRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" +");
-                sb.append(Constants.plowedFieldUpRespectPeoples);
-                return sb.toString();
-            }
-            case R.id.text_help_horses:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.helpHorsesDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.helpHorsesDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(- Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(tmpHorseRespect);
-                sb.append(" +");
-                sb.append(Constants.helpHorsesUpRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" ");
-                sb.append(-Constants.helpHorsesDownRespectPeoples);
-                return sb.toString();
-            }
-            case R.id.text_help_people:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.helpPeopleDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.helpPeopleDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(- Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(tmpHorseRespect);
-                sb.append(" ");
-                sb.append(-Constants.helpPeopleDownRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" +");
-                sb.append(Constants.helpPeopleUpRespectPeoples);
-                return sb.toString();
-            }
-            case R.id.text_knock_corral_gate:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.knockCorralGateDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.knockCorralGateDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(- Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(tmpHorseRespect);
-                sb.append(" +");
-                sb.append(Constants.knockCorralGateUpRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" ");
-                sb.append(-Constants.knockCorralGateDownRespectPeoples);
-                return sb.toString();
-            }
-            case R.id.text_bob_muscles:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.bobMusclesDownStamina - Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.bobMusclesDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(getString(R.string.max_speed));
-                sb.append(": +");
-                sb.append(Constants.bobMusclesUpMaxSpeed);
-                sb.append("; ");
-                sb.append(getString(R.string.apples));
-                sb.append(": -1");
-                return sb.toString();
-            }
-            case R.id.text_participate_horse_race:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.participateHorseRaceDownStamina -Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.participateHorseRaceDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(-Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(tmpHorseRespect);
-                sb.append(" +");
-                sb.append(Constants.participateHorseRaceUpRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" +");
-                sb.append(Constants.participateHorseRaceUpRespectPeople);
-                sb.append("; ");
-                sb.append(getString(R.string.apples));
-                sb.append(": -1");
-                return sb.toString();
-            }
-            case R.id.text_participate_championship:{
-                sb.append(tmpStamina);
-                sb.append(": ");
-                sb.append(-Constants.participateChampionshipDownStamina -Constants.wasStepDownStamina);
-                sb.append("; ");
-                sb.append(tmpSatiety);
-                sb.append(": ");
-                sb.append(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownSatiety);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(-Constants.wasStepDownHappiness);
-                sb.append("; ");
-                sb.append(getString(R.string.if_win));
-                sb.append(": ");
-                sb.append(tmpHorseRespect);
-                sb.append(" +");
-                sb.append(Constants.participateChampionshipUpRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" +");
-                sb.append(Constants.participateChampionshipUpRespectPeoples);
-                sb.append("; ");
-                sb.append(getString(R.string.apples));
-                sb.append(" +");
-                sb.append(Constants.participateChampionshipUpApples);
-                sb.append("; ");
-                sb.append(getString(R.string.if_lose));
-                sb.append(": ");
-                sb.append(tmpHorseRespect);
-                sb.append(" +");
-                sb.append(Constants.participateChampionshipDownRespectHorses);
-                sb.append("; ");
-                sb.append(tmpPeopleREspect);
-                sb.append(" +");
-                sb.append(Constants.participateChampionshipDownRespectPeoples);
-                sb.append("; ");
-                sb.append(tmpHappiness);
-                sb.append(": ");
-                sb.append(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness);
-                return sb.toString();
-            }
-            default: return null;
-        }
-    }
+
     public void update(){
         if (MainActivity.controller.getTimeToChampionship() != 0)
             buttonParticipateChampionship.setEnabled(false);
