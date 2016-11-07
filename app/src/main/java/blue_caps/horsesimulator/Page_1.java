@@ -27,53 +27,97 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             haveSleepStaminaText,
             haveSleepSatietyText,
             haveSleepHappinessText,
-            textGoToWatering,
-            textGoToDrinkers,
-            textGetMassage,
-            textSwimInLake;
+            goToWateringStaminaText,
+            goToWateringSatietyText,
+            goToWateringHappinessText,
+            goToDrinkersStaminaText,
+            goToDrinkersSatietyText,
+            goToDrinkersHappinessText,
+            getMassageStaminaText,
+            getMassageSatietyText,
+            getMassageHappinessText,
+            swimInLakeStaminaText,
+            swimInLakeSatietyText,
+            swimInLakeHappinessText;
     private ImageView
             haveSleepStaminaImage,
             haveSleepSatietyImage,
-            haveSleepHappinessImage;
-
+            haveSleepHappinessImage,
+            goToWateringStaminaImage,
+            goToWateringSatietyImage,
+            goToWateringHappinessImage,
+            goToDrinkersStaminaImage,
+            goToDrinkersSatietyImage,
+            goToDrinkersHappinessImage,
+            getMassageStaminaImage,
+            getMassageSatietyImage,
+            getMassageHappinessImage,
+            swimInLakeStaminaImage,
+            swimInLakeSatietyImage,
+            swimInLakeHappinessImage;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.page_1, null);
+        View view = inflater.inflate(R.layout.page_2, null);
 
-        buttonHaveSleep    = (Button) view.findViewById(R.id.button_have_sleep);
+        buttonHaveSleep = (Button) view.findViewById(R.id.button_have_sleep);
         buttonGoToWatering = (Button) view.findViewById(R.id.button_go_to_watering);
         buttonGoToDrinkers = (Button) view.findViewById(R.id.button_go_to_drinkers);
-        buttonGetMassage   = (Button) view.findViewById(R.id.button_get_massage);
-        buttonSwimInLake   = (Button) view.findViewById(R.id.button_swim_in_lake);
+        buttonGetMassage = (Button) view.findViewById(R.id.button_get_massage);
+        buttonSwimInLake = (Button) view.findViewById(R.id.button_swim_in_lake);
 
         haveSleepStaminaText = (TextView) view.findViewById(R.id.have_sleep_stamina_text);
         haveSleepSatietyText = (TextView) view.findViewById(R.id.have_sleep_satiety_text);
         haveSleepHappinessText = (TextView) view.findViewById(R.id.have_sleep_happiness_text);
-        textGoToWatering = (TextView) view.findViewById(R.id.text_go_to_watering);
-        textGoToDrinkers = (TextView) view.findViewById(R.id.text_go_to_drinkers);
-        textGetMassage = (TextView) view.findViewById(R.id.text_get_massage);
-        textSwimInLake = (TextView) view.findViewById(R.id.text_swim_in_lake);
+        goToWateringStaminaText = (TextView) view.findViewById(R.id.go_to_watering_stamina_text);
+        goToWateringSatietyText = (TextView) view.findViewById(R.id.go_to_watering_satiety_text);
+        goToWateringHappinessText = (TextView) view.findViewById(R.id.go_to_watering_happiness_text);
+        goToDrinkersStaminaText = (TextView) view.findViewById(R.id.go_to_drinkers_stamina_text);
+        goToDrinkersSatietyText = (TextView) view.findViewById(R.id.go_to_drinkers_satiety_text);
+        goToDrinkersHappinessText = (TextView) view.findViewById(R.id.go_to_drinkers_happiness_text):
+        getMassageStaminaText = (TextView) view.findViewById(R.id.get_massage_stamina_text);
+        getMassageSatietyText = (TextView) view.findViewById(R.id.get_massage_satiety_text);
+        getMassageHappinessText = (TextView) view.findViewById(R.id.get_massage_happiness_text);
+        swimInLakeStaminaText = (TextView) view.findViewById(R.id.swim_in_lake_stamina_text);
+        swimInLakeSatietyText = (TextView) view.findViewById(R.id.swim_in_lake_satiety_text);
+        swimInLakeHappinessText = (TextView) view.findViewById(R.id.swim_in_lake_happiness_text);
 
         haveSleepStaminaImage = (ImageView) view.findViewById(R.id.have_sleep_stamina_image);
-        haveSleepSatietyImage  = (ImageView) view.findViewById(R.id.have_sleep_satiety_image);
+        haveSleepSatietyImage= (ImageView) view.findViewById(R.id.have_sleep_satiety_image);
         haveSleepHappinessImage = (ImageView) view.findViewById(R.id.have_sleep_happiness_image);
-
-        textGoToWatering.setText(makeParamString(R.id.text_go_to_watering));
-        textGoToDrinkers.setText(makeParamString(R.id.text_go_to_drinkers));
-        textGetMassage.setText(makeParamString(R.id.text_get_massage));
-        textSwimInLake.setText(makeParamString(R.id.text_swim_in_lake));
+        goToWateringStaminaImage = (ImageView) view.findViewById(R.id.go_to_watering_stamina_image);
+        goToWateringSatietyImage = (ImageView) view.findViewById(R.id.go_to_watering_satiety_image);
+        goToWateringHappinessImage = (ImageView) view.findViewById(R.id.go_to_watering_happiness_image);
+        goToDrinkersStaminaImage = (ImageView) view.findViewById(R.id.go_to_drinkers_stamina_image);
+        goToDrinkersSatietyImage = (ImageView) view.findViewById(R.id.go_to_drinkers_satiety_image);
+        goToDrinkersHappinessImage = (ImageView) view.findViewById(R.id.go_to_drinkers_happiness_image);
+        getMassageStaminaImage = (ImageView) view.findViewById(R.id.get_massage_stamina_image);
+        getMassageSatietyImage = (ImageView) view.findViewById(R.id.get_massage_satiety_image);
+        getMassageHappinessImage = (ImageView) view.findViewById(R.id.get_massage_happiness_image);
+        swimInLakeStaminaImage = (ImageView) view.findViewById(R.id.swim_in_lake_stamina_image);
+        swimInLakeSatietyImage = (ImageView) view.findViewById(R.id.swim_in_lake_satiety_image);
+        swimInLakeHappinessImage = (ImageView) view.findViewById(R.id.swim_in_lake_happiness_image);
 
         haveSleepStaminaImage.setImageResource(R.drawable.stamina);
         haveSleepSatietyImage.setImageResource(R.drawable.satiety);
-        haveSleepStaminaText.setText("+" + Constants.haveSleepUpStaminaTABOR);
-        haveSleepSatietyText.setText("-" + Constants.haveSleepDownSatietyTABOR);
-
+        haveSleepHappinessImage.setImageResource(R.drawable.happiness);
+        goToWateringStaminaImage.setImageResource(R.drawable.stamina);
+        goToWateringSatietyImage.setImageResource(R.drawable.satiety);
+        goToWateringHappinessImage.setImageResource(R.drawable.happiness);
+        goToDrinkersStaminaImage.setImageResource(R.drawable.stamina);
+        goToDrinkersSatietyImage.setImageResource(R.drawable.satiety);
+        goToDrinkersHappinessImage.setImageResource(R.drawable.happiness);
+        getMassageStaminaImage.setImageResource(R.drawable.stamina);
+        getMassageSatietyImage.setImageResource(R.drawable.satiety);
+        getMassageHappinessImage.setImageResource(R.drawable.happiness);
+        swimInLakeStaminaImage.setImageResource(R.drawable.stamina);
+        swimInLakeSatietyImage.setImageResource(R.drawable.satiety);
+        swimInLakeHappinessImage.setImageResource(R.drawable.happiness);
 
         buttonHaveSleep.setOnClickListener(this);
         buttonGoToWatering.setOnClickListener(this);
