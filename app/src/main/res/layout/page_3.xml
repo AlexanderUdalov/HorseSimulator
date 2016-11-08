@@ -540,7 +540,6 @@
             android:layout_width="match_parent"
             >
             <TableRow
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content">
                 <TextView
@@ -555,7 +554,7 @@
                     android:id="@+id/participate_championship_stamina_image"/>
             </TableRow>
             <TableRow
-                android:layout_weight="1"
+                android:paddingLeft="40dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content">
                 <TextView
@@ -569,28 +568,92 @@
                     android:layout_height="20sp"
                     android:id="@+id/participate_championship_satiety_image"/>
             </TableRow>
-            <TableRow
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content">
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="5dp"
-                    android:id="@+id/participate_championship_happiness_text"/>
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:id="@+id/participate_championship_happiness_image"/>
-            </TableRow>
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/if_lose"/>
+                <TableRow
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="5dp"
+                        android:id="@+id/participate_championship_lose_happiness_text"/>
+                    <ImageView
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:id="@+id/participate_championship_lose_happiness_image"/>
+                </TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:id="@+id/participate_championship_lose_other_text"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/if_win"/>
+                <TableRow
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="5dp"
+                        android:id="@+id/participate_championship_win_happiness_text"/>
+                    <ImageView
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:id="@+id/participate_championship_win_happiness_image"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="5dp"
+                        android:id="@+id/participate_championship_gold_apple_text"/>
+                    <ImageView
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:id="@+id/participate_championship_gold_apple_image"/>
+                </TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:id="@+id/participate_championship_win_other_text"/>
+            </LinearLayout>
         </TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:id="@+id/participate_championship_other_text"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="60dp" />

@@ -325,11 +325,68 @@ public class Controller {
         mTimeToChampionship = timeToChampionship;
     }
 
-    public void setmTimeToAttack(int TimeToAttack) {
+    public void setTimeToAttack(int TimeToAttack) {
         mTimeToAttack = TimeToAttack;
     }
 
     public int getCountRomaAtack() {
         return mCountRomaAttack;
+    }
+
+    public int getDieTimeHappiness() {
+        return mDieTimeHappiness;
+    }
+
+    public int getDieTimeStamina() {
+        return mDieTimeStamina;
+    }
+
+    public int getDieTimeSatiety() {
+        return mDieTimeSatiety;
+    }
+
+    public int getCountBattlesWon() {
+        return mCountBattlesWon;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public void setLifeTime(int mLifeTime) {
+        this.mLifeTime = mLifeTime;
+    }
+
+    public void setGoldApple(int mGoldApple) {
+        this.mGoldApple = mGoldApple;
+    }
+
+    public void setTotalScore(int mTotalScore) {
+        this.mTotalScore = mTotalScore;
+    }
+
+    public void setCountRomaAttack(int mCountRomaAttack) {
+        this.mCountRomaAttack = mCountRomaAttack;
+    }
+
+
+    public void setCountBattlesWon(int mCountBattlesWon) {
+        this.mCountBattlesWon = mCountBattlesWon;
+    }
+
+    public void setDieTimeSatiety(int mDieTimeSatiety) {
+        this.mDieTimeSatiety = mDieTimeSatiety;
+    }
+
+    public void setDieTimeStamina(int mDieTimeStamina) {
+        this.mDieTimeStamina = mDieTimeStamina;
+    }
+
+    public void setDieTimeHappiness(int mDieTimeHappiness) {
+        this.mDieTimeHappiness = mDieTimeHappiness;
     }
 }

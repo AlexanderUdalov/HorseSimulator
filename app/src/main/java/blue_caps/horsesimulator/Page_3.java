@@ -58,7 +58,11 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             bobMusclesOtherText,
             participateChampionshipStaminaText,
             participateChampionshipSatietyText,
-            participateChampionshipHappinessText;
+            participateChampionshipWinHappinessText,
+            participateChampionshipLoseHappinessText,
+            participateChampionshipGoldAppleText,
+            participateChampionshipWinText,
+            participateChampionshipLoseText;
     //не забудь добавить то, что хотел
     private ImageView
             findAppleStaminaImage,
@@ -86,7 +90,9 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             bobMusclesGoldAppleImage,
             participateChampionshipStaminaImage,
             participateChampionshipSatietyImage,
-            participateChampionshipHappinessImage;
+            participateChampionshipWinHappinessImage,
+            participateChampionshipLoseHappinessImage,
+            participateChampionshipGoldAppleImage;
     //Аналогично
 
     public void onCreate(Bundle savedInstanceState) {
@@ -138,7 +144,11 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         bobMusclesOtherText = (TextView) view.findViewById(R.id.bob_muscles_other_text);
         participateChampionshipStaminaText = (TextView) view.findViewById(R.id.participate_championship_stamina_text);
         participateChampionshipSatietyText = (TextView) view.findViewById(R.id.participate_championship_satiety_text);
-        participateChampionshipHappinessText = (TextView) view.findViewById(R.id.participate_championship_happiness_text);
+        participateChampionshipWinHappinessText = (TextView) view.findViewById(R.id.participate_championship_win_happiness_text);
+        participateChampionshipLoseHappinessText = (TextView) view.findViewById(R.id.participate_championship_lose_happiness_text);
+        participateChampionshipGoldAppleText= (TextView) view.findViewById(R.id.participate_championship_gold_apple_text);
+        participateChampionshipWinText = (TextView) view.findViewById(R.id.participate_championship_win_other_text);
+        participateChampionshipLoseText = (TextView) view.findViewById(R.id.participate_championship_lose_other_text);
 
         findAppleStaminaImage = (ImageView) view.findViewById(R.id.find_apple_stamina_image);
         findAppleSatietyImage= (ImageView) view.findViewById(R.id.find_apple_satiety_image);
@@ -165,7 +175,9 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         bobMusclesGoldAppleImage = (ImageView) view.findViewById(R.id.bob_muscles_gold_apple_image);
         participateChampionshipStaminaImage = (ImageView) view.findViewById(R.id.participate_championship_stamina_image);
         participateChampionshipSatietyImage = (ImageView) view.findViewById(R.id.participate_championship_satiety_image);
-        participateChampionshipHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_happiness_image);
+        participateChampionshipWinHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_win_happiness_image);
+        participateChampionshipLoseHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_lose_happiness_image);
+        participateChampionshipGoldAppleImage  = (ImageView) view.findViewById(R.id.participate_championship_gold_apple_image);
         //Участие в чемпионате, аналогично
 
         findAppleStaminaImage.setImageResource(R.drawable.stamina);
@@ -193,44 +205,56 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         bobMusclesGoldAppleImage.setImageResource(R.drawable.image_goldapple);
         participateChampionshipStaminaImage.setImageResource(R.drawable.stamina);
         participateChampionshipSatietyImage.setImageResource(R.drawable.satiety);
-        participateChampionshipHappinessImage.setImageResource(R.drawable.happiness);
-        //participateChampionshipGoldAppleImage.setImageResource(R.drawable.image_goldapple);
+        participateChampionshipWinHappinessImage.setImageResource(R.drawable.happiness);
+        participateChampionshipLoseHappinessImage.setImageResource(R.drawable.happiness);
+        participateChampionshipGoldAppleImage.setImageResource(R.drawable.image_goldapple);
 
 
 
 
-        findAppleStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        findAppleSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        findAppleHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        plowedFieldStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        plowedFieldSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        plowedFieldHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        plowedFieldOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpHorsesStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpHorsesSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpHorsesHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpHorsesOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpPeopleStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpPeopleSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpPeopleHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        helpPeopleOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        knockCorralGateStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        knockCorralGateSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        knockCorralGateHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        knockCorralGateOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateHorseRaceStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateHorseRaceSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateHorseRaceHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateHorseRaceGoldAppleText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateHorseRaceOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        bobMusclesStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        bobMusclesSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        bobMusclesHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        bobMusclesGoldAppleText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        bobMusclesOtherText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateChampionshipStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateChampionshipSatietyText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
-        participateChampionshipHappinessText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
+        findAppleStaminaText.setText(withSign(-Constants.findAppleDownStamina - Constants.wasStepDownStamina));
+        findAppleSatietyText.setText(withSign(-Constants.findAppleDownSatiety - Constants.wasStepDownStamina));
+        findAppleHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        plowedFieldStaminaText.setText(withSign(- Constants.plowedFieldDownStamina - Constants.wasStepDownStamina));
+        plowedFieldSatietyText.setText(withSign( -Constants.plowedFieldDownSatiety - Constants.wasStepDownStamina));
+        plowedFieldHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        plowedFieldOtherText.setText(getString(R.string.respect_horses) + " -" + Constants.plowedFieldDownRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " +" + Constants.plowedFieldUpRespectPeoples);
+        helpHorsesStaminaText.setText(withSign(-Constants.helpHorsesDownStamina - Constants.wasStepDownStamina));
+        helpHorsesSatietyText.setText(withSign(-Constants.helpHorsesDownSatiety - Constants.wasStepDownStamina));
+        helpHorsesHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        helpHorsesOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.helpHorsesUpRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " -" + Constants.helpHorsesDownRespectPeoples);
+        helpPeopleStaminaText.setText(withSign(-Constants.helpPeopleDownStamina - Constants.wasStepDownStamina));
+        helpPeopleSatietyText.setText(withSign(-Constants.helpPeopleDownSatiety - Constants.wasStepDownStamina));
+        helpPeopleHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        helpPeopleOtherText.setText(getString(R.string.respect_horses) + " -" + Constants.helpPeopleDownRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " +" + Constants.helpPeopleUpRespectPeoples);
+        knockCorralGateStaminaText.setText(withSign(-Constants.knockCorralGateDownStamina - Constants.wasStepDownStamina));
+        knockCorralGateSatietyText.setText(withSign(-Constants.knockCorralGateDownSatiety - Constants.wasStepDownStamina));
+        knockCorralGateHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        knockCorralGateOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.knockCorralGateUpRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " -" + Constants.knockCorralGateDownRespectPeoples);
+        participateHorseRaceStaminaText.setText(withSign(-Constants.participateHorseRaceDownStamina - Constants.wasStepDownStamina));
+        participateHorseRaceSatietyText.setText(withSign(Constants.participateHorseRaceDownSatiety - Constants.wasStepDownStamina));
+        participateHorseRaceHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        participateHorseRaceGoldAppleText.setText(withSign(-1));
+        participateHorseRaceOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.participateHorseRaceUpRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " +" + Constants.participateHorseRaceUpRespectPeople);
+        bobMusclesStaminaText.setText(withSign(-Constants.bobMusclesDownStamina - Constants.wasStepDownStamina));
+        bobMusclesSatietyText.setText(withSign(-Constants.bobMusclesDownSatiety - Constants.wasStepDownStamina));
+        bobMusclesHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        bobMusclesGoldAppleText.setText(withSign(-1));
+        bobMusclesOtherText.setText(getString(R.string.max_speed) + " +" + Constants.bobMusclesUpMaxSpeed);
+        participateChampionshipStaminaText.setText(withSign(-Constants.participateChampionshipDownStamina - Constants.wasStepDownStamina));
+        participateChampionshipSatietyText.setText(withSign(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownStamina));
+        participateChampionshipWinHappinessText.setText(withSign(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness));
+        participateChampionshipLoseHappinessText.setText(withSign(Constants.participateChampionshipUpHappiness - Constants.wasStepDownHappiness));
+        participateChampionshipGoldAppleText.setText(withSign(Constants.participateChampionshipUpApples));
+        participateChampionshipWinText.setText(getString(R.string.respect_horses) + " +" + Constants.participateChampionshipUpRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " +" + Constants.participateChampionshipUpRespectPeoples);
+        participateChampionshipLoseText.setText(getString(R.string.respect_horses) + " -" + Constants.participateChampionshipDownRespectHorses + "\n" +
+                getString(R.string.respect_peoples) + " -" + Constants.participateChampionshipDownRespectPeoples);
 
 
         buttonFindApple.setOnClickListener(this);
@@ -276,7 +300,8 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         }
         MainActivity.controller.dieCheck(getActivity());
         update();
-        MainActivity.page_3.update();
+        MainActivity.page_4.update();
+        MainActivity.page_2.update();
         MainActivity.updateStats();
     }
 

@@ -191,8 +191,7 @@ public class Page_4 extends Fragment implements View.OnClickListener{
         }
         MainActivity.controller.dieCheck(getActivity());
         update();
-        MainActivity.page_2.update();
-        MainActivity.page_4.update();
+        MainActivity.page_3.update();
     }
 
     public void update(){
@@ -347,7 +346,7 @@ public class Page_4 extends Fragment implements View.OnClickListener{
     private void changeHabitat(Button newHabitat) {
         if (currentHabitat.isEnabled())
             currentHabitat.setTextColor(Color.BLACK);
-        else currentHabitat.setTextColor(Color.LTGRAY);
+        else currentHabitat.setTextColor(Color.argb(180, 170, 170, 170));
 
         currentHabitat = newHabitat;
         currentHabitat.setTextColor(Color.BLUE);

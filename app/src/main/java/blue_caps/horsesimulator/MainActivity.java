@@ -4,6 +4,7 @@ package blue_caps.horsesimulator;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -52,7 +53,42 @@ public class MainActivity extends AppCompatActivity {
     public static Page_3 page_3;
     public static Page_4 page_4;
     static Controller controller;
+    private SharedPreferences sPref;
+    static boolean isStart = true;
 
+    private final String
+            TIME_TO_ATTACK = "TIME_TO_ATTACK",
+            LIFE_TIME = "LIFE_TIME",
+            TIME_TO_CHAMPIONSHIP = "TIME_TO_CHAMPIONSHIP",
+            GOLD_APPLE = "GOLD_APPLE",
+            TOTAL_SCORE = "TOTAL_SCORE",
+            COUNT_ROMA_ATTACK = "COUNT_ROMA_ATTACK",
+            COUNT_BATTLE_WON = "COUNT_BATTLE_WON",
+            DIE_TIME_STAMINA = "DIE_TIME_STAMINA",
+            DIE_TIME_SATIETY = "DIE_TIME_SATIETY",
+            DIE_TIME_HAPPINESS = "DIE_TIME_HAPPINESS",
+            STAMINA = "STAMINA",
+            SATIETY = "SATIETY",
+            HAPPINESS = "HAPPINESS",
+            RESPECT_HORSES = "RESPECT_HORSES",
+            RESPECT_PEOPLES = "RESPECT_PEOPLES",
+            MAX_SPEED = "MAX_SPEED",
+            HABITAT = "HABITAT",
+            LEVEL = "LEVEL",
+            NEXT_LEVEL_INDEX = "NEXT_LEVEL_INDEX",
+            IS_START = "IS_START";
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        save();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        save();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
-        showHowToPlay(this);
+
+        load();
+
+        if (isStart)
+            showHowToPlay(this);
+        isStart = false;
 
         page_0 = new Page_0();
         page_1 = new Page_1();
@@ -181,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent starterIntent = act.getIntent();
                         act.finish();
                         act.startActivity(starterIntent);
+                        isStart = true;
                     }
                 });
         View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
@@ -297,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             // СЂРµРєР»Р°РјР°
-                            controller.setmTimeToAttack(Constants.timeToRomaAttack);
+                            controller.setTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }
                     });
@@ -305,7 +347,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             adAlert.hide();
-                            act.recreate();
+                            Intent starterIntent = act.getIntent();
+                            act.finish();
+                            act.startActivity(starterIntent);
+                            isStart = true;
                         }
                     });
                 }
@@ -347,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             // СЂРµРєР»Р°РјР°
-                            controller.setmTimeToAttack(Constants.timeToRomaAttack);
+                            controller.setTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }
                     });
@@ -355,12 +400,71 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             adAlert.hide();
-                            act.recreate();
+                            Intent starterIntent = act.getIntent();
+                            act.finish();
+                            act.startActivity(starterIntent);
+                            isStart = true;
                         }
                     });
                 }
             }
         });
+    }
+
+    public void save(){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+
+        ed.putInt(TIME_TO_ATTACK, MainActivity.controller.getTimeToAttack());
+        ed.putInt(TIME_TO_CHAMPIONSHIP, MainActivity.controller.getTimeToChampionship());
+        ed.putInt(GOLD_APPLE, MainActivity.controller.getGoldApple());
+        ed.putInt(LIFE_TIME, MainActivity.controller.getLifeTime());
+        ed.putInt(TOTAL_SCORE, MainActivity.controller.getTotalScore());
+        ed.putInt(COUNT_ROMA_ATTACK, MainActivity.controller.getCountRomaAtack());
+        ed.putInt(COUNT_BATTLE_WON, MainActivity.controller.getCountBattlesWon());
+        ed.putInt(DIE_TIME_STAMINA, MainActivity.controller.getDieTimeStamina());
+        ed.putInt(DIE_TIME_HAPPINESS, MainActivity.controller.getDieTimeHappiness());
+        ed.putInt(DIE_TIME_SATIETY, MainActivity.controller.getDieTimeSatiety());
+
+        ed.putInt(STAMINA, MainActivity.controller.getHorse().getStamina());
+        ed.putInt(SATIETY, MainActivity.controller.getHorse().getSatiety());
+        ed.putInt(HAPPINESS, MainActivity.controller.getHorse().getHappiness());
+        ed.putInt(RESPECT_HORSES, MainActivity.controller.getHorse().getRespectHorses());
+        ed.putInt(RESPECT_PEOPLES, MainActivity.controller.getHorse().getRespectPeoples());
+        ed.putFloat(MAX_SPEED, MainActivity.controller.getHorse().getMaxSpeed());
+        ed.putInt(HABITAT, (MainActivity.controller.getHorse().getHabitat().ordinal()));
+        ed.putInt(LEVEL, (MainActivity.controller.getHorse().getLevel().ordinal()));
+        ed.putInt(NEXT_LEVEL_INDEX, MainActivity.controller.getIndex());
+        ed.putBoolean(IS_START, isStart);
+
+        ed.apply();
+    }
+
+    public void load(){
+        sPref = getPreferences(MODE_PRIVATE);
+        isStart = sPref.getBoolean(IS_START, true);
+        if(!(isStart)) {
+            MainActivity.controller.setLifeTime(sPref.getInt(LIFE_TIME, 1));
+            MainActivity.controller.setTimeToAttack(sPref.getInt(TIME_TO_ATTACK, 0));
+            MainActivity.controller.setTimeToChampionship(sPref.getInt(TIME_TO_CHAMPIONSHIP, 0));
+            MainActivity.controller.setGoldApple(sPref.getInt(GOLD_APPLE, 0));
+            MainActivity.controller.setTotalScore(sPref.getInt(TOTAL_SCORE, 0));
+            MainActivity.controller.setCountRomaAttack(sPref.getInt(COUNT_ROMA_ATTACK, 0));
+            MainActivity.controller.setCountBattlesWon(sPref.getInt(COUNT_BATTLE_WON, 0));
+            MainActivity.controller.setDieTimeStamina(sPref.getInt(DIE_TIME_STAMINA, 4));
+            MainActivity.controller.setDieTimeHappiness(sPref.getInt(DIE_TIME_HAPPINESS, 4));
+            MainActivity.controller.setDieTimeSatiety(sPref.getInt(DIE_TIME_SATIETY, 4));
+
+            MainActivity.controller.getHorse().setStamina(sPref.getInt(STAMINA, 50));
+            MainActivity.controller.getHorse().setSatiety(sPref.getInt(SATIETY, 50));
+            MainActivity.controller.getHorse().setHappiness(sPref.getInt(HAPPINESS, 50));
+            MainActivity.controller.getHorse().setRespectHorses(sPref.getInt(RESPECT_HORSES, 0));
+            MainActivity.controller.getHorse().setRespectPeoples(sPref.getInt(RESPECT_PEOPLES, 0));
+            MainActivity.controller.getHorse().setMaxSpeed(sPref.getFloat(MAX_SPEED, 20));
+            MainActivity.controller.getHorse().setHabitat(Habitat.values()[sPref.getInt(HABITAT, 0)]);
+            MainActivity.controller.getHorse().setLevel(Level.values()[sPref.getInt(LEVEL, 0)]);
+            MainActivity.controller.setIndex(sPref.getInt(NEXT_LEVEL_INDEX, 1));
+        }
     }
 }
 

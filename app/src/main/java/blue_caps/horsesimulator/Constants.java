@@ -92,8 +92,8 @@ public interface Constants {
         helpHorsesUpRespectHorses = 6,
         helpHorsesDownRespectPeoples = 6,
 
-        knockCorralGateDownSatiety = 30,
-        knockCorralGateDownStamina = 25,
+        knockCorralGateDownSatiety = 0,
+        knockCorralGateDownStamina = 0,
         knockCorralGateDownRespectPeoples = 10,
         knockCorralGateUpRespectHorses = 10,
 
@@ -104,6 +104,7 @@ public interface Constants {
 
         bobMusclesDownSatiety = 20,
         bobMusclesDownStamina = 20,
+        bobMusclesUpMaxSpeed = 1,
 
         participateChampionshipDownStamina = 0,
         participateChampionshipDownSatiety = 0,
@@ -135,5 +136,5 @@ public interface Constants {
         bossHorse = 50000,
         godHorse = 100000;
 
-    double bobMusclesUpMaxSpeed = 0.3;
+    //double bobMusclesUpMaxSpeed = 0.3;
 }

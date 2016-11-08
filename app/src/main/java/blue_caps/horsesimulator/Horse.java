@@ -10,7 +10,7 @@ public class Horse {
     private int mHappiness;
     private int mRespectHorses;
     private int mRespectPeoples;
-    private double mMaxSpeed;
+    private float mMaxSpeed;
     private Habitat habitat;
     private Level level;
 
@@ -35,7 +35,7 @@ public class Horse {
     public int getHappiness() {return mHappiness;}
     public int getRespectHorses() {return mRespectHorses;}
     public int getRespectPeoples() {return mRespectPeoples;}
-    public double getMaxSpeed() {return mMaxSpeed;}
+    public float getMaxSpeed() {return mMaxSpeed;}
 
     public void upStamina(int x) {
         if (mStamina <= mMaxStamina - x)
@@ -99,7 +99,7 @@ public class Horse {
 
     public void upMaxSpeed() {
         if (mMaxSpeed < mMaxSpeedLimit)
-            mMaxSpeed++;
+            mMaxSpeed += Constants.bobMusclesUpMaxSpeed;
     }
 
     public Habitat getHabitat() {
@@ -116,5 +116,29 @@ public class Horse {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public void setStamina(int mStamina) {
+        this.mStamina = mStamina;
+    }
+
+    public void setSatiety(int mSatiety) {
+        this.mSatiety = mSatiety;
+    }
+
+    public void setHappiness(int mHappiness) {
+        this.mHappiness = mHappiness;
+    }
+
+    public void setRespectHorses(int mRespectHorses) {
+        this.mRespectHorses = mRespectHorses;
+    }
+
+    public void setRespectPeoples(int mRespectPeoples) {
+        this.mRespectPeoples = mRespectPeoples;
+    }
+
+    public void setMaxSpeed(float mMaxSpeed) {
+        this.mMaxSpeed = mMaxSpeed;
     }
 }
