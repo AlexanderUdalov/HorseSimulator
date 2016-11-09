@@ -92,7 +92,7 @@ public class Page_0 extends Fragment {
             }
             default:{
                 valueTimeToAttack.setText(String.valueOf(MainActivity.controller.getTimeToAttack()) + " " +
-                        getString(R.string.days));
+                        dayString(MainActivity.controller.getTimeToAttack()));
                 break;
             }
         }
@@ -110,4 +110,12 @@ public class Page_0 extends Fragment {
         valueCountRomaAttack.setText(String.valueOf(MainActivity.controller.getCountRomaAtack()));
     }
 
+    public String dayString(int days) {
+        if (days % 10 > 4 || days % 10 == 0 || (days > 10 && days < 20))
+            return getString(R.string.days);
+        if (days % 10 == 1)
+            return getString(R.string.day);
+
+        return getString(R.string.days1);
+    }
 }

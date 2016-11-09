@@ -318,11 +318,11 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         MainActivity.updateStats();
     }
 
-
-    public void update(){
+    public void update() {
         if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
-            buttonParticipateChampionship.setText(""  + R.string.championship + MainActivity.controller.getTimeToChampionship() + " ДНЕЙ");
+            buttonParticipateChampionship.setText(""  + R.string.championship + MainActivity.controller.getTimeToChampionship()
+                    + " " + dayString(MainActivity.controller.getTimeToChampionship()));
         }
         else buttonParticipateChampionship.setEnabled(true);
         if (MainActivity.controller.getGoldApple() == 0){
@@ -333,5 +333,14 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             buttonParticipateHorseRace.setEnabled(true);
             buttonBobMuscles.setEnabled(true);
         }
+    }
+
+    public String dayString(int days) {
+        if (days % 10 > 4 || days % 10 == 0 || (days > 10 && days < 20))
+            return getString(R.string.days);
+        if (days % 10 == 1)
+            return getString(R.string.day);
+
+        return getString(R.string.days1);
     }
 }

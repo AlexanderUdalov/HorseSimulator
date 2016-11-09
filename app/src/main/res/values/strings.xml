@@ -6,7 +6,6 @@
     <string name="satiety">Сытость</string>
     <string name="happiness">Счастье</string>
     <string name="apples">Яблоки</string>
-    <string name="day">День </string>
 
     <string name="stat">Статистика</string>
     <string name="respect_horses">Уважение сородичей:</string>
@@ -16,7 +15,9 @@
     <string name="habitat">Место обитания:</string>
     <string name="roma_attack">Атак цыган отбито:</string>
     <string name="time_to_attack">До войны с цыганами:</string>
+    <string name="day">день</string>
     <string name="days">дней</string>
+    <string name="days1">дня</string>
     <string name="war_yet">война уже идет</string>
     <string name="max_speed">Максимальная скорость</string>
 
