@@ -288,12 +288,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
             case R.id.button_get_apple: {
-                if (mAd.isLoaded()) {
-                    mAd.show();
-                    MainActivity.controller.getApples();
-                }
-                else return;
-                break;
+                return;
             }
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
