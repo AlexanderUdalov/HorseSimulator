@@ -1,5 +1,13 @@
-<resources>
+﻿<resources>
     <string name="app_name">Симулятор коня</string>
+
+    <string name="close_video_title_die">Закрыть видео?</string>
+    <string name="close_video_text_die">Закрыв видео, Вам придется начать игру с начала, Вы уверенны?</string>
+    <string name="close_video_button">Да</string>
+    <string name="keep_watching_button">Нет</string>
+
+    <string name="close_video_title_apple">Закрыть видео?</string>
+    <string name="close_video_text_apple">Закрыв видео, Вы не получите золотых яблок, Вы уверенны?</string>
 
     <string name="stamina">Энергия</string>
     <string name="food">Еда</string>
@@ -33,17 +41,17 @@
 
     <string name="eat_grass">Поесть травы</string>
     <string name="stealing_food">Украсть еду</string>
-    <string name="begging_sugar">Молить о сахаре</string>
+    <string name="begging_sugar">Сахар</string>
     <string name="ask_for_food">Попросить еду</string>
     <string name="eat_apple">Съесть ялбоко</string>
 
 
     <string name="introducing_speech_title">Начало коня</string>
-    <string name="die_speech_title">Лох,Соснул,Начинай с начала, ебучий плебей</string>
-    <string name="die_alert_speech_title">Вы скоро сдохнете!</string>
+    <string name="die_speech_title">Ваш конь отправился на тот свет, начинайте сначала</string>
+    <string name="die_alert_speech_title">Вы скоро умрете!</string>
     <string name="how_to_play">Как играть</string>
-    <string name="roma_attack_title">Цыгане пидоры</string>
-    <string name="lose_title">Соснул!</string>
+    <string name="roma_attack_title">Цыгане напали</string>
+    <string name="lose_title">Вы проиграли!</string>
     <string name="win_title">Победа!</string>
     <string name="successful_run_massage">Вы успешно убежали от цыган</string>
     <string name="ad_run_title">Вы не смогли убежать</string>
@@ -54,10 +62,10 @@
      <string name="introducing_speech">Вы - конь. Вы смогли убежать от цыган, но они не дремлют.
         Следите за параметрами и не дайте себе умереть.
         Подкачайтесь, пока вас не забрали обратно</string>
-    <string name="die_alert_speech">Вы cкоро сдохнете!</string>
-    <string name="die_speech">Вы сдохли!</string>
-    <string name="roma_attack_speech">Вы пидор, цыгане пидоры, выиграет сымай длинный писос.</string>
-    <string name="ad_speech">Помолитесь Богу, посмотрите рекламу</string>
+    <string name="die_alert_speech">Ваш конь cкоро умрет!</string>
+    <string name="die_speech">Ваш конь умер!</string>
+    <string name="roma_attack_speech">На Вас напали цыгане,Вы не смогли от них  убежать .</string>
+    <string name="ad_speech">Помолитесь Богу  или посмотрите рекламу</string>
     <string name="success_run">Цыгане напали внезапно, на этот раз вы смогли сбежать от них,
         но готовтесь, они обязательно нападут на вас снова.</string>
     <string name="success_fight">Цыгане напали внезапно, на этот раз вы смогли отбиться от них,
@@ -101,7 +109,7 @@
     <string name="paddock">Загон</string>
     <string name="stable">Конюшня</string>
 
-    <string name="need_bester_habitat">Нужно более крутое жилье</string>
+    <string name="need_bester_habitat">Нужно более комфортное жилье</string>
 
 
     <string name="new_level">Новый уровень!</string>
@@ -109,7 +117,7 @@
     <string name="amazing_horse">Эмейзинг-конь</string>
     <string name="pickup_master_horse">Конь - пикап-мастер</string>
     <string name="boss_horse">Босс коней</string>
-    <string name="horse_god">Конь-бог</string>
+    <string name="horse_god">Конь-Бог</string>
     <string name="simple_horse">Просто конь</string>
 
 

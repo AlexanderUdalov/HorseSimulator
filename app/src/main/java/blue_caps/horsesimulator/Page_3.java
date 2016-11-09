@@ -11,8 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static blue_caps.horsesimulator.MainActivity.mAd;
-
+import static blue_caps.horsesimulator.MainActivity.appleConfig;
+import static blue_caps.horsesimulator.MainActivity.dieConfig;
+import static blue_caps.horsesimulator.MainActivity.videoApple;
 
 /**
  * Created by alexu on 4.11.2016.
@@ -288,6 +289,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
             case R.id.button_get_apple: {
+                videoApple.playAd(appleConfig);
                 return;
             }
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;

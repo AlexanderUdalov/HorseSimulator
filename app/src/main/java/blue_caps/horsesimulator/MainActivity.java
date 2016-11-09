@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -17,6 +19,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.vungle.publisher.AdConfig;
+import com.vungle.publisher.EventListener;
+import com.vungle.publisher.Orientation;
+import com.vungle.publisher.VunglePub;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
@@ -78,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
             NEXT_LEVEL_INDEX = "NEXT_LEVEL_INDEX",
             IS_START = "IS_START";
 
+    final static VunglePub videoDie = VunglePub.getInstance();
+    final static VunglePub videoApple = VunglePub.getInstance();
+    final static AdConfig dieConfig = new AdConfig();
+    final static AdConfig appleConfig = new AdConfig();
+    final String app_id = "5823510d305e3dec2d00062f";
+
     @Override
     protected void onDestroy(){
         super.onDestroy();
@@ -95,13 +108,82 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
 
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        videoDie.init(this, app_id);
+        videoApple.init(this, app_id);
+        makeConfig();
+        videoDie.addEventListeners(new EventListener() {
+            @Override
+            public void onAdEnd(boolean b, boolean b1) {
+
+            }
+
+            @Override
+            public void onAdStart() {
+
+            }
+
+            @Override
+            public void onAdUnavailable(String s) {
+
+            }
+
+            @Override
+            public void onAdPlayableChanged(boolean b) {
+
+            }
+
+            @Override
+            public void onVideoView(boolean b, int i, int i1) {
+                if (b){
+                    System.out.println("PISOS");
+                    return;
+                }
+                else {
+                    recreate();
+                }
+            }
+        });
+
+        videoApple.addEventListeners(new EventListener() {
+            @Override
+            public void onAdEnd(boolean b, boolean b1) {
+
+            }
+
+            @Override
+            public void onAdStart() {
+
+            }
+
+            @Override
+            public void onAdUnavailable(String s) {
+
+            }
+
+            @Override
+            public void onAdPlayableChanged(boolean b) {
+
+            }
+
+            @Override
+            public void onVideoView(boolean b, int i, int i1) {
+                if (b){
+                    controller.getGoldApple();
+                    updateStats();
+                }
+            }
+        });
+
         controller = new Controller();
         setContentView(R.layout.activity_main);
 
         load();
 
-        if (isStart)
+        if (isStart) {
             showHowToPlay(this);
+        }
         isStart = false;
 
         page_0 = new Page_0();
@@ -185,6 +267,28 @@ public class MainActivity extends AppCompatActivity {
                 getRedColorFromValue(((float)controller.getHorse().getHappiness())/Horse.mMaxHappiness),
                 getGreenColorFromValue(((float)controller.getHorse().getHappiness())/Horse.mMaxHappiness),0);
         scaleHappiness.setImageDrawable(shapeHappiness);
+    }
+
+    public void makeConfig(){
+        dieConfig.setBackButtonImmediatelyEnabled(false);
+        dieConfig.setIncentivizedCancelDialogTitle(getString(R.string.close_video_title_die));
+        dieConfig.setIncentivizedCancelDialogBodyText(getString(R.string.close_video_text_die));
+        dieConfig.setIncentivizedCancelDialogCloseButtonText(getString(R.string.close_video_button));
+        dieConfig.setIncentivizedCancelDialogKeepWatchingButtonText(getString(R.string.keep_watching_button));
+        dieConfig.setIncentivized(true);
+        dieConfig.setSoundEnabled(false);
+        dieConfig.setImmersiveMode(true);
+        dieConfig.setOrientation(Orientation.matchVideo);
+
+        appleConfig.setBackButtonImmediatelyEnabled(false);
+        appleConfig.setIncentivizedCancelDialogTitle(getString(R.string.close_video_title_apple));
+        appleConfig.setIncentivizedCancelDialogBodyText(getString(R.string.close_video_text_apple));
+        appleConfig.setIncentivizedCancelDialogCloseButtonText(getString(R.string.close_video_button));
+        appleConfig.setIncentivizedCancelDialogKeepWatchingButtonText(getString(R.string.keep_watching_button));
+        appleConfig.setIncentivized(true);
+        appleConfig.setSoundEnabled(false);
+        appleConfig.setImmersiveMode(true);
+        appleConfig.setOrientation(Orientation.matchVideo);
     }
 
     public static int getRedColorFromValue(float value){
@@ -338,7 +442,7 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // СЂРµРєР»Р°РјР°
+                            videoDie.playAd(dieConfig);
                             controller.setTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }
@@ -388,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // СЂРµРєР»Р°РјР°
+                            videoDie.playAd(dieConfig);
                             controller.setTimeToAttack(Constants.timeToRomaAttack);
                             adAlert.hide();
                         }

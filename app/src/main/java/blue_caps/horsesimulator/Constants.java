@@ -129,7 +129,7 @@ public interface Constants {
         kazahstanRespect = 800,
 
         timeToChampionship = 30,
-        timeToRomaAttack = 50,
+        timeToRomaAttack = 1,
 
         amazingHorse = 10000,
         pickupMasterHorse = 30000,
