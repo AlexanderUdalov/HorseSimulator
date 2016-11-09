@@ -11,7 +11,7 @@ import java.util.zip.CheckedInputStream;
  */
 
 public class Controller {
-    private int mTimeToAttack = 80;
+    private int mTimeToAttack = 5;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;

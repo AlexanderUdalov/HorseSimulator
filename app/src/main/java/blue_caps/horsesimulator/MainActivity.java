@@ -18,6 +18,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
     private static TextView
@@ -78,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
             NEXT_LEVEL_INDEX = "NEXT_LEVEL_INDEX",
             IS_START = "IS_START";
 
+    public static InterstitialAd mInterstitialAd;
+
     @Override
     protected void onDestroy(){
         super.onDestroy();
@@ -94,6 +100,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2384882322139467/3735583436");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                 requestNewInterstitial();
+                 //beginPlayingGame();
+                 }
+             });
+
+        requestNewInterstitial();
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
@@ -144,6 +163,14 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(pagerAdapter);
         updateStats();
     }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+            .addTestDevice("SEE_YOUR_LOGCAT_TO_GET_YOUR_DEVICE_ID")
+            .build();
+
+        mInterstitialAd.loadAd(adRequest);
+        }
 
     /*Следующая функция написана самым быдлокодерским способом, потому что я не знаю
         как по-другому закинуть туда размеры =(
@@ -339,8 +366,19 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             // СЂРµРєР»Р°РјР°
-                            controller.setTimeToAttack(Constants.timeToRomaAttack);
-                            adAlert.hide();
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                adAlert.hide();
+                            }
+                            else{
+                                adAlert.hide();
+                                Intent starterIntent = act.getIntent();
+                                act.finish();
+                                act.startActivity(starterIntent);
+                                isStart = true;
+                            }
+
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {
@@ -391,9 +429,18 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            // СЂРµРєР»Р°РјР°
-                            controller.setTimeToAttack(Constants.timeToRomaAttack);
-                            adAlert.hide();
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                adAlert.hide();
+                            }
+                            else{
+                                adAlert.hide();
+                                Intent starterIntent = act.getIntent();
+                                act.finish();
+                                act.startActivity(starterIntent);
+                                isStart = true;
+                            }
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {
