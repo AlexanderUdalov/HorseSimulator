@@ -11,7 +11,7 @@ import java.util.zip.CheckedInputStream;
  */
 
 public class Controller {
-    private int mTimeToAttack = Constants.timeToRomaAttack;
+    private int mTimeToAttack = 80;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;
@@ -180,7 +180,7 @@ public class Controller {
         Random rd = new Random();
         mHorse.downStamina(Constants.findAppleDownStamina);
         mHorse.downSatiety(Constants.findAppleDownSatiety);
-        int difference = rd.nextInt(5) + 1;
+        int difference = rd.nextInt(2);
         mGoldApple += difference;
     }
 
@@ -217,7 +217,6 @@ public class Controller {
         mHorse.downStamina(Constants.participateHorseRaceDownStamina);
         mHorse.upRespectHorses(Constants.participateHorseRaceUpRespectHorses);
         mHorse.upRespectPeoples(Constants.participateHorseRaceUpRespectPeople);
-        bobMuscles();
     }
 
 
@@ -229,7 +228,7 @@ public class Controller {
     }
 
     public boolean participateChampionship(){
-        mTimeToChampionship = 10;
+        mTimeToChampionship = Constants.timeToChampionship;
         mHorse.downStamina(Constants.participateChampionshipDownStamina);
         mHorse.downSatiety(Constants.participateChampionshipDownSatiety);
         if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 2 * Horse.mMaxSpeedLimit + 5){

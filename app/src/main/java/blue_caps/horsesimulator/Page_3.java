@@ -307,8 +307,10 @@ public class Page_3 extends Fragment implements View.OnClickListener {
 
 
     public void update(){
-        if (MainActivity.controller.getTimeToChampionship() != 0)
+        if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
+            buttonParticipateChampionship.setText(""  + R.string.championship + MainActivity.controller.getTimeToChampionship() + " ДНЕЙ");
+        }
         else buttonParticipateChampionship.setEnabled(true);
         if (MainActivity.controller.getGoldApple() == 0){
             buttonParticipateHorseRace.setEnabled(false);
