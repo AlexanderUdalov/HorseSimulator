@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.ads.InterstitialAd;
+import static blue_caps.horsesimulator.MainActivity.mAd;
+
 
 /**
  * Created by alexu on 4.11.2016.
@@ -20,6 +20,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class Page_3 extends Fragment implements View.OnClickListener {
     private Button
+            buttonGetApple,
             buttonFindApple,
             buttonPlowedField,
             buttonHelpHorses,
@@ -106,6 +107,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_3, null);
 
+        buttonGetApple = (Button) view.findViewById(R.id.button_get_apple);
         buttonFindApple = (Button) view.findViewById(R.id.button_find_apple);
         buttonPlowedField = (Button) view.findViewById(R.id.button_plowed_field);
         buttonHelpHorses = (Button) view.findViewById(R.id.button_help_horses);
@@ -260,6 +262,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
 
 
         buttonFindApple.setOnClickListener(this);
+        buttonGetApple.setOnClickListener(this);
         buttonPlowedField.setOnClickListener(this);
         buttonHelpHorses.setOnClickListener(this);
         buttonHelpPeople.setOnClickListener(this);
@@ -284,6 +287,14 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
+            case R.id.button_get_apple: {
+                if (mAd.isLoaded()) {
+                    mAd.show();
+                    MainActivity.controller.getApples();
+                }
+                else return;
+                break;
+            }
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
             case R.id.button_help_horses: MainActivity.controller.helpHorses(); break;

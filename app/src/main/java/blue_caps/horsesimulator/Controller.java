@@ -173,7 +173,10 @@ public class Controller {
 
     /* Other function  */
     public void getApples(){
-
+        if (MainActivity.mAd.isLoaded()) {
+            MainActivity.mAd.show();
+            mGoldApple += 5;
+        }
     }
 
     public void findApple(){
