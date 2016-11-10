@@ -173,8 +173,7 @@ public class Controller {
 
     /* Other function  */
     public void getApples(){
-            mGoldApple += 5;
-        MainActivity.videoApple.getInstance();
+            mGoldApple += 2;
     }
 
     public void findApple(){

@@ -253,8 +253,8 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         bobMusclesOtherText.setText(getString(R.string.max_speed) + " +" + Constants.bobMusclesUpMaxSpeed);
         participateChampionshipStaminaText.setText(withSign(-Constants.participateChampionshipDownStamina - Constants.wasStepDownStamina));
         participateChampionshipSatietyText.setText(withSign(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownStamina));
-        participateChampionshipWinHappinessText.setText(withSign(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness));
-        participateChampionshipLoseHappinessText.setText(withSign(Constants.participateChampionshipUpHappiness - Constants.wasStepDownHappiness));
+        participateChampionshipWinHappinessText.setText(withSign(Constants.participateChampionshipUpHappiness - Constants.wasStepDownHappiness));
+        participateChampionshipLoseHappinessText.setText(withSign(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness));
         participateChampionshipGoldAppleText.setText(withSign(Constants.participateChampionshipUpApples));
         participateChampionshipWinText.setText(getString(R.string.respect_horses) + " +" + Constants.participateChampionshipUpRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " +" + Constants.participateChampionshipUpRespectPeoples);

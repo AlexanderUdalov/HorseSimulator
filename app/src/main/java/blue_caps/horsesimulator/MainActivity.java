@@ -100,7 +100,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
+        videoApple.onPause();
+        videoDie.onPause();
         save();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        videoApple.onResume();
+        videoDie.onResume();
     }
 
     @Override
@@ -231,14 +240,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addListeners(){
-        videoDie.addEventListeners(new EventListener() {
+        videoDie.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
                 if (!b) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            startNewGame();
+                            controller = new Controller();
+                            page_0.update();
+                            page_1.update();
+                            page_2.update();
+                            page_3.update();
+                            page_4.update();
+                            updateStats();
                         }
                     });
                 }
@@ -265,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        videoApple.addEventListeners(new EventListener() {
+        videoApple.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
                 if (b){
@@ -302,17 +317,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void startNewGame(){
-        controller = new Controller();
-        page_0.update();
-        page_1.update();
-        page_2.update();
-        page_3.update();
-        page_4.update();
-        updateStats();
-        showHowToPlay(this);
-    }
-
     public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
@@ -341,7 +345,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static void showDieDialog(final Activity act) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        videoDie.getInstance();
         builder.setTitle(R.string.die_speech_title).setCancelable(false)
                 .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -474,7 +477,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             adAlert.hide();
-                            act.recreate();
+                            Intent starterIntent = act.getIntent();
+                            act.finish();
+                            act.startActivity(starterIntent);
+                            isStart = true;
                         }
                     });
                 }
@@ -524,7 +530,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             adAlert.hide();
-                            act.recreate();
+                            Intent starterIntent = act.getIntent();
+                            act.finish();
+                            act.startActivity(starterIntent);
+                            isStart = true;
                         }
                     });
                 }
