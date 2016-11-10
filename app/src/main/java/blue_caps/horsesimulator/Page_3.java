@@ -68,7 +68,6 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             participateChampionshipGoldAppleText,
             participateChampionshipWinText,
             participateChampionshipLoseText;
-    //не забудь добавить то, что хотел
     private ImageView
             findAppleStaminaImage,
             findAppleSatietyImage,
@@ -184,7 +183,6 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         participateChampionshipWinHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_win_happiness_image);
         participateChampionshipLoseHappinessImage = (ImageView) view.findViewById(R.id.participate_championship_lose_happiness_image);
         participateChampionshipGoldAppleImage  = (ImageView) view.findViewById(R.id.participate_championship_gold_apple_image);
-        //Участие в чемпионате, аналогично
 
         findAppleStaminaImage.setImageResource(R.drawable.stamina);
         findAppleSatietyImage.setImageResource(R.drawable.satiety);
@@ -325,10 +323,13 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     public void update() {
         if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
-            buttonParticipateChampionship.setText(""  + R.string.championship + MainActivity.controller.getTimeToChampionship()
+            buttonParticipateChampionship.setText(""  + getString(R.string.championship) + " " + MainActivity.controller.getTimeToChampionship()
                     + " " + dayString(MainActivity.controller.getTimeToChampionship()));
         }
-        else buttonParticipateChampionship.setEnabled(true);
+        else {
+            buttonParticipateChampionship.setEnabled(true);
+            buttonParticipateChampionship.setText(R.string.participate_championship);
+        }
         if (MainActivity.controller.getGoldApple() == 0){
             buttonParticipateHorseRace.setEnabled(false);
             buttonBobMuscles.setEnabled(false);

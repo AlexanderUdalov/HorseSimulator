@@ -129,7 +129,10 @@ public interface Constants {
         kazahstanRespect = 800,
 
         timeToChampionship = 30,
-        timeToRomaAttack = 1,
+
+        //Оба должны быть кратны 2
+        maxTimeToRomaAttack = 80,
+        minTimeToRomaAttack = 40,
 
         amazingHorse = 10000,
         pickupMasterHorse = 30000,

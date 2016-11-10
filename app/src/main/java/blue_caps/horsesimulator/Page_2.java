@@ -127,7 +127,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
 
         eatGrassStaminaText.setText(withSign(-Constants.eatGrassDownStamina - Constants.wasStepDownStamina));
         eatGrassSatietyText.setText(withSign(Constants.eatGrassUpSatiety - Constants.wasStepDownSatiety));
-        eatGrassHappinessText.setText(withSign(-Constants.eatGrassDownStamina - Constants.wasStepDownHappiness));
+        eatGrassHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
         stealingFoodStaminaText.setText(withSign(-Constants.stealingFoodDownStamina - Constants.wasStepDownStamina));
         stealingFoodSatietyText.setText(withSign(Constants.stealingFoodUpSatiety - Constants.wasStepDownSatiety));
         stealingFoodHappinessText.setText(withSign(-Constants.stealingFoodDownHappiness - Constants.wasStepDownHappiness));

@@ -471,7 +471,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if (videoDie.isAdPlayable()) {
                                 videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
                                 adAlert.hide();
                             }
                             else {
@@ -530,7 +529,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if (videoDie.isAdPlayable()) {
                                 videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
                                 adAlert.hide();
                             }
                             else {

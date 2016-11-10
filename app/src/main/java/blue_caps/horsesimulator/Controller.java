@@ -11,7 +11,7 @@ import java.util.zip.CheckedInputStream;
  */
 
 public class Controller {
-    private int mTimeToAttack = 5;
+    private int mTimeToAttack = Constants.maxTimeToRomaAttack;
     private int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;
@@ -254,11 +254,17 @@ public class Controller {
     }
 
     public boolean runFromRoma() {
+        mCountRomaAttack++;
+
+        if (mCountRomaAttack < (Constants.maxTimeToRomaAttack-Constants.minTimeToRomaAttack)/2)
+            mTimeToAttack = Constants.maxTimeToRomaAttack - mCountRomaAttack*2;
+        else
+            mTimeToAttack = Constants.minTimeToRomaAttack;
+
         if (rd.nextInt(60) + 1 + 2*mHorse.getMaxSpeed() > 2 * Horse.mMaxSpeedLimit + 5) {
             mHorse.downStamina(mHorse.getStamina()/2);
             mHorse.downSatiety(mHorse.getSatiety()/2);
-            mCountRomaAttack++;
-            mTimeToAttack = Constants.timeToRomaAttack;
+
             return true;
         }
 
@@ -284,12 +290,18 @@ public class Controller {
                 break;
         }
 
+        mCountRomaAttack++;
+
+        if (mCountRomaAttack < (Constants.maxTimeToRomaAttack-Constants.minTimeToRomaAttack)/2)
+            mTimeToAttack = Constants.maxTimeToRomaAttack - mCountRomaAttack*2;
+        else
+            mTimeToAttack = Constants.minTimeToRomaAttack;
+
         if (rd.nextInt(1500) + 2 + 3*param > 1600) {
             mHorse.downStamina(mHorse.getStamina()/2);
             mHorse.downSatiety(mHorse.getSatiety()/2);
-            mCountRomaAttack++;
             mCountBattlesWon++;
-            mTimeToAttack = Constants.timeToRomaAttack;
+
             return true;
         }
 
