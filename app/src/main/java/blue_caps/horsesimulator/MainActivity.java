@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
@@ -468,9 +469,15 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            videoDie.playAd(dieConfig);
-                            controller.setTimeToAttack(Constants.timeToRomaAttack);
-                            adAlert.hide();
+                            if (videoDie.isAdPlayable()) {
+                                videoDie.playAd(dieConfig);
+                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                adAlert.hide();
+                            }
+                            else {
+                                Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {
@@ -521,9 +528,15 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            videoDie.playAd(dieConfig);
-                            controller.setTimeToAttack(Constants.timeToRomaAttack);
-                            adAlert.hide();
+                            if (videoDie.isAdPlayable()) {
+                                videoDie.playAd(dieConfig);
+                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                adAlert.hide();
+                            }
+                            else {
+                                Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {

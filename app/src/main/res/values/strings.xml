@@ -6,6 +6,8 @@
     <string name="close_video_button">Да</string>
     <string name="keep_watching_button">Нет</string>
 
+    <string name="no_internet">Нет интернета</string>
+
     <string name="close_video_title_apple">Закрыть видео?</string>
     <string name="close_video_text_apple">Закрыв видео, Вы не получите золотых яблок, Вы уверенны?</string>
 

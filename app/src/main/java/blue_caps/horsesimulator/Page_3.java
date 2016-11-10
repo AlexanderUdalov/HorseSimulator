@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static blue_caps.horsesimulator.MainActivity.appleConfig;
 import static blue_caps.horsesimulator.MainActivity.dieConfig;
@@ -286,12 +287,18 @@ public class Page_3 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        if (view.getId() == R.id.button_get_apple){
+            if (videoApple.isAdPlayable()) {
+                videoApple.playAd(appleConfig);
+            }
+            else {
+                Toast toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            return;
+        }
         MainActivity.controller.wasStep(getActivity());
         switch (view.getId()) {
-            case R.id.button_get_apple: {
-                videoApple.playAd(appleConfig);
-                return;
-            }
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
             case R.id.button_help_horses: MainActivity.controller.helpHorses(); break;
