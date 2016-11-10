@@ -113,78 +113,7 @@ public class MainActivity extends AppCompatActivity {
         videoDie.init(this, app_id);
         videoApple.init(this, app_id);
         makeConfig();
-        videoDie.addEventListeners(new EventListener() {
-            @Override
-            public void onAdEnd(boolean b, boolean b1) {
-
-            }
-
-            @Override
-            public void onAdStart() {
-
-            }
-
-            @Override
-            public void onAdUnavailable(String s) {
-
-            }
-
-            @Override
-            public void onAdPlayableChanged(boolean b) {
-
-            }
-
-            @Override
-            public void onVideoView(boolean b, int i, int i1) {
-                if (b){
-
-                }
-                else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            recreate();
-                        }
-                    });
-                }
-            }
-        });
-
-        videoApple.addEventListeners(new EventListener() {
-            @Override
-            public void onAdEnd(boolean b, boolean b1) {
-                if (b){
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            controller.getGoldApple();
-                            updateStats();
-                        }
-                    });
-                }
-
-            }
-
-            @Override
-            public void onAdStart() {
-
-            }
-
-            @Override
-            public void onAdUnavailable(String s) {
-
-            }
-
-            @Override
-            public void onAdPlayableChanged(boolean b) {
-
-            }
-
-            @Override
-            public void onVideoView(boolean b, int i, int i1) {
-
-            }
-        });
+        addListeners();
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
@@ -301,6 +230,89 @@ public class MainActivity extends AppCompatActivity {
         appleConfig.setOrientation(Orientation.matchVideo);
     }
 
+    public void addListeners(){
+        videoDie.addEventListeners(new EventListener() {
+            @Override
+            public void onAdEnd(boolean b, boolean b1) {
+                if (!b) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            startNewGame();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onAdStart() {
+
+            }
+
+            @Override
+            public void onAdUnavailable(String s) {
+
+            }
+
+            @Override
+            public void onAdPlayableChanged(boolean b) {
+
+            }
+
+            @Override
+            public void onVideoView(boolean b, int i, int i1) {
+
+            }
+        });
+
+        videoApple.addEventListeners(new EventListener() {
+            @Override
+            public void onAdEnd(boolean b, boolean b1) {
+                if (b){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            controller.getApples();
+                            updateStats();
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onAdStart() {
+
+            }
+
+            @Override
+            public void onAdUnavailable(String s) {
+
+            }
+
+            @Override
+            public void onAdPlayableChanged(boolean b) {
+
+            }
+
+            @Override
+            public void onVideoView(boolean b, int i, int i1) {
+
+            }
+        });
+    }
+
+    public void startNewGame(){
+        controller = new Controller();
+        page_0.update();
+        page_1.update();
+        page_2.update();
+        page_3.update();
+        page_4.update();
+        updateStats();
+        showHowToPlay(this);
+    }
+
     public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
@@ -329,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static void showDieDialog(final Activity act) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        videoDie.getInstance();
         builder.setTitle(R.string.die_speech_title).setCancelable(false)
                 .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
