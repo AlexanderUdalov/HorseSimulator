@@ -137,11 +137,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onVideoView(boolean b, int i, int i1) {
                 if (b){
-                    System.out.println("PISOS");
-                    return;
+
                 }
                 else {
-                    recreate();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            recreate();
+                        }
+                    });
                 }
             }
         });
@@ -149,6 +153,15 @@ public class MainActivity extends AppCompatActivity {
         videoApple.addEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
+                if (b){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            controller.getGoldApple();
+                            updateStats();
+                        }
+                    });
+                }
 
             }
 
@@ -169,10 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onVideoView(boolean b, int i, int i1) {
-                if (b){
-                    controller.getGoldApple();
-                    updateStats();
-                }
+
             }
         });
 
