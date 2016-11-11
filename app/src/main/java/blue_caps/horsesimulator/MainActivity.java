@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -243,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         appleConfig.setOrientation(Orientation.matchVideo);
     }
 
-    public void addListeners(){
+    public void addListeners() {
         videoDie.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
@@ -261,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-               }
+                }
             }
 
             @Override
@@ -283,12 +282,12 @@ public class MainActivity extends AppCompatActivity {
             public void onVideoView(boolean b, int i, int i1) {
 
             }
-        });}
-/*
-        videoApple.addEventListeners(new EventListener() {
+        });
+
+        videoApple.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
-                if (b){
+                if (b) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -325,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-*/
+
     public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
@@ -479,7 +478,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if (ma.videoDie.isAdPlayable()) {
                                 ma.videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
                                 adAlert.hide();
                             }
                             else {
@@ -536,15 +535,15 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            //if (ma.videoDie.isAdPlayable()) {
+                            if (ma.videoDie.isAdPlayable()) {
                                 ma.videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
+                                controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
                                 adAlert.hide();
-                            //}
-                            //else {
+                            }
+                            else {
                                 Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
                                 toast.show();
-                            //}
+                            }
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {
