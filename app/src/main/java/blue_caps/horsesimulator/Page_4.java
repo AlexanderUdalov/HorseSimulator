@@ -345,7 +345,7 @@ public class Page_4 extends Fragment implements View.OnClickListener{
 
     private void changeHabitat(Button newHabitat) {
         if (currentHabitat.isEnabled())
-            currentHabitat.setTextColor(Color.BLACK);
+            currentHabitat.setTextColor(Color.DKGRAY);
         else currentHabitat.setTextColor(Color.argb(180, 170, 170, 170));
 
         currentHabitat = newHabitat;
