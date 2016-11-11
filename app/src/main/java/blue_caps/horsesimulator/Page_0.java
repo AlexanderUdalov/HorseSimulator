@@ -24,6 +24,7 @@ public class Page_0 extends Fragment {
     private TextView valueHabitat;
     private TextView valueCountRomaAttack;
     private TextView valueTimeToAttack;
+    private TextView valueMaxSpeed;
     private Button buttonTableLevel;
     private Button buttonHowToPlay;
 
@@ -44,6 +45,7 @@ public class Page_0 extends Fragment {
         valueHabitat = (TextView) view.findViewById(R.id.value_habitat);
         valueCountRomaAttack = (TextView) view.findViewById(R.id.value_roma_attack);
         valueTimeToAttack = (TextView) view.findViewById(R.id.value_time_to_attack);
+        valueMaxSpeed = (TextView) view.findViewById(R.id.value_max_speed);
         buttonTableLevel = (Button) view.findViewById(R.id.button_table_level);
         buttonHowToPlay = (Button) view.findViewById(R.id.button_how_to_play);
 
@@ -106,6 +108,7 @@ public class Page_0 extends Fragment {
             case HORSE_GOD: valueLevel.setText(getString(R.string.horse_god));break;
         }
 
+        valueMaxSpeed.setText(String.valueOf(MainActivity.controller.getHorse().getMaxSpeed()));
         valueRespectHorses.setText(String.valueOf(MainActivity.controller.getHorse().getRespectHorses()));
         valueRespectPeople.setText(String.valueOf(MainActivity.controller.getHorse().getRespectPeoples()));
         valueTotalScore.setText(" " + String.valueOf(MainActivity.controller.getTotalScore()));

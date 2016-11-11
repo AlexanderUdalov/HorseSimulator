@@ -25,7 +25,7 @@ public class Horse {
         mHappiness = mMaxHappiness/2;
         mRespectHorses = 0;
         mRespectPeoples = 0;
-        mMaxSpeed = 45;
+        mMaxSpeed = 20;
         level = Level.SIMPLE_HORSE;
         habitat = Habitat.TABOR;
     }

@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import static blue_caps.horsesimulator.MainActivity.appleConfig;
 import static blue_caps.horsesimulator.MainActivity.dieConfig;
-import static blue_caps.horsesimulator.MainActivity.videoApple;
+import static blue_caps.horsesimulator.MainActivity.ma;
+//import static blue_caps.horsesimulator.MainActivity.videoApple;
 
 /**
  * Created by alexu on 4.11.2016.
@@ -288,8 +289,9 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.button_get_apple){
-            if (videoApple.isAdPlayable()) {
-                videoApple.playAd(appleConfig);
+            if (ma.videoApple.isAdPlayable()) {
+                ma.videoApple.playAd(appleConfig);
+                MainActivity.page_2.update();
             }
             else {
                 Toast toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
@@ -325,7 +327,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     public void update() {
         if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
-            buttonParticipateChampionship.setText(""  + R.string.championship + MainActivity.controller.getTimeToChampionship()
+            buttonParticipateChampionship.setText(""  + getString(R.string.championship) + " " + MainActivity.controller.getTimeToChampionship()
                     + " " + dayString(MainActivity.controller.getTimeToChampionship()));
         }
         else buttonParticipateChampionship.setEnabled(true);

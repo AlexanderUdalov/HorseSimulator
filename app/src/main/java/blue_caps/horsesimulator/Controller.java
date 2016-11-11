@@ -217,6 +217,7 @@ public class Controller {
         mHorse.downStamina(Constants.participateHorseRaceDownStamina);
         mHorse.upRespectHorses(Constants.participateHorseRaceUpRespectHorses);
         mHorse.upRespectPeoples(Constants.participateHorseRaceUpRespectPeople);
+        mGoldApple--;
     }
 
 

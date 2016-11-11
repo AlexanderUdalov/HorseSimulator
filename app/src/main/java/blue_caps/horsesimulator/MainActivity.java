@@ -86,11 +86,13 @@ public class MainActivity extends AppCompatActivity {
             NEXT_LEVEL_INDEX = "NEXT_LEVEL_INDEX",
             IS_START = "IS_START";
 
-    final static VunglePub videoDie = VunglePub.getInstance();
-    final static VunglePub videoApple = VunglePub.getInstance();
+    public final VunglePub videoDie = VunglePub.getInstance();
+    public final VunglePub videoApple = VunglePub.getInstance();
     final static AdConfig dieConfig = new AdConfig();
     final static AdConfig appleConfig = new AdConfig();
     final String app_id = "5823510d305e3dec2d00062f";
+
+    public static MainActivity ma = new MainActivity();
 
     @Override
     protected void onDestroy(){
@@ -127,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
+
 
         load();
 
@@ -249,15 +252,16 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             controller = new Controller();
-                            page_0.update();
-                            page_1.update();
-                            page_2.update();
-                            page_3.update();
-                            page_4.update();
                             updateStats();
+                            page_0 = new Page_0();
+                            page_1 = new Page_1();
+                            page_2 = new Page_2();
+                            page_3 = new Page_3();
+                            page_4 = new Page_4();
+
                         }
                     });
-                }
+               }
             }
 
             @Override
@@ -279,9 +283,9 @@ public class MainActivity extends AppCompatActivity {
             public void onVideoView(boolean b, int i, int i1) {
 
             }
-        });
-
-        videoApple.setEventListeners(new EventListener() {
+        });}
+/*
+        videoApple.addEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
                 if (b){
@@ -290,6 +294,10 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             controller.getApples();
                             updateStats();
+                            page_3.update();
+                            page_2.update();
+                            page_4.update();
+
                         }
                     });
                 }
@@ -317,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+*/
     public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
@@ -458,7 +466,7 @@ public class MainActivity extends AppCompatActivity {
                     Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
                     Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
 
-                    speechAdRun.setText(act.getString(R.string.ad_speech));
+                    speechAdRun.setText(act.getString(R.string.ad_run_speech));
                     buttonAd.setText(act.getString(R.string.god));
                     buttonDie.setText(act.getString(R.string.die));
 
@@ -469,8 +477,8 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (videoDie.isAdPlayable()) {
-                                videoDie.playAd(dieConfig);
+                            if (ma.videoDie.isAdPlayable()) {
+                                ma.videoDie.playAd(dieConfig);
                                 controller.setTimeToAttack(Constants.timeToRomaAttack);
                                 adAlert.hide();
                             }
@@ -517,7 +525,7 @@ public class MainActivity extends AppCompatActivity {
                     Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
                     Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
 
-                    speechAdRun.setText(act.getString(R.string.ad_speech));
+                    speechAdRun.setText(act.getString(R.string.ad_fight_speech));
                     buttonAd.setText(act.getString(R.string.god));
                     buttonDie.setText(act.getString(R.string.die));
 
@@ -528,15 +536,15 @@ public class MainActivity extends AppCompatActivity {
                     buttonAd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (videoDie.isAdPlayable()) {
-                                videoDie.playAd(dieConfig);
+                            //if (ma.videoDie.isAdPlayable()) {
+                                ma.videoDie.playAd(dieConfig);
                                 controller.setTimeToAttack(Constants.timeToRomaAttack);
                                 adAlert.hide();
-                            }
-                            else {
+                            //}
+                            //else {
                                 Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
                                 toast.show();
-                            }
+                            //}
                         }
                     });
                     buttonDie.setOnClickListener(new View.OnClickListener() {

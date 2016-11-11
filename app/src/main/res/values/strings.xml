@@ -9,7 +9,7 @@
     <string name="no_internet">Нет интернета</string>
 
     <string name="close_video_title_apple">Закрыть видео?</string>
-    <string name="close_video_text_apple">Закрыв видео, Вы не получите золотых яблок, Вы уверенны?</string>
+    <string name="close_video_text_apple">Закрыв видео, Вы не получите яблок, Вы уверенны?</string>
 
     <string name="stamina">Энергия</string>
     <string name="food">Еда</string>
@@ -18,18 +18,18 @@
     <string name="apples">Яблоки</string>
 
     <string name="stat">Статистика</string>
-    <string name="respect_horses">Уважение сородичей:</string>
+    <string name="respect_horses">Уважение коней:</string>
     <string name="respect_peoples">Любовь людей:</string>
     <string name="total_score">Общие очки:</string>
     <string name="level">Уровень:</string>
     <string name="habitat">Место обитания:</string>
     <string name="roma_attack">Атак цыган отбито:</string>
     <string name="time_to_attack">До войны с цыганами:</string>
-    <string name="day">день</string>
-    <string name="days">дней</string>
-    <string name="days1">дня</string>
+    <string name="day">День</string>
+    <string name="days">Дней</string>
+    <string name="days1">Дня</string>
     <string name="war_yet">война уже идет</string>
-    <string name="max_speed">Максимальная скорость</string>
+    <string name="max_speed">Максимальная скорость:</string>
 
     <string name="table_level">Таблица уровней</string>
     <string name="level_title">Уровень</string>
@@ -41,50 +41,57 @@
     <string name="get_massage">Массаж</string>
     <string name="swim_in_lake">Искупаться в озере</string>
 
-    <string name="eat_grass">Поесть травы</string>
+    <string name="eat_grass">Пожевать травы</string>
     <string name="stealing_food">Украсть еду</string>
-    <string name="begging_sugar">Сахар</string>
-    <string name="ask_for_food">Попросить еду</string>
-    <string name="eat_apple">Съесть ялбоко</string>
+    <string name="begging_sugar">Поработать за сахарок</string>
+    <string name="ask_for_food">Попросить еды</string>
+    <string name="eat_apple">Съесть яблоко</string>
 
 
-    <string name="introducing_speech_title">Начало коня</string>
-    <string name="die_speech_title">Ваш конь отправился на тот свет, начинайте сначала</string>
-    <string name="die_alert_speech_title">Вы скоро умрете!</string>
+    <string name="introducing_speech_title">Добро пожаловать!</string>
+    <string name="die_speech_title">Вы погибли!</string>
+    <string name="die_alert_speech_title">Внимание!</string>
     <string name="how_to_play">Как играть</string>
-    <string name="roma_attack_title">Цыгане напали</string>
-    <string name="lose_title">Вы проиграли!</string>
+    <string name="roma_attack_title">Внимание!</string>
+    <string name="lose_title">Проигрыш!</string>
     <string name="win_title">Победа!</string>
-    <string name="successful_run_massage">Вы успешно убежали от цыган</string>
-    <string name="ad_run_title">Вы не смогли убежать</string>
-    <string name="ad_fight_title">Вы проиграли в битве с цыганами</string>
+    <string name="successful_run_massage">Поздравляем!</string>
+    <string name="ad_run_title"> Поражение!</string>
+    <string name="ad_fight_title">Поражение!</string>
     <string name="success">Поздравляем!</string>
 
 
-     <string name="introducing_speech">Вы - конь. Вы смогли убежать от цыган, но они не дремлют.
-        Следите за параметрами и не дайте себе умереть.
-        Подкачайтесь, пока вас не забрали обратно</string>
-    <string name="die_alert_speech">Ваш конь cкоро умрет!</string>
-    <string name="die_speech">Ваш конь умер!</string>
-    <string name="roma_attack_speech">На Вас напали цыгане,Вы не смогли от них  убежать .</string>
-    <string name="ad_speech">Помолитесь Богу  или посмотрите рекламу</string>
-    <string name="success_run">Цыгане напали внезапно, на этот раз вы смогли сбежать от них,
-        но готовтесь, они обязательно нападут на вас снова.</string>
-    <string name="success_fight">Цыгане напали внезапно, на этот раз вы смогли отбиться от них,
-        но готовтесь, они обязательно нападут на вас снова.</string>
+     <string name="introducing_speech">Вы - полный сил и энергии конь. Вас украли цыгане еще когда Вы были жеребенком.
+         Ваша жизнь тяжела и трудна, и вы решили сбежать. Цыгане не оставят побег безнаказанным,
+         когда-нибудь они найдут Вас и заберут обратно.
+         Следите за показателями, набирайте уважение и любовь,
+         станьте самым быстрым конем и не попадите обратно к цыганам</string>
+    <string name="die_alert_speech">Некоторые показатели упали до нуля, если Вы не исправите это в течение 3 дней, вы погибните!</string>
+    <string name="die_speech">К сожалению, Вы не смогли прожить долгую и счастливую жизнь свободным конем. Попробуйте еще раз!</string>
+    <string name="roma_attack_speech">Пока Вы жили своей жизнью, цыгане не теряли времени и нашли Вас,
+                но и Вы просто так не сдавайтесь. Попробуйте сбежать (вероятнсть успеха зависит от максимальной скорости)
+        или отбиться (вероятнсть зависит от места обитания)</string>
+    <string name="ad_fight_speech">Решив отбиваться, сожители вас не поддержали и Вам пришлось справляться одному.
+    Но силы цыган оказались сильнее и Вас забрали обратно в табор. Используйте еще один шанс или начните с начала</string>
+    <string name="ad_run_speech"> На этот раз цыгане оказались быстрее, они догнали Вас, и забрали обратно в табор.
+        Используйте еще один шанс или начните с начала</string>
+    <string name="success_run">Цыгане напали внезапно, на этот раз Вы оказались быстрее и смогли сбежать от них,
+        но готовтесь, они обязательно нападут снова.</string>
+    <string name="success_fight">Цыгане напали внезапно, на этот раз Вам повезло, и ваше жилище помогло отбиться от них,
+        но готовтесь, они обязательно нападут снова.</string>
 
 
     <string name="choose_action">Что нужно сделать?</string>
-    <string name="fight">Отбиваться</string>
-    <string name="run">Сбежать</string>
-    <string name="god">Молить Бога о помощи</string>
-    <string name="die">Умереть</string>
+    <string name="fight">Попытаться отбиться</string>
+    <string name="run">Попытаться сбежать</string>
+    <string name="god">Еще один шанс</string>
+    <string name="die">Начать новую игру</string>
 
 
     <string name="get_apple">Получить яблоки</string>
     <string name="find_apple">Найти яблоки</string>
     <string name="help_people">Помочь людям</string>
-    <string name="help_horses">Помочь лошадкам</string>
+    <string name="help_horses">Помочь сородичам</string>
     <string name="plowed_field">Вспахать поле</string>
     <string name="knock_corral_gate">Сломать ворота загона</string>
     <string name="bob_muscles">Качать мышцы</string>
@@ -98,7 +105,7 @@
     <string name="if_lose">При проигрыше</string>
 
 
-    <string name="now_your_habitat">Теперь ваше место обитания: </string>
+    <string name="now_your_habitat">Ваше место обитания: </string>
     <string name="tabor">Табор</string>
     <string name="prairie">Прерии</string>
     <string name="clear_field">Чистое поле</string>
@@ -111,13 +118,13 @@
     <string name="paddock">Загон</string>
     <string name="stable">Конюшня</string>
 
-    <string name="need_bester_habitat">Нужно более комфортное жилье</string>
+    <string name="need_bester_habitat">Нужно другое место обитания</string>
 
 
     <string name="new_level">Новый уровень!</string>
     <string name="you_are">Вы теперь:</string>
-    <string name="amazing_horse">Эмейзинг-конь</string>
-    <string name="pickup_master_horse">Конь - пикап-мастер</string>
+    <string name="amazing_horse">Эмейзинг конь</string>
+    <string name="pickup_master_horse">Пикап-мастер конь</string>
     <string name="boss_horse">Босс коней</string>
     <string name="horse_god">Конь-Бог</string>
     <string name="simple_horse">Просто конь</string>
