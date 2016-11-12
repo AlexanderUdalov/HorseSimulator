@@ -479,6 +479,8 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.win_title).setCancelable(true);
         View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
+        TextView text = (TextView) v.findViewById(R.id.die_speech);
+        text.setText(R.string.lose);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
@@ -488,6 +490,8 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.lose_title).setCancelable(true);
         View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
+        TextView text = (TextView) v.findViewById(R.id.die_speech);
+        text.setText(R.string.win);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
