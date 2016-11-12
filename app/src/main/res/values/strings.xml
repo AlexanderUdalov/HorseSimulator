@@ -118,8 +118,10 @@
     <string name="paddock">Загон</string>
     <string name="stable">Конюшня</string>
 
-    <string name="need_bester_habitat">Нужно другое место обитания</string>
-
+    <string name="need_habitat_clear_field">Нужно место обитания: Чистое поле</string>
+    <string name="need_habitat_prairie">Нужно место обитания: Прерии</string>
+    <string name="need_habitat_stable">Нужно место обитания: Кошюшня</string>
+    <string name="need_habitat_horse_club">Нужно место обитания: Конный клуб</string>
 
     <string name="new_level">Новый уровень!</string>
     <string name="you_are">Вы теперь:</string>
