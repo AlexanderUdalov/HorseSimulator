@@ -1,5 +1,6 @@
 package blue_caps.horsesimulator;
 
+        import android.app.Activity;
         import android.graphics.Color;
         import android.os.Bundle;
         import android.support.v4.app.Fragment;
@@ -42,6 +43,14 @@ public class Page_4 extends Fragment implements View.OnClickListener{
             textRanch,
             textHorseClub,
             textPrivateFarm;
+
+    public FragmentEventListener listener;
+
+    @Override
+    public void onAttach(Activity act){
+        super.onAttach(act);
+        listener = (FragmentEventListener) act;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,7 +198,6 @@ public class Page_4 extends Fragment implements View.OnClickListener{
                 break;
             }
         }
-        MainActivity.controller.dieCheck(getActivity());
         update();
         MainActivity.page_3.update();
     }

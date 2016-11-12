@@ -1,5 +1,6 @@
 package blue_caps.horsesimulator;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableStringBuilder;
@@ -55,6 +56,14 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             swimInLakeStaminaImage,
             swimInLakeSatietyImage,
             swimInLakeHappinessImage;
+
+    public FragmentEventListener listener;
+
+    @Override
+    public void onAttach(Activity act){
+        super.onAttach(act);
+        listener = (FragmentEventListener) act;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -203,7 +212,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        MainActivity.controller.wasStep(getActivity());
+        listener.clickEvent("wasStep");
 
         switch (view.getId()) {
             case R.id.button_have_sleep:     MainActivity.controller.haveSleep(); break;
@@ -212,7 +221,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             case R.id.button_get_massage:    MainActivity.controller.getMassage(); break;
             case R.id.button_swim_in_lake:   MainActivity.controller.swimInLake(); break;
         }
-        MainActivity.controller.dieCheck(getActivity());
+        listener.clickEvent("dieCheck");
         update();
         MainActivity.page_0.update();
         MainActivity.page_2.update();

@@ -30,6 +30,17 @@ public class Horse {
         habitat = Habitat.TABOR;
     }
 
+    public void startGame(){
+        mStamina = mMaxStamina/2;
+        mSatiety = mMaxSatiety/2;
+        mHappiness = mMaxHappiness/2;
+        mRespectHorses = 0;
+        mRespectPeoples = 0;
+        mMaxSpeed = 20;
+        level = Level.SIMPLE_HORSE;
+        habitat = Habitat.TABOR;
+    }
+
     public int getStamina() {return mStamina;}
     public int getSatiety() {return mSatiety;}
     public int getHappiness() {return mHappiness;}

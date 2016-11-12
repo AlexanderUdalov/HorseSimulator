@@ -1,6 +1,7 @@
 package blue_caps.horsesimulator;
 
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import static blue_caps.horsesimulator.MainActivity.appleConfig;
-import static blue_caps.horsesimulator.MainActivity.dieConfig;
-import static blue_caps.horsesimulator.MainActivity.ma;
-//import static blue_caps.horsesimulator.MainActivity.videoApple;
 
 /**
  * Created by alexu on 4.11.2016.
@@ -99,6 +95,14 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             participateChampionshipLoseHappinessImage,
             participateChampionshipGoldAppleImage;
     //Аналогично
+
+    public FragmentEventListener listener;
+
+    @Override
+    public void onAttach(Activity act){
+        super.onAttach(act);
+        listener = (FragmentEventListener) act;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -287,17 +291,10 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.button_get_apple){
-            if (ma.videoApple.isAdPlayable()) {
-                ma.videoApple.playAd(appleConfig);
-                MainActivity.page_2.update();
-            }
-            else {
-                Toast toast = Toast.makeText(getActivity().getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
-                toast.show();
-            }
+            listener.clickEvent("getApple");
             return;
         }
-        MainActivity.controller.wasStep(getActivity());
+        listener.clickEvent("wasStep");
         switch (view.getId()) {
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
@@ -308,14 +305,14 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             case R.id.button_bob_muscles:     MainActivity.controller.bobMuscles(); break;
             case R.id.button_participate_championship: {
                 if (MainActivity.controller.participateChampionship())
-                    MainActivity.showWinChampionship(getActivity());
+                    listener.clickEvent("showWinChampionship");
                 else
-                    MainActivity.showLoseChampionship(getActivity());
+                    listener.clickEvent("showLoseChampionship");
                 MainActivity.controller.setTimeToChampionship(Constants.timeToChampionship);
                 break;
             }
         }
-        MainActivity.controller.dieCheck(getActivity());
+        listener.clickEvent("dieCheck");
         update();
         MainActivity.page_4.update();
         MainActivity.page_2.update();

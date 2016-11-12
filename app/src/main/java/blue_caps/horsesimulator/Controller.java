@@ -12,7 +12,7 @@ import java.util.zip.CheckedInputStream;
 
 public class Controller {
     private int mTimeToAttack = Constants.maxTimeToRomaAttack;
-    private int mChanceAttackPercent = 10;
+    public int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;
     private int mGoldApple = 0;
@@ -22,77 +22,30 @@ public class Controller {
     private int mDieTimeSatiety = 4;
     private int mDieTimeStamina = 4;
     private int mDieTimeHappiness = 4;
-    private int [] mNextLevel = {Constants.amazingHorse, Constants.pickupMasterHorse, Constants.bossHorse,Constants.godHorse};
-    private int index = 0;
+    public int [] mNextLevel = {Constants.amazingHorse, Constants.pickupMasterHorse, Constants.bossHorse,Constants.godHorse};
+    public int index = 0;
 
 
     Random rd = new Random();
     private Horse mHorse  = new Horse();
 
-    public void wasStep(Activity act){
-        mHorse.downHappiness(Constants.wasStepDownHappiness);
-        mHorse.downSatiety(Constants.wasStepDownSatiety);
-        mHorse.downStamina(Constants.wasStepDownStamina);
-        mTotalScore = (int) ((getHorse().getMaxSpeed())-20)*100 +
-                mLifeTime*100 +
-                getHorse().getRespectHorses()*20 +
-                getHorse().getRespectPeoples()*20 +
-                mCountBattlesWon*1000;
-
-        if (mHorse.getLevel() != Level.HORSE_GOD)
-            if (mTotalScore > mNextLevel[index]){
-                index++;
-                mHorse.setLevel(Level.values()[index]);
-                MainActivity.showHorsePicture(index, act);
-            }
-
-        mLifeTime++;
-
-        if (mTimeToAttack > 0)
-            mTimeToAttack--;
-        if (mTimeToChampionship > 0)
-            mTimeToChampionship--;
-        romaAttack(act);
-    }
-
-    public void dieCheck(Activity act){
-        dieAlert(act);
-        dieDialog(act);
-    }
-
-    public void dieAlert(Activity act){
-        if (mHorse.getStamina() == 0) {
-            if (mDieTimeStamina == 4)
-                MainActivity.showDieAlert(act);
-            mDieTimeStamina--;
-        }
-        else mDieTimeStamina = 4;
-        if (mHorse.getSatiety() == 0) {
-            if ((mDieTimeSatiety == 4)&&(mDieTimeStamina > 3))
-                MainActivity.showDieAlert(act);
-            mDieTimeSatiety--;
-        }
-        else mDieTimeSatiety = 4;
-        if (mHorse.getHappiness() == 0) {
-            if ((mDieTimeHappiness == 4)&&(mDieTimeStamina > 3)&&(mDieTimeSatiety > 3))
-                MainActivity.showDieAlert(act);
-            mDieTimeHappiness--;
-        }
-        else mDieTimeHappiness = 4;
-    }
-
-    public void dieDialog(Activity act){
-        if ((mDieTimeStamina == 0)||(mDieTimeSatiety == 0)||(mDieTimeHappiness == 0))
-            MainActivity.showDieDialog(act);
-    }
-
-    public void romaAttack(Activity act){
-        Random rd = new Random();
-        if (mTimeToAttack == 0&& rd.nextInt(100) < mChanceAttackPercent) {
-            MainActivity.showRomaAttack((MainActivity)act);
-        }
-    }
     /* Function for satiety   */
+
+    public void startGame(){
+        mTimeToAttack = Constants.maxTimeToRomaAttack;
+        mChanceAttackPercent = 10;
+        mLifeTime = 1;
+        mTimeToChampionship = Constants.timeToChampionship;
+        mGoldApple = 0;
+        mTotalScore = 0;
+        mCountRomaAttack = 0;
+        mCountBattlesWon = 0;
+        mDieTimeSatiety = 4;
+        mDieTimeStamina = 4;
+        mDieTimeHappiness = 4;
+        index = 0;
+        mHorse.startGame();
+    }
 
     public void eatGrass(){
         mHorse.upSatiety(Constants.eatGrassUpSatiety);

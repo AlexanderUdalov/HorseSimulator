@@ -26,7 +26,9 @@ import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
 import com.vungle.publisher.VunglePub;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements FragmentEventListener{
     private ViewPager pager;
     private static TextView
             valueStamina,
@@ -92,7 +94,46 @@ public class MainActivity extends AppCompatActivity {
     final static AdConfig appleConfig = new AdConfig();
     final String app_id = "5823510d305e3dec2d00062f";
 
-    public static MainActivity ma = new MainActivity();
+    @Override
+    public void clickEvent(String name){
+        switch (name){
+            case "wasStep":{
+                wasStep();
+                break;
+            }
+            case "showHowToPlay":{
+                showHowToPlay();
+                break;
+            }
+            case "dieCheck":{
+                dieCheck();
+                break;
+            }
+            case "getApple":{
+                getApple();
+                break;
+            }
+            case "showWinChampionship":{
+                showWinChampionship();
+                break;
+            }
+            case "showLoseChampionship":{
+                showLoseChampionship();
+                break;
+            }
+        }
+    }
+
+    public void getApple(){
+        if (videoApple.isAdPlayable()) {
+            videoApple.playAd(appleConfig);
+            MainActivity.page_2.update();
+        }
+        else {
+            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
 
     @Override
     protected void onDestroy(){
@@ -134,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         load();
 
         if (isStart) {
-            showHowToPlay(this);
+            showHowToPlay();
         }
         isStart = false;
 
@@ -177,6 +218,70 @@ public class MainActivity extends AppCompatActivity {
         PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         updateStats();
+    }
+
+    public void wasStep(){
+        controller.getHorse().downHappiness(Constants.wasStepDownHappiness);
+        controller.getHorse().downSatiety(Constants.wasStepDownSatiety);
+        controller.getHorse().downStamina(Constants.wasStepDownStamina);
+        controller.setTotalScore((int) ((controller.getHorse().getMaxSpeed())-20)*100 +
+                controller.getLifeTime()*100 +
+                controller.getHorse().getRespectHorses()*20 +
+                controller.getHorse().getRespectPeoples()*20 +
+                controller.getCountBattlesWon()*1000);
+
+        if (controller.getHorse().getLevel() != Level.HORSE_GOD)
+            if (controller.getTotalScore() > controller.mNextLevel[controller.index]){
+                controller.index++;
+                controller.getHorse().setLevel(Level.values()[controller.index]);
+                showHorsePicture(controller.index);
+            }
+
+        controller.setLifeTime(controller.getLifeTime()+1);
+
+        if (controller.getTimeToAttack() > 0)
+            controller.setTimeToAttack(controller.getTimeToAttack()-1);
+        if (controller.getTimeToChampionship() > 0)
+            controller.setTimeToChampionship(controller.getTimeToChampionship()-1);
+        romaAttack();
+    }
+
+    public void dieCheck(){
+        dieAlert();
+        dieDialog();
+    }
+
+    public void dieAlert(){
+        if (controller.getHorse().getStamina() == 0) {
+            if (controller.getDieTimeStamina() == 4)
+                showDieAlert();
+            controller.setDieTimeStamina(controller.getDieTimeStamina()-1);
+        }
+        else controller.setDieTimeStamina(4);
+        if (controller.getHorse().getHappiness() == 0) {
+            if (controller.getDieTimeHappiness() == 4)
+                showDieAlert();
+            controller.setDieTimeHappiness(controller.getDieTimeHappiness()-1);
+        }
+        else controller.setDieTimeHappiness(4);
+        if (controller.getHorse().getSatiety() == 0) {
+            if (controller.getDieTimeSatiety() == 4)
+                showDieAlert();
+            controller.setDieTimeSatiety(controller.getDieTimeSatiety()-1);
+        }
+        else controller.setDieTimeSatiety(4);
+    }
+
+    public void dieDialog(){
+        if ((controller.getDieTimeSatiety() == 0)||(controller.getDieTimeStamina() == 0)||(controller.getDieTimeHappiness() == 0))
+            showDieDialog();
+    }
+
+    public void romaAttack(){
+        Random rd = new Random();
+        if (controller.getTimeToAttack() == 0&& rd.nextInt(100) < controller.mChanceAttackPercent) {
+            showRomaAttack();
+        }
     }
 
     /*Следующая функция написана самым быдлокодерским способом, потому что я не знаю
@@ -251,13 +356,12 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            controller = new Controller();
+                            controller.startGame();
                             updateStats();
-                            page_0 = new Page_0();
-                            page_1 = new Page_1();
-                            page_2 = new Page_2();
-                            page_3 = new Page_3();
-                            page_4 = new Page_4();
+                            pager.setCurrentItem(0);
+                            page_0.update();
+                            page_1.update();
+                            showHowToPlay();
 
                         }
                     });
@@ -283,9 +387,9 @@ public class MainActivity extends AppCompatActivity {
             public void onVideoView(boolean b, int i, int i1) {
 
             }
-        });}
-/*
-        videoApple.addEventListeners(new EventListener() {
+        });
+
+        videoApple.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
                 if (b){
@@ -325,7 +429,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-*/
+
     public static int getRedColorFromValue(float value){
         return (int) (255*(1 - value));
     }
@@ -334,89 +438,91 @@ public class MainActivity extends AppCompatActivity {
         return (int) (255*value);
     }
 
-    public static void showHowToPlay(Activity act){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showHowToPlay(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.introducing_speech_title).setCancelable(true);
-        View v = LayoutInflater.from(act).inflate(R.layout.introducing_speech, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.introducing_speech, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public static void showDieAlert(Activity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showDieAlert() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.die_alert_speech_title).setCancelable(true);
-        View v = LayoutInflater.from(act).inflate(R.layout.die_alert, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.die_alert, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public static void showDieDialog(final Activity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showDieDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.die_speech_title).setCancelable(false)
                 .setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent starterIntent = act.getIntent();
-                        act.finish();
-                        act.startActivity(starterIntent);
-                        isStart = true;
+                        controller.startGame();
+                        updateStats();
+                        pager.setCurrentItem(0);
+                        page_0.update();
+                        page_1.update();
+                        showHowToPlay();
                     }
                 });
-        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public static void showWinChampionship(final Activity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showWinChampionship() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.win_title).setCancelable(true);
-        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public static void showLoseChampionship(final Activity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showLoseChampionship() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.lose_title).setCancelable(true);
-        View v = LayoutInflater.from(act).inflate(R.layout.die_dialog, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public static void showHorsePicture(int index, Activity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showHorsePicture(int index) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.new_level).setCancelable(true);
-        View v = LayoutInflater.from(act).inflate(R.layout.new_level, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.new_level, null);
         TextView text = (TextView) v.findViewById(R.id.new_level_text);
         TextView textValue = (TextView) v.findViewById(R.id.new_level_text_value);
         ImageView image = (ImageView) v.findViewById(R.id.new_level_image);
         switch (index) {
             case 1: {
-                text.setText(act.getString(R.string.you_are));
-                textValue.setText(act.getString(R.string.amazing_horse));
+                text.setText(this.getString(R.string.you_are));
+                textValue.setText(this.getString(R.string.amazing_horse));
                 image.setImageResource(R.drawable.amazing_horse);
                 break;
             }
             case 2: {
-                text.setText(act.getString(R.string.you_are));
-                textValue.setText(act.getString(R.string.pickup_master_horse));
+                text.setText(this.getString(R.string.you_are));
+                textValue.setText(this.getString(R.string.pickup_master_horse));
                 image.setImageResource(R.drawable.pickup_master_horse);
                 break;
             }
             case 3: {
-                text.setText(act.getString(R.string.you_are));
-                textValue.setText(act.getString(R.string.boss_horse));
+                text.setText(this.getString(R.string.you_are));
+                textValue.setText(this.getString(R.string.boss_horse));
                 image.setImageResource(R.drawable.boss_horse);
                 break;
             }
             case 4: {
-                text.setText(act.getString(R.string.you_are));
-                textValue.setText(act.getString(R.string.horse_god));
+                text.setText(this.getString(R.string.you_are));
+                textValue.setText(this.getString(R.string.horse_god));
                 image.setImageResource(R.drawable.god_horse);
                 break;
             }
@@ -426,18 +532,18 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public static void showRomaAttack(final MainActivity act) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(act);
+    public void showRomaAttack() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.roma_attack_title).setCancelable(false);
-        View v = LayoutInflater.from(act).inflate(R.layout.roma_attack, null);
+        View v = LayoutInflater.from(this).inflate(R.layout.roma_attack, null);
         TextView speechRomaAttack = (TextView) v.findViewById(R.id.roma_attack_speech);
 
         Button buttonRun = (Button) v.findViewById(R.id.button_run);
         Button buttonFight = (Button) v.findViewById(R.id.button_fight);
 
-        speechRomaAttack.setText(act.getString(R.string.roma_attack_speech));
-        buttonRun.setText(act.getString(R.string.run));
-        buttonFight.setText(act.getString(R.string.fight));
+        speechRomaAttack.setText(this.getString(R.string.roma_attack_speech));
+        buttonRun.setText(getString(R.string.run));
+        buttonFight.setText(getString(R.string.fight));
 
         builder.setView(v);
         final AlertDialog alert = builder.create();
@@ -447,57 +553,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (controller.runFromRoma()) {
+                    successRun();
                     alert.hide();
-                    AlertDialog.Builder successBuilder = new AlertDialog.Builder(act);
-                    successBuilder.setTitle(R.string.success).setCancelable(true);
-                    successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_run, null));
-
-                    final AlertDialog successRun = successBuilder.create();
-                    MainActivity.updateStats();
-                    successRun.show();
                 }
                 else {
+                    notSuccessRun();
                     alert.hide();
-                    final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
-                    builderAd.setTitle(R.string.ad_run_title).setCancelable(false);
-                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
-                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
-
-                    Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
-                    Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
-
-                    speechAdRun.setText(act.getString(R.string.ad_run_speech));
-                    buttonAd.setText(act.getString(R.string.god));
-                    buttonDie.setText(act.getString(R.string.die));
-
-                    builderAd.setView(vAd);
-                    final AlertDialog adAlert = builderAd.create();
-                    adAlert.show();
-
-                    buttonAd.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (ma.videoDie.isAdPlayable()) {
-                                ma.videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
-                                adAlert.hide();
-                            }
-                            else {
-                                Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }
-                    });
-                    buttonDie.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            adAlert.hide();
-                            Intent starterIntent = act.getIntent();
-                            act.finish();
-                            act.startActivity(starterIntent);
-                            isStart = true;
-                        }
-                    });
                 }
             }
         });
@@ -507,59 +568,129 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (controller.fightWithRoma()) {
                     alert.hide();
-                    AlertDialog.Builder successBuilder = new AlertDialog.Builder(act);
-                    successBuilder.setTitle(R.string.success).setCancelable(true);
-                    successBuilder.setView(LayoutInflater.from(act).inflate(R.layout.success_fight, null));
-
-                    final AlertDialog successRun = successBuilder.create();
-                    MainActivity.updateStats();
-                    successRun.show();
+                    successFight();
                 }
                 else {
                     alert.hide();
-                    final AlertDialog.Builder builderAd = new AlertDialog.Builder(act);
-                    builderAd.setTitle(R.string.ad_fight_title).setCancelable(false);
-                    View vAd = LayoutInflater.from(act).inflate(R.layout.ad_death, null);
-                    TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
-
-                    Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
-                    Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
-
-                    speechAdRun.setText(act.getString(R.string.ad_fight_speech));
-                    buttonAd.setText(act.getString(R.string.god));
-                    buttonDie.setText(act.getString(R.string.die));
-
-                    builderAd.setView(vAd);
-                    final AlertDialog adAlert = builderAd.create();
-                    adAlert.show();
-
-                    buttonAd.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //if (ma.videoDie.isAdPlayable()) {
-                                ma.videoDie.playAd(dieConfig);
-                                controller.setTimeToAttack(Constants.timeToRomaAttack);
-                                adAlert.hide();
-                            //}
-                            //else {
-                                Toast toast = Toast.makeText(act.getApplicationContext(), act.getString(R.string.no_internet), Toast.LENGTH_SHORT);
-                                toast.show();
-                            //}
-                        }
-                    });
-                    buttonDie.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            adAlert.hide();
-                            Intent starterIntent = act.getIntent();
-                            act.finish();
-                            act.startActivity(starterIntent);
-                            isStart = true;
-                        }
-                    });
+                    notSuccessFight();
                 }
             }
         });
+    }
+
+    public void successFight(){
+        AlertDialog.Builder successBuilder = new AlertDialog.Builder(this);
+        successBuilder.setTitle(R.string.success).setCancelable(true);
+        successBuilder.setView(LayoutInflater.from(this).inflate(R.layout.success_fight, null));
+
+        final AlertDialog successRun = successBuilder.create();
+        MainActivity.updateStats();
+        successRun.show();
+
+    }
+
+    public void notSuccessFight(){
+        final AlertDialog.Builder builderAd = new AlertDialog.Builder(this);
+        builderAd.setTitle(R.string.ad_fight_title).setCancelable(false);
+        View vAd = LayoutInflater.from(this).inflate(R.layout.ad_death, null);
+        TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
+
+        Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
+        Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
+
+        speechAdRun.setText(getString(R.string.ad_fight_speech));
+        buttonAd.setText(getString(R.string.god));
+        buttonDie.setText(getString(R.string.die));
+
+        builderAd.setView(vAd);
+        final AlertDialog adAlert = builderAd.create();
+        adAlert.show();
+
+        buttonAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (videoDie.isAdPlayable()) {
+                    videoDie.playAd(dieConfig);
+                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
+                    adAlert.hide();
+                }
+                else {
+                    noInternet();
+                }
+            }
+        });
+        buttonDie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.startGame();
+                updateStats();
+                pager.setCurrentItem(0);
+                page_0.update();
+                page_1.update();
+                showHowToPlay();
+                adAlert.hide();
+            }
+        });
+
+    }
+
+    public void successRun(){
+        AlertDialog.Builder successBuilder = new AlertDialog.Builder(this);
+        successBuilder.setTitle(R.string.success).setCancelable(true);
+        successBuilder.setView(LayoutInflater.from(this).inflate(R.layout.success_run, null));
+
+        final AlertDialog successRun = successBuilder.create();
+        MainActivity.updateStats();
+        successRun.show();
+    }
+
+    public void notSuccessRun(){
+        final AlertDialog.Builder builderAd = new AlertDialog.Builder(this);
+        builderAd.setTitle(R.string.ad_run_title).setCancelable(false);
+        View vAd = LayoutInflater.from(this).inflate(R.layout.ad_death, null);
+        TextView speechAdRun = (TextView) vAd.findViewById(R.id.ad_speech);
+
+        Button buttonAd = (Button) vAd.findViewById(R.id.button_ad);
+        Button buttonDie = (Button) vAd.findViewById(R.id.button_die);
+
+        speechAdRun.setText(getString(R.string.ad_run_speech));
+        buttonAd.setText(getString(R.string.god));
+        buttonDie.setText(getString(R.string.die));
+
+        builderAd.setView(vAd);
+        final AlertDialog adAlert = builderAd.create();
+        adAlert.show();
+
+        buttonAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (videoDie.isAdPlayable()) {
+                    videoDie.playAd(dieConfig);
+                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
+                    adAlert.hide();
+                }
+                else {
+                    noInternet();
+                }
+            }
+        });
+        buttonDie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.startGame();
+                updateStats();
+                pager.setCurrentItem(0);
+                page_0.update();
+                page_1.update();
+                showHowToPlay();
+                adAlert.hide();
+            }
+        });
+    }
+
+    public void noInternet(){
+        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void save(){

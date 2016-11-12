@@ -1,5 +1,6 @@
 package blue_caps.horsesimulator;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -28,6 +29,13 @@ public class Page_0 extends Fragment {
     private Button buttonTableLevel;
     private Button buttonHowToPlay;
 
+    public FragmentEventListener listener;
+
+    @Override
+    public void onAttach(Activity act){
+        super.onAttach(act);
+        listener = (FragmentEventListener) act;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +74,7 @@ public class Page_0 extends Fragment {
         buttonHowToPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.showHowToPlay(getActivity());
+                listener.clickEvent("showHowToPlay");
             }
         });
 
