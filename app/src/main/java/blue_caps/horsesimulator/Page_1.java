@@ -123,69 +123,12 @@ public class Page_1 extends Fragment implements View.OnClickListener {
         swimInLakeSatietyImage.setImageResource(R.drawable.satiety);
         swimInLakeHappinessImage.setImageResource(R.drawable.happiness);
 
-        switch (MainActivity.controller.getHorse().getHabitat()) {
-            case TABOR:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case PADDOCK:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case STABLE:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case WASTELAND:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case CLEAR_FIELD:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case HORSE_CLUB:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness));
-            }
-            case PRIVATE_FARM:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness));
-            }
-            case PRAIRIE:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness));
-            }
-            case KAZAKHSTAN:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness));
-            }
-            case RANCH:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-            case MEADOWS:{
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-        }
         goToWateringStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
         goToWateringSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToWateringHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+        goToWateringHappinessText.setText(withSign(Constants.goToWateringUpHappiness-Constants.wasStepDownHappiness));
         goToDrinkersStaminaText.setText(withSign(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina));
         goToDrinkersSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToDrinkersHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
+        goToDrinkersHappinessText.setText(withSign(Constants.goToDrinkersUpHappiness- Constants.wasStepDownHappiness));
         getMassageStaminaText.setText(withSign(Constants.getMassageUpStamina - Constants.wasStepDownStamina));
         getMassageSatietyText.setText(withSign(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety));
         getMassageHappinessText.setText(withSign(Constants.getMassageUpHappiness - Constants.wasStepDownHappiness));
@@ -236,28 +179,13 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaTABOR - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyTABOR - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-                break;
-            }
-            case WASTELAND:{
-                buttonGoToDrinkers.setEnabled(false);
-                buttonGoToWatering.setEnabled(false);
-                buttonGetMassage.setEnabled(false);
-                buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
-
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety));
                 haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
                 break;
             }
@@ -266,10 +194,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPADDOCK - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPADDOCK - Constants.wasStepDownSatiety));
@@ -281,13 +209,72 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGoToWatering.setEnabled(false);
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
                 buttonGoToDrinkers.setText(R.string.go_to_drinkers);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaSTABLE - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietySTABLE - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+                break;
+            }
+            case RANCH:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
+
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+            }
+            case HORSE_CLUB:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(true);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.get_massage);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
+
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness));
+                break;
+            }
+            case PRIVATE_FARM:{
+                buttonGoToDrinkers.setEnabled(true);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(true);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
+                buttonGetMassage.setText(R.string.get_massage);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
+
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness));
+                break;
+            }
+            case WASTELAND:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(false);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.need_habitat_clear_field);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
+
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaWASTELAND - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyWASTELAND - Constants.wasStepDownSatiety));
                 haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
                 break;
             }
@@ -297,14 +284,28 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(false);
                 buttonGoToWatering.setText(R.string.go_to_watering);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaCLEAR_FIELD - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyCLEAR_FIELD - Constants.wasStepDownSatiety));
                 haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
                 break;
+            }
+            case MEADOWS:{
+                buttonGoToDrinkers.setEnabled(false);
+                buttonGoToWatering.setEnabled(true);
+                buttonGetMassage.setEnabled(false);
+                buttonSwimInLake.setEnabled(false);
+                buttonGoToWatering.setText(R.string.go_to_watering);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
+                buttonSwimInLake.setText(R.string.need_habitat_prairie);
+
+                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina));
+                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety));
+                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
             }
             case PRAIRIE:{
                 buttonGoToDrinkers.setEnabled(false);
@@ -312,28 +313,13 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(true);
                 buttonGoToWatering.setText(R.string.go_to_watering);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
                 buttonSwimInLake.setText(R.string.swim_in_lake);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRAIRIE - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRAIRIE - Constants.wasStepDownSatiety));
                 haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRAIRIE - Constants.wasStepDownHappiness));
-                break;
-            }
-            case HORSE_CLUB:{
-                buttonGoToDrinkers.setEnabled(true);
-                buttonGoToWatering.setEnabled(false);
-                buttonGetMassage.setEnabled(true);
-                buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
-                buttonGetMassage.setText(R.string.get_massage);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
-
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaHORSE_CLUB - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyHORSE_CLUB - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessHORSE_CLUB - Constants.wasStepDownHappiness));
                 break;
             }
             case KAZAKHSTAN:{
@@ -342,59 +328,14 @@ public class Page_1 extends Fragment implements View.OnClickListener {
                 buttonGetMassage.setEnabled(false);
                 buttonSwimInLake.setEnabled(true);
                 buttonGoToWatering.setText(R.string.go_to_watering);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
+                buttonGoToDrinkers.setText(R.string.need_habitat_stable);
+                buttonGetMassage.setText(R.string.need_habitat_horse_club);
                 buttonSwimInLake.setText(R.string.swim_in_lake);
 
                 haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaKAZAKHSTAN - Constants.wasStepDownStamina));
                 haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyKAZAKHSTAN - Constants.wasStepDownSatiety));
                 haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessKAZAKHSTAN - Constants.wasStepDownHappiness));
                 break;
-            }
-            case PRIVATE_FARM:{
-                buttonGoToDrinkers.setEnabled(true);
-                buttonGoToWatering.setEnabled(false);
-                buttonGetMassage.setEnabled(true);
-                buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
-                buttonGetMassage.setText(R.string.get_massage);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
-
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaPRICATE_FARM - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyPRICATE_FARM - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(Constants.haveSleepUpHappinessPRICATE_FARM - Constants.wasStepDownHappiness));
-                break;
-            }
-
-            case RANCH:{
-                buttonGoToDrinkers.setEnabled(true);
-                buttonGoToWatering.setEnabled(false);
-                buttonGetMassage.setEnabled(false);
-                buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.need_bester_habitat);
-                buttonGoToDrinkers.setText(R.string.go_to_drinkers);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
-
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaRANCH - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyRANCH - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
-            }
-
-            case MEADOWS:{
-                buttonGoToDrinkers.setEnabled(false);
-                buttonGoToWatering.setEnabled(true);
-                buttonGetMassage.setEnabled(false);
-                buttonSwimInLake.setEnabled(false);
-                buttonGoToWatering.setText(R.string.go_to_watering);
-                buttonGoToDrinkers.setText(R.string.need_bester_habitat);
-                buttonGetMassage.setText(R.string.need_bester_habitat);
-                buttonSwimInLake.setText(R.string.need_bester_habitat);
-
-                haveSleepStaminaText.setText(withSign(Constants.haveSleepUpStaminaMEADOWS - Constants.wasStepDownStamina));
-                haveSleepSatietyText.setText(withSign(-Constants.haveSleepDownSatietyMEADOWS - Constants.wasStepDownSatiety));
-                haveSleepHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
             }
             default: return;
         }

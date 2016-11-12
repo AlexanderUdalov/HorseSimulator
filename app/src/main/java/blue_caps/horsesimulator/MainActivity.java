@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
@@ -348,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         appleConfig.setOrientation(Orientation.matchVideo);
     }
 
-    public void addListeners(){
+    public void addListeners() {
         videoDie.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
@@ -365,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
 
                         }
                     });
-               }
+                }
             }
 
             @Override
@@ -392,7 +391,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         videoApple.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
-                if (b){
+                if (b) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

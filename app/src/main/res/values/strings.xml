@@ -118,8 +118,17 @@
     <string name="paddock">Загон</string>
     <string name="stable">Конюшня</string>
 
-    <string name="need_bester_habitat">Нужно другое место обитания</string>
-
+    <string name="need_habitat_wasteland">Место обитания: Пустырь</string>
+    <string name="need_habitat_clear_field">Место обитания: Чистое поле</string>
+    <string name="need_habitat_meadows">Место обитания: Заливные луга</string>
+    <string name="need_habitat_prairie">Место обитания: Прерии</string>
+    <string name="need_habitat_paddock">Место обитания: Загон</string>
+    <string name="need_habitat_stable">Место обитания: Кошюшня</string>
+    <string name="need_habitat_ranch">Место обитания: Ранчо</string>
+    <string name="need_habitat_horse_club">Место обитания: Конный клуб</string>
+    <string name="need_habitat_clear_field_or_stable">Место обитания: Чистое поле или Конюшня</string>
+    <string name="need_habitat_private_farm">Место обитания: Частная ферма</string>
+    <string name="need_habitat_kazakhstan">Место обитания: Казахстан</string>
 
     <string name="new_level">Новый уровень!</string>
     <string name="you_are">Вы теперь:</string>
