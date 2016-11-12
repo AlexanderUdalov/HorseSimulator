@@ -183,6 +183,118 @@ public class Page_2 extends Fragment implements View.OnClickListener {
    }
 
     public void update(){
+        switch (MainActivity.controller.getHorse().getHabitat()){
+            case TABOR:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(false);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.need_habitat_clear_field_or_stable);
+                break;
+            }
+            case PADDOCK:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(true);
+                buttonAskForFood.setEnabled(false);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.begging_sugar);
+                buttonAskForFood.setText(R.string.need_habitat_clear_field_or_stable);
+                break;
+            }
+            case STABLE:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(true);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.begging_sugar);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            case RANCH:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(true);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.begging_sugar);
+                buttonAskForFood.setText(R.string.ask_for_food);
+            }
+            case HORSE_CLUB:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(true);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.begging_sugar);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            case PRIVATE_FARM:{
+                buttonStealingFood.setEnabled(false);
+                buttonBeggingSugar.setEnabled(true);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.need_habitat_wasteland);
+                buttonBeggingSugar.setText(R.string.begging_sugar);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            case WASTELAND:{
+                buttonStealingFood.setEnabled(true);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(false);
+
+                buttonStealingFood.setText(R.string.stealing_food);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.need_habitat_clear_field_or_stable);
+                break;
+            }
+            case CLEAR_FIELD:{
+                buttonStealingFood.setEnabled(true);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.stealing_food);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            case MEADOWS:{
+                buttonStealingFood.setEnabled(true);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.stealing_food);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.ask_for_food);
+            }
+            case PRAIRIE:{
+                buttonStealingFood.setEnabled(true);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.stealing_food);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            case KAZAKHSTAN:{
+                buttonStealingFood.setEnabled(true);
+                buttonBeggingSugar.setEnabled(false);
+                buttonAskForFood.setEnabled(true);
+
+                buttonStealingFood.setText(R.string.stealing_food);
+                buttonBeggingSugar.setText(R.string.need_habitat_paddock);
+                buttonAskForFood.setText(R.string.ask_for_food);
+                break;
+            }
+            default: return;
+        }
+
         if (MainActivity.controller.getGoldApple() == 0)
             buttonEatApple.setEnabled(false);
         else buttonEatApple.setEnabled(true);

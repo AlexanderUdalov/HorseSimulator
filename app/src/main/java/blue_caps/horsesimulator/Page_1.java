@@ -116,10 +116,10 @@ public class Page_1 extends Fragment implements View.OnClickListener {
 
         goToWateringStaminaText.setText(withSign(Constants.goToWateringUpStamina - Constants.wasStepDownStamina));
         goToWateringSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToWateringHappinessText.setText(withSign(-Constants.wasStepDownHappiness));
+        goToWateringHappinessText.setText(withSign(Constants.goToWateringUpHappiness-Constants.wasStepDownHappiness));
         goToDrinkersStaminaText.setText(withSign(Constants.goToDrinkersUpStamina - Constants.wasStepDownStamina));
         goToDrinkersSatietyText.setText(withSign(-Constants.goToWateringDownSatiety - Constants.wasStepDownSatiety));
-        goToDrinkersHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
+        goToDrinkersHappinessText.setText(withSign(Constants.goToDrinkersUpHappiness- Constants.wasStepDownHappiness));
         getMassageStaminaText.setText(withSign(Constants.getMassageUpStamina - Constants.wasStepDownStamina));
         getMassageSatietyText.setText(withSign(-Constants.getMassageDownSatiety - Constants.wasStepDownSatiety));
         getMassageHappinessText.setText(withSign(Constants.getMassageUpHappiness - Constants.wasStepDownHappiness));

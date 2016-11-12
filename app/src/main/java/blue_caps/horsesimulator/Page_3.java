@@ -323,6 +323,96 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     }
 
     public void update() {
+        switch (MainActivity.controller.getHorse().getHabitat()){
+            case TABOR:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case PADDOCK:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case STABLE:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case RANCH:{
+                buttonPlowedField.setEnabled(true);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.plowed_field);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+            }
+            case HORSE_CLUB:{
+                buttonPlowedField.setEnabled(true);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.plowed_field);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case PRIVATE_FARM:{
+                buttonPlowedField.setEnabled(true);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.plowed_field);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case WASTELAND:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case CLEAR_FIELD:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(false);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.need_habitat_meadows);
+                break;
+            }
+            case MEADOWS:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(true);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.knock_corral_gate);
+            }
+            case PRAIRIE:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(true);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.knock_corral_gate);
+                break;
+            }
+            case KAZAKHSTAN:{
+                buttonPlowedField.setEnabled(false);
+                buttonKnockCorralGate.setEnabled(true);
+
+                buttonPlowedField.setText(R.string.need_habitat_ranch);
+                buttonKnockCorralGate.setText(R.string.knock_corral_gate);
+                break;
+            }
+            default: return;
+        }
+
         if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
             buttonParticipateChampionship.setText(""  + getString(R.string.championship) + " " + MainActivity.controller.getTimeToChampionship()
