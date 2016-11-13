@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         dieConfig.setIncentivized(true);
         dieConfig.setSoundEnabled(false);
         dieConfig.setImmersiveMode(true);
-        dieConfig.setOrientation(Orientation.matchVideo);
+        dieConfig.setOrientation(Orientation.autoRotate);
 
         appleConfig.setBackButtonImmediatelyEnabled(false);
         appleConfig.setIncentivizedCancelDialogTitle(getString(R.string.close_video_title_apple));
@@ -344,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         appleConfig.setIncentivized(true);
         appleConfig.setSoundEnabled(false);
         appleConfig.setImmersiveMode(true);
-        appleConfig.setOrientation(Orientation.matchVideo);
+        appleConfig.setOrientation(Orientation.autoRotate);
     }
 
     public void addListeners() {
@@ -480,7 +480,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         builder.setTitle(R.string.win_title).setCancelable(true);
         View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
         TextView text = (TextView) v.findViewById(R.id.die_speech);
-        text.setText(R.string.lose);
+        text.setText(R.string.win);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();
@@ -491,7 +491,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         builder.setTitle(R.string.lose_title).setCancelable(true);
         View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
         TextView text = (TextView) v.findViewById(R.id.die_speech);
-        text.setText(R.string.win);
+        text.setText(R.string.lose);
         builder.setView(v);
         AlertDialog alert = builder.create();
         alert.show();

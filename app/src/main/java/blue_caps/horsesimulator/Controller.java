@@ -190,6 +190,7 @@ public class Controller {
             mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
             mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
             mHorse.upHappiness(Constants.participateChampionshipUpHappiness);
+            mGoldApple+=4;
             return true;
         }
         mHorse.downRespectHorses(Constants.participateChampionshipDownRespectHorses);
