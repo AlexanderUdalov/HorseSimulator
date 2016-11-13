@@ -89,7 +89,7 @@
     <string name="god">Еще один шанс</string>
     <string name="die">Начать новую игру</string>
 
-
+    <string name="other">Активность</string>
     <string name="get_apple">Получить яблоки</string>
     <string name="find_apple">Найти яблоки</string>
     <string name="help_people">Помочь людям</string>
@@ -101,8 +101,6 @@
     <string name="participate_championship">Поучаствовать в чемпионате</string>
     <string name="championship">До чемпионата</string>
 
-
-    <string name="other">Активность</string>
     <string name="if_win">При выигрыше</string>
     <string name="if_lose">При проигрыше</string>
 
