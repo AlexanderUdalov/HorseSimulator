@@ -150,7 +150,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
         askForFoodStaminaText.setText(withSign(-Constants.askForFoodDownStamina - Constants.wasStepDownStamina));
         askForFoodSatietyText.setText(withSign(Constants.askForFoodUpSatiety - Constants.wasStepDownSatiety));
         askForFoodHappinessText.setText(withSign(Constants.askForFoodUpHappiness - Constants.wasStepDownHappiness));
-        eatAppleStaminaText.setText(withSign(-Constants.eatGrassDownStamina - Constants.wasStepDownStamina));
+        eatAppleStaminaText.setText(withSign(-Constants.wasStepDownStamina));
         eatAppleSatietyText.setText(withSign(Constants.eatAppleUpSatiety - Constants.wasStepDownSatiety));
         eatAppleHappinessText.setText(withSign(Constants.eatAppleUpHappiness - Constants.wasStepDownHappiness));
         eatAppleGoldAppleText.setText(withSign(-1));

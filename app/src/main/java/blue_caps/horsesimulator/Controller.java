@@ -116,11 +116,13 @@ public class Controller {
 
     public void getMassage(){
         mHorse.upStamina(Constants.getMassageUpStamina);
+        mHorse.downSatiety(Constants.getMassageDownSatiety);
         mHorse.upHappiness(Constants.getMassageUpHappiness);
     }
 
     public void swimInLake(){
         mHorse.upStamina(Constants.swimInLakeUpStamina);
+        mHorse.downSatiety(Constants.swimInLakeDownSatiety);
         mHorse.upHappiness(Constants.swimInLakeUpHappiness);
     }
 

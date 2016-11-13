@@ -5,7 +5,7 @@ package blue_caps.horsesimulator;
  * Created by alex on 27.10.16.
  */
 public interface Constants {
-    int wasStepDownHappiness = 1,
+    int wasStepDownHappiness = 2,
         wasStepDownSatiety = 2,
         wasStepDownStamina = 2,
 
@@ -15,14 +15,14 @@ public interface Constants {
         stealingFoodUpSatiety = 15,
         stealingFoodDownStamina = 7,
         stealingFoodDownHappiness = 2,
-        stealingFoodUpRespectHorses = 5,
-        stealingFoodDownRespectPeoples = 3,
+        stealingFoodUpRespectHorses = 1,
+        stealingFoodDownRespectPeoples = 1,
 
         beggingSugarUpSatiety = 12,
         beggingSugarDownStamina = 7,
-        beggingSugarUpHappiness = 4,
-        beggingSugarDownRespectHorses = 3,
-        beggingSugarUpRespectPeoples = 5,
+        beggingSugarUpHappiness = -2,
+        beggingSugarDownRespectHorses = 1,
+        beggingSugarUpRespectPeoples = 1,
 
         askForFoodUpSatiety = 15,
         askForFoodUpHappiness = 2,

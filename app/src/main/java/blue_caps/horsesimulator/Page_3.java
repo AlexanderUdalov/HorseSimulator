@@ -222,41 +222,41 @@ public class Page_3 extends Fragment implements View.OnClickListener {
 
 
         findAppleStaminaText.setText(withSign(-Constants.findAppleDownStamina - Constants.wasStepDownStamina));
-        findAppleSatietyText.setText(withSign(-Constants.findAppleDownSatiety - Constants.wasStepDownStamina));
-        findAppleHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        findAppleSatietyText.setText(withSign(-Constants.findAppleDownSatiety - Constants.wasStepDownSatiety));
+        findAppleHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
         plowedFieldStaminaText.setText(withSign(- Constants.plowedFieldDownStamina - Constants.wasStepDownStamina));
-        plowedFieldSatietyText.setText(withSign( -Constants.plowedFieldDownSatiety - Constants.wasStepDownStamina));
-        plowedFieldHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        plowedFieldSatietyText.setText(withSign( -Constants.plowedFieldDownSatiety - Constants.wasStepDownSatiety));
+        plowedFieldHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
         plowedFieldOtherText.setText(getString(R.string.respect_horses) + " -" + Constants.plowedFieldDownRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " +" + Constants.plowedFieldUpRespectPeoples);
         helpHorsesStaminaText.setText(withSign(-Constants.helpHorsesDownStamina - Constants.wasStepDownStamina));
-        helpHorsesSatietyText.setText(withSign(-Constants.helpHorsesDownSatiety - Constants.wasStepDownStamina));
-        helpHorsesHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        helpHorsesSatietyText.setText(withSign(-Constants.helpHorsesDownSatiety - Constants.wasStepDownSatiety));
+        helpHorsesHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
         helpHorsesOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.helpHorsesUpRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " -" + Constants.helpHorsesDownRespectPeoples);
         helpPeopleStaminaText.setText(withSign(-Constants.helpPeopleDownStamina - Constants.wasStepDownStamina));
-        helpPeopleSatietyText.setText(withSign(-Constants.helpPeopleDownSatiety - Constants.wasStepDownStamina));
-        helpPeopleHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        helpPeopleSatietyText.setText(withSign(-Constants.helpPeopleDownSatiety - Constants.wasStepDownSatiety));
+        helpPeopleHappinessText.setText(withSign( - Constants.wasStepDownHappiness));
         helpPeopleOtherText.setText(getString(R.string.respect_horses) + " -" + Constants.helpPeopleDownRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " +" + Constants.helpPeopleUpRespectPeoples);
         knockCorralGateStaminaText.setText(withSign(-Constants.knockCorralGateDownStamina - Constants.wasStepDownStamina));
-        knockCorralGateSatietyText.setText(withSign(-Constants.knockCorralGateDownSatiety - Constants.wasStepDownStamina));
-        knockCorralGateHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        knockCorralGateSatietyText.setText(withSign(-Constants.knockCorralGateDownSatiety - Constants.wasStepDownSatiety));
+        knockCorralGateHappinessText.setText(withSign( - Constants.wasStepDownHappiness));
         knockCorralGateOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.knockCorralGateUpRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " -" + Constants.knockCorralGateDownRespectPeoples);
         participateHorseRaceStaminaText.setText(withSign(-Constants.participateHorseRaceDownStamina - Constants.wasStepDownStamina));
-        participateHorseRaceSatietyText.setText(withSign(Constants.participateHorseRaceDownSatiety - Constants.wasStepDownStamina));
-        participateHorseRaceHappinessText.setText(withSign(- Constants.wasStepDownStamina));
+        participateHorseRaceSatietyText.setText(withSign(Constants.participateHorseRaceDownSatiety - Constants.wasStepDownSatiety));
+        participateHorseRaceHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
         participateHorseRaceGoldAppleText.setText(withSign(-1));
         participateHorseRaceOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.participateHorseRaceUpRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " +" + Constants.participateHorseRaceUpRespectPeople);
         bobMusclesStaminaText.setText(withSign(-Constants.bobMusclesDownStamina - Constants.wasStepDownStamina));
-        bobMusclesSatietyText.setText(withSign(-Constants.bobMusclesDownSatiety - Constants.wasStepDownStamina));
-        bobMusclesHappinessText.setText(withSign( - Constants.wasStepDownStamina));
+        bobMusclesSatietyText.setText(withSign(-Constants.bobMusclesDownSatiety - Constants.wasStepDownSatiety));
+        bobMusclesHappinessText.setText(withSign( - Constants.wasStepDownHappiness));
         bobMusclesGoldAppleText.setText(withSign(-1));
         bobMusclesOtherText.setText(getString(R.string.max_speed) + " +" + Constants.bobMusclesUpMaxSpeed);
         participateChampionshipStaminaText.setText(withSign(-Constants.participateChampionshipDownStamina - Constants.wasStepDownStamina));
-        participateChampionshipSatietyText.setText(withSign(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownStamina));
+        participateChampionshipSatietyText.setText(withSign(-Constants.participateChampionshipDownSatiety - Constants.wasStepDownSatiety));
         participateChampionshipWinHappinessText.setText(withSign(Constants.participateChampionshipUpHappiness - Constants.wasStepDownHappiness));
         participateChampionshipLoseHappinessText.setText(withSign(-Constants.participateChampionshipDownHappiness - Constants.wasStepDownHappiness));
         participateChampionshipGoldAppleText.setText(withSign(Constants.participateChampionshipUpApples));
