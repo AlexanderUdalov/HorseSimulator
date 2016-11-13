@@ -70,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25000"/>
+            android:text="30000"/>
     </TableRow>
     <TableRow
         android:layout_gravity="center"
@@ -86,7 +86,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="50000"/>
+            android:text="75000"/>
     </TableRow>
     <TableRow
         android:layout_gravity="center"
@@ -103,6 +103,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100000"/>
+            android:text="150000"/>
     </TableRow>
 </LinearLayout>

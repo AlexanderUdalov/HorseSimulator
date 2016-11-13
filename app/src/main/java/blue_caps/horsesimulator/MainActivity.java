@@ -258,13 +258,13 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         }
         else controller.setDieTimeStamina(4);
         if (controller.getHorse().getHappiness() == 0) {
-            if (controller.getDieTimeHappiness() == 4)
+            if ((controller.getDieTimeHappiness() == 4) &&(controller.getDieTimeStamina() == 4))
                 showDieAlert();
             controller.setDieTimeHappiness(controller.getDieTimeHappiness()-1);
         }
         else controller.setDieTimeHappiness(4);
         if (controller.getHorse().getSatiety() == 0) {
-            if (controller.getDieTimeSatiety() == 4)
+            if ((controller.getDieTimeSatiety() == 4) &&(controller.getDieTimeStamina() == 4)&&(controller.getDieTimeHappiness() == 4))
                 showDieAlert();
             controller.setDieTimeSatiety(controller.getDieTimeSatiety()-1);
         }
@@ -351,6 +351,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         videoDie.setEventListeners(new EventListener() {
             @Override
             public void onAdEnd(boolean b, boolean b1) {
+                if (b){
+                    controller.setGoldApple(controller.getGoldApple() - 2);
+                }
                 if (!b) {
                     runOnUiThread(new Runnable() {
                         @Override
