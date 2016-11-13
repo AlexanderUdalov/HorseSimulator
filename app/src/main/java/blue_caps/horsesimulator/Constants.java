@@ -5,7 +5,7 @@ package blue_caps.horsesimulator;
  * Created by alex on 27.10.16.
  */
 public interface Constants {
-    int wasStepDownHappiness = 3,
+    int wasStepDownHappiness = 2,
         wasStepDownSatiety = 2,
         wasStepDownStamina = 2,
 
@@ -25,11 +25,11 @@ public interface Constants {
         beggingSugarUpRespectPeoples = 1,
 
         askForFoodUpSatiety = 15,
-        askForFoodUpHappiness = 2,
+        askForFoodUpHappiness = 5,
         askForFoodDownStamina = 12,
 
-        eatAppleUpHappiness = 20,
-        eatAppleUpSatiety = 40,
+        eatAppleUpHappiness = 43,
+        eatAppleUpSatiety = 42,
 
         haveSleepUpStaminaTABOR = 9,
         haveSleepDownSatietyTABOR = 9,
@@ -60,11 +60,11 @@ public interface Constants {
 
         goToWateringUpStamina = 15,
         goToWateringDownSatiety = 7,
-        goToWateringUpHappiness = 2,
+        goToWateringUpHappiness = 3,
 
         goToDrinkersUpStamina = 15,
         goToDrinkersDownSatiety = 7,
-        goToDrinkersUpHappiness = 2,
+        goToDrinkersUpHappiness = 3,
 
         getMassageUpStamina = 17,
         getMassageUpHappiness = 6,
@@ -79,23 +79,23 @@ public interface Constants {
 
         plowedFieldDownStamina = 16,
         plowedFieldDownSatiety = 14,
-        plowedFieldDownRespectHorses = 2,
-        plowedFieldUpRespectPeoples = 4,
+        plowedFieldDownRespectHorses = 4,
+        plowedFieldUpRespectPeoples = 6,
 
         helpPeopleDownStamina = 20,
         helpPeopleDownSatiety = 18,
-        helpPeopleDownRespectHorses = 6,
-        helpPeopleUpRespectPeoples = 6,
+        helpPeopleDownRespectHorses = 2,
+        helpPeopleUpRespectPeoples = 4,
 
         helpHorsesDownStamina = 20,
         helpHorsesDownSatiety = 18,
-        helpHorsesUpRespectHorses = 6,
-        helpHorsesDownRespectPeoples = 6,
+        helpHorsesUpRespectHorses = 4,
+        helpHorsesDownRespectPeoples = 2,
 
         knockCorralGateDownSatiety = 16,
         knockCorralGateDownStamina = 14,
-        knockCorralGateDownRespectPeoples = 2,
-        knockCorralGateUpRespectHorses = 4,
+        knockCorralGateDownRespectPeoples = 4,
+        knockCorralGateUpRespectHorses = 6,
 
         participateHorseRaceDownSatiety = 18,
         participateHorseRaceDownStamina = 18,

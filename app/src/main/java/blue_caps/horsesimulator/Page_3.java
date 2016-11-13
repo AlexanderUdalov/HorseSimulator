@@ -245,7 +245,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         knockCorralGateOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.knockCorralGateUpRespectHorses + "\n" +
                 getString(R.string.respect_peoples) + " -" + Constants.knockCorralGateDownRespectPeoples);
         participateHorseRaceStaminaText.setText(withSign(-Constants.participateHorseRaceDownStamina - Constants.wasStepDownStamina));
-        participateHorseRaceSatietyText.setText(withSign(Constants.participateHorseRaceDownSatiety - Constants.wasStepDownSatiety));
+        participateHorseRaceSatietyText.setText(withSign(-Constants.participateHorseRaceDownSatiety - Constants.wasStepDownSatiety));
         participateHorseRaceHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
         participateHorseRaceGoldAppleText.setText(withSign(-1));
         participateHorseRaceOtherText.setText(getString(R.string.respect_horses) + " +" + Constants.participateHorseRaceUpRespectHorses + "\n" +
