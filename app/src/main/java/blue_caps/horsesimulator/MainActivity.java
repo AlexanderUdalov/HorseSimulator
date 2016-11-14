@@ -13,13 +13,24 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyAdOptions;
+import com.adcolony.sdk.AdColonyAppOptions;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyReward;
+import com.adcolony.sdk.AdColonyRewardListener;
+import com.adcolony.sdk.AdColonyUserMetadata;
+import com.adcolony.sdk.AdColonyZone;
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
@@ -92,6 +103,12 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     final static AdConfig dieConfig = new AdConfig();
     final static AdConfig appleConfig = new AdConfig();
     final String app_id = "5823510d305e3dec2d00062f";
+    final private String APP_ID = "appf41e916fa68d490596";
+    final private String ZONE_ID = "vz92fb88224fb442c590";
+
+    private AdColonyInterstitial ad;
+    private AdColonyInterstitialListener listener;
+    private AdColonyAdOptions ad_options;
 
     @Override
     public void clickEvent(String name){
@@ -123,17 +140,6 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         }
     }
 
-    public void getApple(){
-        if (videoApple.isAdPlayable()) {
-            videoApple.playAd(appleConfig);
-            MainActivity.page_2.update();
-        }
-        else {
-            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
-
     @Override
     protected void onDestroy(){
         super.onDestroy();
@@ -153,6 +159,10 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         super.onResume();
         videoApple.onResume();
         videoDie.onResume();
+        if (ad == null || ad.isExpired())
+        {
+            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
+        }
     }
 
     @Override
@@ -160,12 +170,50 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
 
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         videoDie.init(this, app_id);
         videoApple.init(this, app_id);
         makeConfig();
         addListeners();
+
+
+
+
+        AdColonyAppOptions app_options = new AdColonyAppOptions().setUserID( "unique_user_id" );
+        AdColony.configure( this, app_options, APP_ID, ZONE_ID );
+        AdColonyUserMetadata metadata = new AdColonyUserMetadata()
+                .setUserAge( 26 )
+                .setUserEducation( AdColonyUserMetadata.USER_EDUCATION_BACHELORS_DEGREE )
+                .setUserGender( AdColonyUserMetadata.USER_MALE );
+        ad_options = new AdColonyAdOptions().setUserMetadata( metadata );
+        listener = new AdColonyInterstitialListener()
+        {
+            @Override
+            public void onRequestFilled( AdColonyInterstitial ad )
+            {
+                MainActivity.this.ad = ad;
+            }
+
+            @Override
+            public void onRequestNotFilled( AdColonyZone zone )
+            {
+
+            }
+
+            @Override
+            public void onOpened( AdColonyInterstitial ad )
+            {
+
+            }
+
+            @Override
+            public void onExpiring( AdColonyInterstitial ad )
+            {
+                AdColony.requestInterstitial( ZONE_ID, this, ad_options );
+            }
+        };
+
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
@@ -217,6 +265,23 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         updateStats();
+    }
+
+    public void getApple(){
+        if (ad.show()) {
+            controller.getApples();
+            updateStats();
+            page_3.update();
+            page_2.update();
+            page_4.update();
+        }
+        else if  (videoApple.isAdPlayable()) {
+            videoApple.playAd(appleConfig);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     public void wasStep(){
@@ -352,7 +417,12 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             @Override
             public void onAdEnd(boolean b, boolean b1) {
                 if (b){
-                    controller.setGoldApple(controller.getGoldApple() - 2);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            controller.setGoldApple(controller.getGoldApple() - 2);
+                        }
+                    });
                 }
                 if (!b) {
                     runOnUiThread(new Runnable() {
@@ -615,7 +685,11 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (videoDie.isAdPlayable()) {
+                if (ad.show()) {
+                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
+                    adAlert.hide();
+                }
+                else if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
                     controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
                     adAlert.hide();
@@ -670,7 +744,11 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (videoDie.isAdPlayable()) {
+                if (ad.show()) {
+                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
+                    adAlert.hide();
+                }
+                else if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
                     controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
                     adAlert.hide();

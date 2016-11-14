@@ -32,6 +32,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             findAppleStaminaText,
             findAppleSatietyText,
             findAppleHappinessText,
+            findAppleOtherText,
             plowedFieldStaminaText,
             plowedFieldSatietyText,
             plowedFieldHappinessText,
@@ -69,6 +70,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             findAppleStaminaImage,
             findAppleSatietyImage,
             findAppleHappinessImage,
+            findAppleOtherImage,
             plowedFieldStaminaImage,
             plowedFieldSatietyImage,
             plowedFieldHappinessImage,
@@ -126,6 +128,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         findAppleStaminaText = (TextView) view.findViewById(R.id.find_apple_stamina_text);
         findAppleSatietyText = (TextView) view.findViewById(R.id.find_apple_satiety_text);
         findAppleHappinessText = (TextView) view.findViewById(R.id.find_apple_happiness_text);
+        findAppleOtherText = (TextView) view.findViewById(R.id.find_apple_other_text);
         plowedFieldStaminaText = (TextView) view.findViewById(R.id.plowed_field_stamina_text);
         plowedFieldSatietyText = (TextView) view.findViewById(R.id.plowed_field_satiety_text);
         plowedFieldHappinessText = (TextView) view.findViewById(R.id.plowed_field_happiness_text);
@@ -163,6 +166,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         findAppleStaminaImage = (ImageView) view.findViewById(R.id.find_apple_stamina_image);
         findAppleSatietyImage= (ImageView) view.findViewById(R.id.find_apple_satiety_image);
         findAppleHappinessImage = (ImageView) view.findViewById(R.id.find_apple_happiness_image);
+        findAppleOtherImage= (ImageView) view.findViewById(R.id.find_apple_apple_image);
         plowedFieldStaminaImage = (ImageView) view.findViewById(R.id.plowed_field_stamina_image);
         plowedFieldSatietyImage = (ImageView) view.findViewById(R.id.plowed_field_satiety_image);
         plowedFieldHappinessImage = (ImageView) view.findViewById(R.id.plowed_field_happiness_image);
@@ -192,6 +196,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         findAppleStaminaImage.setImageResource(R.drawable.stamina);
         findAppleSatietyImage.setImageResource(R.drawable.satiety);
         findAppleHappinessImage.setImageResource(R.drawable.happiness);
+        findAppleOtherImage.setImageResource(R.drawable.image_goldapple);
         plowedFieldStaminaImage.setImageResource(R.drawable.stamina);
         plowedFieldSatietyImage.setImageResource(R.drawable.satiety);
         plowedFieldHappinessImage.setImageResource(R.drawable.happiness);
@@ -224,6 +229,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
         findAppleStaminaText.setText(withSign(-Constants.findAppleDownStamina - Constants.wasStepDownStamina));
         findAppleSatietyText.setText(withSign(-Constants.findAppleDownSatiety - Constants.wasStepDownSatiety));
         findAppleHappinessText.setText(withSign(- Constants.wasStepDownHappiness));
+        findAppleOtherText.setText(getString(R.string.with_chance) + " 50%:    +1");
         plowedFieldStaminaText.setText(withSign(- Constants.plowedFieldDownStamina - Constants.wasStepDownStamina));
         plowedFieldSatietyText.setText(withSign( -Constants.plowedFieldDownSatiety - Constants.wasStepDownSatiety));
         plowedFieldHappinessText.setText(withSign(- Constants.wasStepDownHappiness));

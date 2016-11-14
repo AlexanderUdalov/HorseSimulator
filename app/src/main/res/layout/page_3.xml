@@ -71,6 +71,23 @@
                     android:id="@+id/find_apple_happiness_image"/>
             </TableRow>
         </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp"
+                android:id="@+id/find_apple_other_text"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:id="@+id/find_apple_apple_image"/>
+        </TableRow>
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
