@@ -7,6 +7,9 @@
     <string name="keep_watching_button">Нет</string>
 
     <string name="no_internet">Ошибка загрузки</string>
+    <string name="no">Нет</string>
+    <string name="rate">Оценить</string>
+    <string name="rate_please">Понравилось приложение?</string>
 
     <string name="close_video_title_apple">Закрыть видео?</string>
     <string name="close_video_text_apple">Закрыв видео, Вы не получите яблок, Вы уверенны?</string>

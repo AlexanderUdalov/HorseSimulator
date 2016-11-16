@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -31,6 +32,11 @@ import com.adcolony.sdk.AdColonyReward;
 import com.adcolony.sdk.AdColonyRewardListener;
 import com.adcolony.sdk.AdColonyUserMetadata;
 import com.adcolony.sdk.AdColonyZone;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
@@ -38,7 +44,7 @@ import com.vungle.publisher.VunglePub;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements FragmentEventListener{
+public class MainActivity extends AppCompatActivity implements FragmentEventListener, RewardedVideoAdListener {
     private ViewPager pager;
     private static TextView
             valueStamina,
@@ -103,12 +109,11 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     final static AdConfig dieConfig = new AdConfig();
     final static AdConfig appleConfig = new AdConfig();
     final String app_id = "5823510d305e3dec2d00062f";
-    final private String APP_ID = "appf41e916fa68d490596";
-    final private String ZONE_ID = "vz92fb88224fb442c590";
+    final String AD_UNIT_ID = "ca-app-pub-2384882322139467/4917291831";
+    final String APP_ID = "ca-app-pub-2384882322139467~3440558633";
 
-    private AdColonyInterstitial ad;
-    private AdColonyInterstitialListener listener;
-    private AdColonyAdOptions ad_options;
+    private RewardedVideoAd mAd;
+
 
     @Override
     public void clickEvent(String name){
@@ -143,12 +148,14 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     @Override
     protected void onDestroy(){
         super.onDestroy();
+        mAd.destroy(this);
         save();
     }
 
     @Override
     protected void onPause(){
         super.onPause();
+        mAd.pause(this);
         videoApple.onPause();
         videoDie.onPause();
         save();
@@ -157,12 +164,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     @Override
     protected void onResume(){
         super.onResume();
+        mAd.resume(this);
         videoApple.onResume();
         videoDie.onResume();
-        if (ad == null || ad.isExpired())
-        {
-            AdColony.requestInterstitial( ZONE_ID, listener, ad_options );
-        }
     }
 
     @Override
@@ -178,41 +182,10 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         addListeners();
 
 
-
-
-        AdColonyAppOptions app_options = new AdColonyAppOptions().setUserID( "unique_user_id" );
-        AdColony.configure( this, app_options, APP_ID, ZONE_ID );
-        AdColonyUserMetadata metadata = new AdColonyUserMetadata()
-                .setUserAge( 26 )
-                .setUserEducation( AdColonyUserMetadata.USER_EDUCATION_BACHELORS_DEGREE )
-                .setUserGender( AdColonyUserMetadata.USER_MALE );
-        ad_options = new AdColonyAdOptions().setUserMetadata( metadata );
-        listener = new AdColonyInterstitialListener()
-        {
-            @Override
-            public void onRequestFilled( AdColonyInterstitial ad )
-            {
-                MainActivity.this.ad = ad;
-            }
-
-            @Override
-            public void onRequestNotFilled( AdColonyZone zone )
-            {
-
-            }
-
-            @Override
-            public void onOpened( AdColonyInterstitial ad )
-            {
-
-            }
-
-            @Override
-            public void onExpiring( AdColonyInterstitial ad )
-            {
-                AdColony.requestInterstitial( ZONE_ID, this, ad_options );
-            }
-        };
+        MobileAds.initialize(this, APP_ID);
+        mAd = MobileAds.getRewardedVideoAdInstance(this);
+        mAd.setRewardedVideoAdListener(this);
+        loadRewardedVideoAd();
 
 
         controller = new Controller();
@@ -267,18 +240,62 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         updateStats();
     }
 
+    private void loadRewardedVideoAd() {
+        if (!mAd.isLoaded()) {
+
+            mAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
+
+        }
+    }
+
+    @Override
+    public void onRewarded(RewardItem reward) {
+        controller.getApples();
+        updateStats();
+        page_3.update();
+        page_2.update();
+        page_4.update();
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
     public void getApple(){
-        if (ad.show()) {
-            controller.getApples();
-            updateStats();
-            page_3.update();
-            page_2.update();
-            page_4.update();
+        if (mAd.isLoaded()) {
+            mAd.show();
         }
         else if  (videoApple.isAdPlayable()) {
             videoApple.playAd(appleConfig);
         }
         else{
+            loadRewardedVideoAd();
             Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -302,7 +319,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             }
 
         controller.setLifeTime(controller.getLifeTime()+1);
-
+        if (controller.getLifeTime() == 2){
+            showRate();
+        }
         if (controller.getTimeToAttack() > 0)
             controller.setTimeToAttack(controller.getTimeToAttack()-1);
         if (controller.getTimeToChampionship() > 0)
@@ -665,6 +684,33 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
 
     }
 
+    public void showRate(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.rate_please).setCancelable(false);
+        builder.setView(LayoutInflater.from(this).inflate(R.layout.rating_act, null));
+        Button yes = (Button) findViewById(R.id.rate);
+        Button no = (Button) findViewById(R.id.no);
+        View v = LayoutInflater.from(this).inflate(R.layout.die_dialog, null);
+        builder.setView(v);
+        final AlertDialog alert = builder.create();
+        alert.show();
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alert.hide();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=blue_caps.horsesimulator"));
+                startActivity(intent);
+                alert.hide();
+            }
+        });
+    }
+
     public void notSuccessFight(){
         final AlertDialog.Builder builderAd = new AlertDialog.Builder(this);
         builderAd.setTitle(R.string.ad_fight_title).setCancelable(false);
@@ -685,9 +731,8 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ad.show()) {
-                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
-                    adAlert.hide();
+                if (mAd.isLoaded()) {
+                    mAd.show();
                 }
                 else if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
@@ -744,13 +789,11 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ad.show()) {
-                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
-                    adAlert.hide();
+                if (mAd.isLoaded()) {
+                    mAd.show();
                 }
                 else if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
-                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
                     adAlert.hide();
                 }
                 else {
