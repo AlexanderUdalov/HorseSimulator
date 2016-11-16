@@ -104,6 +104,7 @@
     <string name="participate_horse_race">Поучаствовать в гонке</string>
     <string name="participate_championship">Поучаствовать в чемпионате</string>
     <string name="championship">До чемпионата</string>
+    <string name="to_add">До нового предложения</string>
 
     <string name="if_win">При выигрыше</string>
     <string name="if_lose">При проигрыше</string>

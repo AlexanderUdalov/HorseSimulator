@@ -298,6 +298,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == R.id.button_get_apple){
             listener.clickEvent("getApple");
+            MainActivity.controller.setTimeToAdd(Constants.timeToAdd);
             return;
         }
         listener.clickEvent("wasStep");
@@ -416,6 +417,16 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             default: return;
         }
 
+        if (MainActivity.controller.getTimeToAdd() != 0) {
+            buttonGetApple.setEnabled(false);
+            buttonGetApple.setText(""  + getString(R.string.to_add) + " " + MainActivity.controller.getTimeToAdd()
+                    + " " + dayString(MainActivity.controller.getTimeToAdd()));
+        }
+        else {
+            buttonGetApple.setEnabled(true);
+            buttonGetApple.setText(R.string.get_apple);
+        }
+
         if (MainActivity.controller.getTimeToChampionship() != 0) {
             buttonParticipateChampionship.setEnabled(false);
             buttonParticipateChampionship.setText(""  + getString(R.string.championship) + " " + MainActivity.controller.getTimeToChampionship()
@@ -425,6 +436,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             buttonParticipateChampionship.setEnabled(true);
             buttonParticipateChampionship.setText(R.string.participate_championship);
         }
+
         if (MainActivity.controller.getGoldApple() == 0){
             buttonParticipateHorseRace.setEnabled(false);
             buttonBobMuscles.setEnabled(false);

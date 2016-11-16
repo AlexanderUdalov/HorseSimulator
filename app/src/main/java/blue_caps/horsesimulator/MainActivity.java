@@ -23,20 +23,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adcolony.sdk.AdColony;
-import com.adcolony.sdk.AdColonyAdOptions;
-import com.adcolony.sdk.AdColonyAppOptions;
-import com.adcolony.sdk.AdColonyInterstitial;
-import com.adcolony.sdk.AdColonyInterstitialListener;
-import com.adcolony.sdk.AdColonyReward;
-import com.adcolony.sdk.AdColonyRewardListener;
-import com.adcolony.sdk.AdColonyUserMetadata;
-import com.adcolony.sdk.AdColonyZone;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
 import com.vungle.publisher.Orientation;
@@ -44,7 +30,7 @@ import com.vungle.publisher.VunglePub;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements FragmentEventListener, RewardedVideoAdListener {
+public class MainActivity extends AppCompatActivity implements FragmentEventListener {
     private ViewPager pager;
     private static TextView
             valueStamina,
@@ -86,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             TIME_TO_ATTACK = "TIME_TO_ATTACK",
             LIFE_TIME = "LIFE_TIME",
             TIME_TO_CHAMPIONSHIP = "TIME_TO_CHAMPIONSHIP",
+            TIME_TO_ADD = "TIME_TO_ADD",
             GOLD_APPLE = "GOLD_APPLE",
             TOTAL_SCORE = "TOTAL_SCORE",
             COUNT_ROMA_ATTACK = "COUNT_ROMA_ATTACK",
@@ -111,9 +98,6 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     final String app_id = "5823510d305e3dec2d00062f";
     final String AD_UNIT_ID = "ca-app-pub-2384882322139467/4917291831";
     final String APP_ID = "ca-app-pub-2384882322139467~3440558633";
-
-    private RewardedVideoAd mAd;
-
 
     @Override
     public void clickEvent(String name){
@@ -148,14 +132,12 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        mAd.destroy(this);
         save();
     }
 
     @Override
     protected void onPause(){
         super.onPause();
-        mAd.pause(this);
         videoApple.onPause();
         videoDie.onPause();
         save();
@@ -164,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     @Override
     protected void onResume(){
         super.onResume();
-        mAd.resume(this);
         videoApple.onResume();
         videoDie.onResume();
     }
@@ -180,13 +161,6 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         videoApple.init(this, app_id);
         makeConfig();
         addListeners();
-
-
-        MobileAds.initialize(this, APP_ID);
-        mAd = MobileAds.getRewardedVideoAdInstance(this);
-        mAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
-
 
         controller = new Controller();
         setContentView(R.layout.activity_main);
@@ -240,62 +214,11 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         updateStats();
     }
 
-    private void loadRewardedVideoAd() {
-        if (!mAd.isLoaded()) {
-
-            mAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
-
-        }
-    }
-
-    @Override
-    public void onRewarded(RewardItem reward) {
-        controller.getApples();
-        updateStats();
-        page_3.update();
-        page_2.update();
-        page_4.update();
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        loadRewardedVideoAd();
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int errorCode) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
     public void getApple(){
-        if (mAd.isLoaded()) {
-            mAd.show();
-        }
-        else if  (videoApple.isAdPlayable()) {
+        if  (videoApple.isAdPlayable()) {
             videoApple.playAd(appleConfig);
         }
         else{
-            loadRewardedVideoAd();
             Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -319,13 +242,15 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             }
 
         controller.setLifeTime(controller.getLifeTime()+1);
-        if (controller.getLifeTime() == 2){
+        /*if (controller.getLifeTime() == 2){
             showRate();
-        }
+        }*/
         if (controller.getTimeToAttack() > 0)
             controller.setTimeToAttack(controller.getTimeToAttack()-1);
         if (controller.getTimeToChampionship() > 0)
             controller.setTimeToChampionship(controller.getTimeToChampionship()-1);
+        if (controller.getTimeToAdd() > 0)
+            controller.setTimeToAdd(controller.getTimeToAdd()-1);
         romaAttack();
     }
 
@@ -684,7 +609,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
 
     }
 
-    public void showRate(){
+    /*public void showRate(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.rate_please).setCancelable(false);
         builder.setView(LayoutInflater.from(this).inflate(R.layout.rating_act, null));
@@ -709,7 +634,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
                 alert.hide();
             }
         });
-    }
+    }*/
 
     public void notSuccessFight(){
         final AlertDialog.Builder builderAd = new AlertDialog.Builder(this);
@@ -731,12 +656,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAd.isLoaded()) {
-                    mAd.show();
-                }
-                else if (videoDie.isAdPlayable()) {
+                if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
-                    controller.setTimeToAttack(Constants.maxTimeToRomaAttack);
+                    controller.setGoldApple(controller.getGoldApple()-2);
                     adAlert.hide();
                 }
                 else {
@@ -789,11 +711,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         buttonAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAd.isLoaded()) {
-                    mAd.show();
-                }
-                else if (videoDie.isAdPlayable()) {
+                if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
+                    controller.setGoldApple(controller.getGoldApple()-2);
                     adAlert.hide();
                 }
                 else {
@@ -826,6 +746,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
 
         ed.putInt(TIME_TO_ATTACK, MainActivity.controller.getTimeToAttack());
         ed.putInt(TIME_TO_CHAMPIONSHIP, MainActivity.controller.getTimeToChampionship());
+        ed.putInt(TIME_TO_ADD, MainActivity.controller.getTimeToAdd());
         ed.putInt(GOLD_APPLE, MainActivity.controller.getGoldApple());
         ed.putInt(LIFE_TIME, MainActivity.controller.getLifeTime());
         ed.putInt(TOTAL_SCORE, MainActivity.controller.getTotalScore());
@@ -856,6 +777,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             MainActivity.controller.setLifeTime(sPref.getInt(LIFE_TIME, 1));
             MainActivity.controller.setTimeToAttack(sPref.getInt(TIME_TO_ATTACK, 0));
             MainActivity.controller.setTimeToChampionship(sPref.getInt(TIME_TO_CHAMPIONSHIP, 0));
+            MainActivity.controller.setTimeToAdd(sPref.getInt(TIME_TO_ADD, 0));
             MainActivity.controller.setGoldApple(sPref.getInt(GOLD_APPLE, 0));
             MainActivity.controller.setTotalScore(sPref.getInt(TOTAL_SCORE, 0));
             MainActivity.controller.setCountRomaAttack(sPref.getInt(COUNT_ROMA_ATTACK, 0));
@@ -876,5 +798,3 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         }
     }
 }
-
-

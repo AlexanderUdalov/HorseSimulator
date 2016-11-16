@@ -15,7 +15,8 @@ public class Controller {
     public int mChanceAttackPercent = 10;
     private int mLifeTime = 1;
     private int mTimeToChampionship = Constants.timeToChampionship;
-    private int mGoldApple = 0;
+    private int mTimeToAdd = 0;
+    private int mGoldApple = 5;
     private int mTotalScore = 0;
     private int mCountRomaAttack = 0;
     private int mCountBattlesWon = 0;
@@ -36,7 +37,8 @@ public class Controller {
         mChanceAttackPercent = 10;
         mLifeTime = 1;
         mTimeToChampionship = Constants.timeToChampionship;
-        mGoldApple = 0;
+        mTimeToAdd = 0;
+        mGoldApple = 5;
         mTotalScore = 0;
         mCountRomaAttack = 0;
         mCountBattlesWon = 0;
@@ -192,7 +194,6 @@ public class Controller {
             mHorse.upRespectHorses(Constants.participateChampionshipUpRespectHorses);
             mHorse.upRespectPeoples(Constants.participateChampionshipUpRespectPeoples);
             mHorse.upHappiness(Constants.participateChampionshipUpHappiness);
-            mGoldApple+=4;
             return true;
         }
         mHorse.downRespectHorses(Constants.participateChampionshipDownRespectHorses);
@@ -321,6 +322,8 @@ public class Controller {
         return index;
     }
 
+    public int getTimeToAdd() {return mTimeToAdd; }
+
     public void setIndex(int index) {
         this.index = index;
     }
@@ -357,4 +360,6 @@ public class Controller {
     public void setDieTimeHappiness(int mDieTimeHappiness) {
         this.mDieTimeHappiness = mDieTimeHappiness;
     }
+
+    public void setTimeToAdd(int time) {mTimeToAdd = time; }
 }

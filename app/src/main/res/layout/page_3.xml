@@ -11,6 +11,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/get_apple"
+                android:drawableLeft="@drawable/video"
+                android:drawablePadding="20dp"
+                android:id="@+id/button_get_apple"/>
+        </TableLayout>
+        <TableRow
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="+2"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/image_goldapple"/>
+        </TableRow>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
             <Button
@@ -677,38 +708,6 @@
                     android:id="@+id/participate_championship_win_other_text"/>
             </LinearLayout>
         </TableRow>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="8dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/get_apple"
-                android:drawableLeft="@drawable/video"
-                android:drawablePadding="20dp"
-                android:id="@+id/button_get_apple"/>
-        </TableLayout>
-        <TableRow
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="+2"/>
-            <ImageView
-                android:layout_width="20sp"
-                android:layout_height="20sp"
-                android:src="@drawable/image_goldapple"/>
-        </TableRow>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="60dp" />

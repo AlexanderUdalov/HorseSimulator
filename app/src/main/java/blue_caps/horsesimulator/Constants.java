@@ -137,7 +137,9 @@ public interface Constants {
         amazingHorse = 10000,
         pickupMasterHorse = 30000,
         bossHorse = 70000,
-        godHorse = 150000;
+        godHorse = 150000,
+
+        timeToAdd = 50;
 
     //double bobMusclesUpMaxSpeed = 0.3;
 }
