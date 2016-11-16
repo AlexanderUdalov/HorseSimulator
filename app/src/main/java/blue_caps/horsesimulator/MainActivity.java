@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     static Controller controller;
     private SharedPreferences sPref;
     static boolean isStart = true;
+    static boolean isRoma = false;
 
     private final String
             TIME_TO_ATTACK = "TIME_TO_ATTACK",
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             HABITAT = "HABITAT",
             LEVEL = "LEVEL",
             NEXT_LEVEL_INDEX = "NEXT_LEVEL_INDEX",
-            IS_START = "IS_START";
+            IS_START = "IS_START",
+            IS_ROMA = "IS_ROMA";
 
     public final VunglePub videoDie = VunglePub.getInstance();
     public final VunglePub videoApple = VunglePub.getInstance();
@@ -212,6 +214,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         PagerAdapter pagerAdapter = new AdapterForViewPager(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         updateStats();
+
+        if (isRoma)
+            showRomaAttack();
     }
 
     public void getApple(){
@@ -289,6 +294,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         Random rd = new Random();
         if (controller.getTimeToAttack() == 0&& rd.nextInt(100) < controller.mChanceAttackPercent) {
             showRomaAttack();
+            isRoma = true;
         }
     }
 
@@ -574,6 +580,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             public void onClick(View view) {
                 if (controller.runFromRoma()) {
                     successRun();
+                    isRoma = false;
                     alert.hide();
                 }
                 else {
@@ -588,6 +595,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             public void onClick(View view) {
                 if (controller.fightWithRoma()) {
                     alert.hide();
+                    isRoma = false;
                     successFight();
                 }
                 else {
@@ -659,6 +667,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
                 if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
                     controller.setGoldApple(controller.getGoldApple()-2);
+                    isRoma = false;
                     adAlert.hide();
                 }
                 else {
@@ -675,6 +684,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
                 page_0.update();
                 page_1.update();
                 showHowToPlay();
+                isRoma = false;
                 adAlert.hide();
             }
         });
@@ -714,6 +724,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
                 if (videoDie.isAdPlayable()) {
                     videoDie.playAd(dieConfig);
                     controller.setGoldApple(controller.getGoldApple()-2);
+                    isRoma = false;
                     adAlert.hide();
                 }
                 else {
@@ -730,6 +741,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
                 page_0.update();
                 page_1.update();
                 showHowToPlay();
+                isRoma = false;
                 adAlert.hide();
             }
         });
@@ -766,6 +778,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         ed.putInt(LEVEL, (MainActivity.controller.getHorse().getLevel().ordinal()));
         ed.putInt(NEXT_LEVEL_INDEX, MainActivity.controller.getIndex());
         ed.putBoolean(IS_START, isStart);
+        ed.putBoolean(IS_ROMA, isRoma);
 
         ed.apply();
     }
@@ -795,6 +808,8 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             MainActivity.controller.getHorse().setHabitat(Habitat.values()[sPref.getInt(HABITAT, 0)]);
             MainActivity.controller.getHorse().setLevel(Level.values()[sPref.getInt(LEVEL, 0)]);
             MainActivity.controller.setIndex(sPref.getInt(NEXT_LEVEL_INDEX, 1));
+
+            isRoma = sPref.getBoolean(IS_ROMA, false);
         }
     }
 }
