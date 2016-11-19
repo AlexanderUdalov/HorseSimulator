@@ -222,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     public void getApple(){
         if  (videoApple.isAdPlayable()) {
             videoApple.playAd(appleConfig);
+            controller.setTimeToAdd(Constants.timeToAdd);
         }
         else{
             Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT);

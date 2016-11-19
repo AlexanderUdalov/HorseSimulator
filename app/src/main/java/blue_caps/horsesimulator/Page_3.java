@@ -298,7 +298,6 @@ public class Page_3 extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == R.id.button_get_apple){
             listener.clickEvent("getApple");
-            MainActivity.controller.setTimeToAdd(Constants.timeToAdd);
             return;
         }
         listener.clickEvent("wasStep");
