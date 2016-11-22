@@ -155,8 +155,6 @@ public class Page_1 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        listener.clickEvent("wasStep");
-
         switch (view.getId()) {
             case R.id.button_have_sleep:     MainActivity.controller.haveSleep(); break;
             case R.id.button_go_to_watering: MainActivity.controller.goToWatering(); break;
@@ -164,6 +162,7 @@ public class Page_1 extends Fragment implements View.OnClickListener {
             case R.id.button_get_massage:    MainActivity.controller.getMassage(); break;
             case R.id.button_swim_in_lake:   MainActivity.controller.swimInLake(); break;
         }
+        listener.clickEvent("wasStep");
         listener.clickEvent("dieCheck");
         update();
         MainActivity.page_0.update();

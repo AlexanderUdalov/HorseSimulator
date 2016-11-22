@@ -300,7 +300,6 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             listener.clickEvent("getApple");
             return;
         }
-        listener.clickEvent("wasStep");
         switch (view.getId()) {
             case R.id.button_find_apple:     MainActivity.controller.findApple(); break;
             case R.id.button_plowed_field: MainActivity.controller.plowedField(); break;
@@ -318,6 +317,7 @@ public class Page_3 extends Fragment implements View.OnClickListener {
                 break;
             }
         }
+        listener.clickEvent("wasStep");
         listener.clickEvent("dieCheck");
         update();
         MainActivity.page_4.update();
