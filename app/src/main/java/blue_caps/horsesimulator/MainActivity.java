@@ -104,30 +104,13 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
     @Override
     public void clickEvent(String name){
         switch (name){
-            case "wasStep":{
-                wasStep();
-                break;
-            }
-            case "showHowToPlay":{
-                showHowToPlay();
-                break;
-            }
-            case "dieCheck":{
-                dieCheck();
-                break;
-            }
-            case "getApple":{
-                getApple();
-                break;
-            }
-            case "showWinChampionship":{
-                showWinChampionship();
-                break;
-            }
-            case "showLoseChampionship":{
-                showLoseChampionship();
-                break;
-            }
+            case "wasStep": wasStep(); break;
+            case "showHowToPlay": showHowToPlay(); break;
+            case "dieCheck": dieCheck(); break;
+            case "getApple": getApple(); break;
+            case "showWinChampionship": showWinChampionship(); break;
+            case "showLoseChampionship": showLoseChampionship(); break;
+            case "updateScore": updateScore(); break;
         }
     }
 
@@ -234,6 +217,9 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
         controller.getHorse().downHappiness(Constants.wasStepDownHappiness);
         controller.getHorse().downSatiety(Constants.wasStepDownSatiety);
         controller.getHorse().downStamina(Constants.wasStepDownStamina);
+    }
+
+    public void updateScore() {
         controller.setTotalScore((int) ((controller.getHorse().getMaxSpeed())-20)*100 +
                 controller.getLifeTime()*100 +
                 controller.getHorse().getRespectHorses()*20 +
