@@ -144,7 +144,7 @@ public class Page_2 extends Fragment implements View.OnClickListener {
                                         getString(R.string.respect_peoples) + " -" + Constants.stealingFoodDownRespectPeoples);
         beggingSugarStaminaText.setText(withSign(-Constants.beggingSugarDownStamina - Constants.wasStepDownStamina));
         beggingSugarSatietyText.setText(withSign(Constants.beggingSugarUpSatiety - Constants.wasStepDownSatiety));
-        beggingSugarHappinessText.setText(withSign(Constants.beggingSugarUpHappiness - Constants.wasStepDownHappiness));
+        beggingSugarHappinessText.setText(withSign(-Constants.beggingSugarDownHappiness - Constants.wasStepDownHappiness));
         beggingSugarOtherText.setText(getString(R.string.respect_horses) + " -" + Constants.beggingSugarDownRespectHorses + "\n" +
                                         getString(R.string.respect_peoples) + " +" + Constants.beggingSugarUpRespectPeoples);
         askForFoodStaminaText.setText(withSign(-Constants.askForFoodDownStamina - Constants.wasStepDownStamina));
