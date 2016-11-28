@@ -2,7 +2,7 @@
     <string name="app_name">Horse Simulation</string>
 
     <string name="close_video_title_die">Close the video?</string>
-    <string name="close_video_text_die">If you close the video, you'll have to start the game again. Are you sure you want to close the video?</string>
+    <string name="close_video_text_die">If you close the video, you\'ll have to start the game again. Are you sure you want to close the video?</string>
     <string name="close_video_button">Yes</string>
     <string name="keep_watching_button">No</string>
 
@@ -12,7 +12,7 @@
     <string name="rate_please">Do you like this app?</string>
 
     <string name="close_video_title_apple">Close the video?</string>
-    <string name="close_video_text_apple">If you close the video, you won't get any apples. Are you sure you want to close the video?</string>
+    <string name="close_video_text_apple">If you close the video, you won\'t get any apples. Are you sure you want to close the video?</string>
 
     <string name="stamina">Energy</string>
     <string name="food">Food</string>
@@ -64,16 +64,16 @@
     <string name="success">Congratulations!</string>
 
 
-     <string name="introducing_speech">You are a strong and lively horse. Gypsies stole you, when you were a foal. Your life is hard and you decide to escape, but the gypsies won't let you get away with it.    
+     <string name="introducing_speech">You are a strong and lively horse. Gypsies stole you, when you were a foal. Your life is hard and you decide to escape, but the gypsies won\'t let you get away with it.
         One day, they will find you and bring back. 
 	Monitor the need bars, get love and respect. 
-	Become the fastest horse and don't get caught by gypsies. </string>
-    <string name="die_alert_speech">Look at your need bars. Some of them are dangerously low, and if you don't fixt this in 3 days, you are going to die!</string>
-    <string name="die_speech">Unfortunately, you couldn't live a long and happy life as a free horse. Try again!</string>
-    <string name="roma_attack_speech">While you were living your life, gypsies didn't waste their time and managed to find you. 
-	Don't give up: try to run away (the chance of success depends on the maximum speed),
+	Become the fastest horse and don\'t get caught by gypsies. </string>
+    <string name="die_alert_speech">Look at your need bars. Some of them are dangerously low, and if you don\'t fixt this in 3 days, you are going to die!</string>
+    <string name="die_speech">Unfortunately, you couldn\'t live a long and happy life as a free horse. Try again!</string>
+    <string name="roma_attack_speech">While you were living your life, gypsies didn\'t waste their time and managed to find you.
+	Don\'t give up: try to run away (the chance of success depends on the maximum speed),
         or fight back (the chance of success depends on your location)</string>
-    <string name="ad_fight_speech">You decided to fight, but couldn't get support from your fellow horses. You had to fight alone, and gypsies took over. You were brought back to the gypsy camp.
+    <string name="ad_fight_speech">You decided to fight, but couldn\'t get support from your fellow horses. You had to fight alone, and gypsies took over. You were brought back to the gypsy camp.
 	Take one more chance or start the new game.</string>
     <string name="ad_run_speech"> Gypsies were faster this time. They caught you and brought back to the camp. 
         Take one more chance or start the new game.</string>

@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/get_apple"
                 android:drawableLeft="@drawable/video"
-                android:drawablePadding="20dp"
+                android:drawablePadding="-20dp"
                 android:id="@+id/button_get_apple"/>
         </TableLayout>
         <TableRow

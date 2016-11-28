@@ -234,9 +234,6 @@ public class MainActivity extends AppCompatActivity implements FragmentEventList
             }
 
         controller.setLifeTime(controller.getLifeTime()+1);
-        /*if (controller.getLifeTime() == 2){
-            showRate();
-        }*/
         if (controller.getTimeToAttack() > 0)
             controller.setTimeToAttack(controller.getTimeToAttack()-1);
         if (controller.getTimeToChampionship() > 0)
