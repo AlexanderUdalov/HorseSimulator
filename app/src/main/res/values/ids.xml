@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_id">944900053056</string>
+    <string name="package_name">blue_caps.horsesimulator</string>
+    <string name="achievement_first_action">CgkIwLC6g8AbEAIQAg</string>
+    <string name="achievement_2">CgkIwLC6g8AbEAIQAw</string>
+    <string name="achievement_3">CgkIwLC6g8AbEAIQBA</string>
+    <string name="achievement_4">CgkIwLC6g8AbEAIQBQ</string>
+    <string name="achievement_5">CgkIwLC6g8AbEAIQBg</string>
+    <string name="leaderboard_horse_rating">CgkIwLC6g8AbEAIQAA</string>
+</resources>
