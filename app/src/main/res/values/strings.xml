@@ -1,148 +1,147 @@
 ﻿<resources>
-    <string name="app_name">Симулятор коня</string>
+    <string name="app_name">Horse Simulation</string>
 
-    <string name="close_video_title_die">Закрыть видео?</string>
-    <string name="close_video_text_die">Закрыв видео, Вам придется начать игру с начала, Вы уверенны?</string>
-    <string name="close_video_button">Да</string>
-    <string name="keep_watching_button">Нет</string>
+    <string name="close_video_title_die">Close the video?</string>
+    <string name="close_video_text_die">If you close the video, you'll have to start the game again. Are you sure you want to close the video?</string>
+    <string name="close_video_button">Yes</string>
+    <string name="keep_watching_button">No</string>
 
-    <string name="no_internet">Ошибка загрузки</string>
-    <string name="no">Нет</string>
-    <string name="rate">Оценить</string>
-    <string name="rate_please">Понравилось приложение?</string>
+    <string name="no_internet">Load error</string>
+    <string name="no">No</string>
+    <string name="rate">Rate the app</string>
+    <string name="rate_please">Do you like this app?</string>
 
-    <string name="close_video_title_apple">Закрыть видео?</string>
-    <string name="close_video_text_apple">Закрыв видео, Вы не получите яблок, Вы уверенны?</string>
+    <string name="close_video_title_apple">Close the video?</string>
+    <string name="close_video_text_apple">If you close the video, you won't get any apples. Are you sure you want to close the video?</string>
 
-    <string name="stamina">Энергия</string>
-    <string name="food">Еда</string>
-    <string name="satiety">Сытость</string>
-    <string name="happiness">Счастье</string>
-    <string name="apples">Яблоки</string>
+    <string name="stamina">Energy</string>
+    <string name="food">Food</string>
+    <string name="satiety">Hunger</string>
+    <string name="happiness">Happiness</string>
+    <string name="apples">Apples</string>
 
-    <string name="stat">Статистика</string>
-    <string name="respect_horses">Уважение коней:</string>
-    <string name="respect_peoples">Любовь людей:</string>
-    <string name="total_score">Общие очки:</string>
-    <string name="level">Уровень:</string>
-    <string name="habitat">Место обитания:</string>
-    <string name="roma_attack">Атак цыган отбито:</string>
-    <string name="time_to_attack">До войны с цыганами:</string>
-    <string name="day">День</string>
-    <string name="days">Дней</string>
-    <string name="days1">Дня</string>
-    <string name="war_yet">война уже идет</string>
-    <string name="max_speed">Максимальная скорость:</string>
+    <string name="stat">Stats</string>
+    <string name="respect_horses">Respect of horses:</string>
+    <string name="respect_peoples">Love of people:</string>
+    <string name="total_score">Total score:</string>
+    <string name="level">Level:</string>
+    <string name="habitat">Location:</string>
+    <string name="roma_attack">Gypsy attacks repelled:</string>
+    <string name="time_to_attack">Until the war:</string>
+    <string name="day">Day</string>
+    <string name="days">Days</string>
+    <string name="days1">Days</string>
+    <string name="war_yet">The war is already in progress</string>
+    <string name="max_speed">Maximum speed:</string>
 
-    <string name="table_level">Таблица уровней</string>
-    <string name="level_title">Уровень</string>
-    <string name="level_title_score">Очки</string>
+    <string name="table_level">Table of levels</string>
+    <string name="level_title">Level</string>
+    <string name="level_title_score">Score</string>
 
-    <string name="have_sleep">Поспать</string>
-    <string name="go_to_watering">Сходить на водопой</string>
-    <string name="go_to_drinkers">Сходить к поилке</string>
-    <string name="get_massage">Массаж</string>
-    <string name="swim_in_lake">Искупаться в озере</string>
+    <string name="have_sleep">Sleep</string>
+    <string name="go_to_watering">Go to the horse-pond</string>
+    <string name="go_to_drinkers">Go to the waterer</string>
+    <string name="get_massage">Get massage</string>
+    <string name="swim_in_lake">Swim in the lake</string>
 
-    <string name="eat_grass">Пожевать травы</string>
-    <string name="stealing_food">Украсть еду</string>
-    <string name="begging_sugar">Поработать за сахарок</string>
-    <string name="ask_for_food">Попросить еды</string>
-    <string name="eat_apple">Съесть яблоко</string>
-
-
-    <string name="introducing_speech_title">Добро пожаловать!</string>
-    <string name="die_speech_title">Вы погибли!</string>
-    <string name="die_alert_speech_title">Внимание!</string>
-    <string name="how_to_play">Как играть</string>
-    <string name="roma_attack_title">Внимание!</string>
-    <string name="lose_title">Проигрыш!</string>
-    <string name="win_title">Победа!</string>
-    <string name="successful_run_massage">Поздравляем!</string>
-    <string name="ad_run_title"> Поражение!</string>
-    <string name="ad_fight_title">Поражение!</string>
-    <string name="success">Поздравляем!</string>
+    <string name="eat_grass">Eat grass</string>
+    <string name="stealing_food">Steal food</string>
+    <string name="begging_sugar">Work for sugar</string>
+    <string name="ask_for_food">Ask for food</string>
+    <string name="eat_apple">Eat apple</string>
 
 
-     <string name="introducing_speech">Вы - полный сил и энергии конь. Вас украли цыгане еще когда Вы были жеребенком.
-         Ваша жизнь тяжела и трудна, и вы решили сбежать. Цыгане не оставят побег безнаказанным,
-         когда-нибудь они найдут Вас и заберут обратно.
-         Следите за показателями, набирайте уважение и любовь,
-         станьте самым быстрым конем и не попадите обратно к цыганам.</string>
-    <string name="die_alert_speech">Некоторые показатели упали до нуля, если Вы не исправите это в течение 3 дней, вы погибните!</string>
-    <string name="die_speech">К сожалению, Вы не смогли прожить долгую и счастливую жизнь свободным конем. Попробуйте еще раз!</string>
-    <string name="roma_attack_speech">Пока Вы жили своей жизнью, цыгане не теряли времени и нашли Вас,
-                но и Вы просто так не сдавайтесь. Попробуйте сбежать (вероятнсть успеха зависит от максимальной скорости)
-        или отбиться (вероятнсть зависит от места обитания)</string>
-    <string name="ad_fight_speech">Решив отбиваться, сожители вас не поддержали и Вам пришлось справляться одному.
-    Но силы цыган оказались сильнее и Вас забрали обратно в табор. Используйте еще один шанс или начните с начала</string>
-    <string name="ad_run_speech"> На этот раз цыгане оказались быстрее, они догнали Вас, и забрали обратно в табор.
-        Используйте еще один шанс или начните с начала</string>
-    <string name="success_run">Цыгане напали внезапно, на этот раз Вы оказались быстрее и смогли сбежать от них,
-        но готовтесь, они обязательно нападут снова.</string>
-    <string name="success_fight">Цыгане напали внезапно, на этот раз Вам повезло, и ваше жилище помогло отбиться от них,
-        но готовтесь, они обязательно нападут снова.</string>
-    <string name="win">Поздравляем! ваши тренировки были не напрасны, вы выиграли в чемпионате!</string>
-    <string name="lose">Вы проиграли в чемпионате! Тренируйтесь лучше!</string>
+    <string name="introducing_speech_title">Welcome!</string>
+    <string name="die_speech_title">You died!</string>
+    <string name="die_alert_speech_title">Attention!</string>
+    <string name="how_to_play">How to play</string>
+    <string name="roma_attack_title">Attention!</string>
+    <string name="lose_title">You lost!</string>
+    <string name="win_title">You won!</string>
+    <string name="successful_run_massage">Congratulations!</string>
+    <string name="ad_run_title"> You lost!</string>
+    <string name="ad_fight_title">You lost!</string>
+    <string name="success">Congratulations!</string>
 
 
-    <string name="choose_action">Что нужно сделать?</string>
-    <string name="fight">Попытаться отбиться</string>
-    <string name="run">Попытаться сбежать</string>
-    <string name="god">Еще один шанс</string>
-    <string name="die">Начать новую игру</string>
-
-    <string name="other">Активность</string>
-    <string name="get_apple">Получить яблоки</string>
-    <string name="find_apple">Найти яблоки</string>
-    <string name="with_chance">С вероятностью</string>
-    <string name="help_people">Помочь людям</string>
-    <string name="help_horses">Помочь сородичам</string>
-    <string name="plowed_field">Вспахать поле</string>
-    <string name="knock_corral_gate">Сломать ворота загона</string>
-    <string name="bob_muscles">Качать мышцы</string>
-    <string name="participate_horse_race">Поучаствовать в гонке</string>
-    <string name="participate_championship">Поучаствовать в чемпионате</string>
-    <string name="championship">До чемпионата</string>
-    <string name="to_add">До нового предложения</string>
-
-    <string name="if_win">При выигрыше</string>
-    <string name="if_lose">При проигрыше</string>
+     <string name="introducing_speech">You are a strong and lively horse. Gypsies stole you, when you were a foal. Your life is hard and you decide to escape, but the gypsies won't let you get away with it.    
+        One day, they will find you and bring back. 
+	Monitor the need bars, get love and respect. 
+	Become the fastest horse and don't get caught by gypsies. </string>
+    <string name="die_alert_speech">Look at your need bars. Some of them are dangerously low, and if you don't fixt this in 3 days, you are going to die!</string>
+    <string name="die_speech">Unfortunately, you couldn't live a long and happy life as a free horse. Try again!</string>
+    <string name="roma_attack_speech">While you were living your life, gypsies didn't waste their time and managed to find you. 
+	Don't give up: try to run away (the chance of success depends on the maximum speed),
+        or fight back (the chance of success depends on your location)</string>
+    <string name="ad_fight_speech">You decided to fight, but couldn't get support from your fellow horses. You had to fight alone, and gypsies took over. You were brought back to the gypsy camp.
+	Take one more chance or start the new game.</string>
+    <string name="ad_run_speech"> Gypsies were faster this time. They caught you and brought back to the camp. 
+        Take one more chance or start the new game.</string>
+    <string name="success_run">Gypsies attacked. You were faster this time and escaped. 
+	But get ready - they will attack again.</string>
+    <string name="success_fight">Gypsies attacked. You got lucky this time, and your location helped to repel the attack. 
+	But get ready - they will attack again.</string>
+    <string name="win">Congratulations! Your efforts have borne fruit, you won the tournament!</string>
+    <string name="lose">You lost the tournament! Work harder!</string>
 
 
-    <string name="now_your_habitat">Ваше место обитания: </string>
-    <string name="tabor">Табор</string>
-    <string name="prairie">Прерии</string>
-    <string name="clear_field">Чистое поле</string>
-    <string name="meadows">Заливные луга</string>
-    <string name="wasteland">Пустырь</string>
-    <string name="ranch">Ранчо</string>
-    <string name="kazakhstan">Казахстан</string>
-    <string name="private_farm">Частная ферма</string>
-    <string name="horse_club">Конный клуб</string>
-    <string name="paddock">Загон</string>
-    <string name="stable">Конюшня</string>
+    <string name="choose_action">What are you going to do?</string>
+    <string name="fight">Try to fight</string>
+    <string name="run">Try to run</string>
+    <string name="god">One more chance</string>
+    <string name="die">Start new game</string>
 
-    <string name="need_habitat_wasteland">Место обитания: Пустырь</string>
-    <string name="need_habitat_clear_field">Место обитания: Чистое поле</string>
-    <string name="need_habitat_meadows">Место обитания: Заливные луга</string>
-    <string name="need_habitat_prairie">Место обитания: Прерии</string>
-    <string name="need_habitat_paddock">Место обитания: Загон</string>
-    <string name="need_habitat_stable">Место обитания: Кошюшня</string>
-    <string name="need_habitat_ranch">Место обитания: Ранчо</string>
-    <string name="need_habitat_horse_club">Место обитания: Конный клуб</string>
-    <string name="need_habitat_clear_field_or_stable">Место обитания: Чистое поле или Конюшня</string>
-    <string name="need_habitat_private_farm">Место обитания: Частная ферма</string>
-    <string name="need_habitat_kazakhstan">Место обитания: Казахстан</string>
+    <string name="other">Activity</string>
+    <string name="get_apple">Get apples</string>
+    <string name="find_apple">Find apples</string>
+    <string name="with_chance">With chance</string>
+    <string name="help_people">Help people</string>
+    <string name="help_horses">Help fellow horses</string>
+    <string name="plowed_field">Plow a field</string>
+    <string name="knock_corral_gate">Break corral gate</string>
+    <string name="bob_muscles">Build up muscles</string>
+    <string name="participate_horse_race">Take part in a horse race</string>
+    <string name="participate_championship">Take part in a tournament</string>
+    <string name="championship">Until the tournament</string>
+    <string name="to_add">Until the new offer</string>
 
-    <string name="new_level">Новый уровень!</string>
-    <string name="you_are">Вы теперь:</string>
-    <string name="amazing_horse">Эмейзинг конь</string>
-    <string name="pickup_master_horse">Пикап-мастер конь</string>
-    <string name="boss_horse">Босс коней</string>
-    <string name="horse_god">Конь-Бог</string>
-    <string name="simple_horse">Просто конь</string>
+    <string name="if_win">If you win</string>
+    <string name="if_lose">If you lose</string>
 
 
-    <string name="ok">ОК</string>
+    <string name="now_your_habitat">Your location: </string>
+    <string name="tabor">Gypsy Camp</string>
+    <string name="prairie">Prairie</string>
+    <string name="clear_field">Wild Field</string>
+    <string name="meadows">Meadows</string>
+    <string name="wasteland">Wasteland</string>
+    <string name="ranch">Ranch</string>
+    <string name="kazakhstan">Kazakhstan</string>
+    <string name="private_farm">Private Farm</string>
+    <string name="horse_club">Equestrian Club</string>
+    <string name="paddock">Paddock</string>
+    <string name="stable">Stables</string>
+
+    <string name="need_habitat_wasteland">Location: Wastelands</string>
+    <string name="need_habitat_clear_field">Location: Wild Field</string>
+    <string name="need_habitat_meadows">Location: Meadows</string>
+    <string name="need_habitat_prairie">Location: Prairie</string>
+    <string name="need_habitat_paddock">Location: Paddock</string>
+    <string name="need_habitat_stable">Location: Stables</string>
+    <string name="need_habitat_ranch">Location: Ranch</string>
+    <string name="need_habitat_horse_club">Location: Equestrian Club</string>
+    <string name="need_habitat_clear_field_or_stable">Location: Wild Field or Stables</string>
+    <string name="need_habitat_private_farm">Location: Private Farm</string>
+    <string name="need_habitat_kazakhstan">Location: Kazakhstan</string>
+
+    <string name="new_level">New level!</string>
+    <string name="you_are">You are:</string>
+    <string name="amazing_horse">Amazing Horse</string>
+    <string name="pickup_master_horse">Pickup master Horse</string>
+    <string name="boss_horse">Boss Horse</string>
+    <string name="horse_god">Horse God</string>
+    <string name="simple_horse">Simple Horse</string>
+
+
+    <string name="ok">OK</string>
 </resources>
