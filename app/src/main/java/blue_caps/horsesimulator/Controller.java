@@ -65,11 +65,10 @@ public class Controller {
     public void beggingSugar(){
         mHorse.upSatiety(Constants.beggingSugarUpSatiety);
         mHorse.downStamina(Constants.beggingSugarDownStamina);
-        mHorse.upHappiness(Constants.beggingSugarUpHappiness);
+        mHorse.downHappiness(Constants.beggingSugarDownHappiness);
         mHorse.downRespectHorses(Constants.beggingSugarDownRespectHorses);
         mHorse.upRespectPeoples(Constants.beggingSugarUpRespectPeoples);
     }
-
 
     public void askForFood(){
         mHorse.upSatiety(Constants.askForFoodUpSatiety);

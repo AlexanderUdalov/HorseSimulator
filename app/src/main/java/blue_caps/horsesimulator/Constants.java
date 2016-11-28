@@ -20,7 +20,7 @@ public interface Constants {
 
         beggingSugarUpSatiety = 12,
         beggingSugarDownStamina = 7,
-        beggingSugarUpHappiness = -2,
+        beggingSugarDownHappiness = 2,
         beggingSugarDownRespectHorses = 1,
         beggingSugarUpRespectPeoples = 1,
 
