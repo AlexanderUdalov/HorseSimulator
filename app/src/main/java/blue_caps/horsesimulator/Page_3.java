@@ -308,7 +308,13 @@ public class Page_3 extends Fragment implements View.OnClickListener {
             case R.id.button_help_people:  MainActivity.controller.helpPeople(); break;
             case R.id.button_knock_corral_gate:     MainActivity.controller.knockCorralGate(); break;
             case R.id.button_participate_horse_race:     MainActivity.controller.participateHorseRace(); break;
-            case R.id.button_bob_muscles:     MainActivity.controller.bobMuscles(); break;
+            case R.id.button_bob_muscles: {
+                MainActivity.controller.bobMuscles();
+                if (MainActivity.controller.getHorse().getMaxSpeed() == 60) {
+                    buttonBobMuscles.setEnabled(false);
+                }
+                break;
+            }
             case R.id.button_participate_championship: {
                 if (MainActivity.controller.participateChampionship())
                     listener.clickEvent("showWinChampionship");
